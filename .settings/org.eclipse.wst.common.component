@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ete">
+        <wb-resource deploy-path="/" source-path="/src/java"/>
+        <wb-resource deploy-path="/" source-path="/fckeditor"/>
+        <wb-resource deploy-path="/" source-path="/test/unit"/>
+        <wb-resource deploy-path="/" source-path="/src/resources"/>
+        <wb-resource deploy-path="/" source-path="/flow"/>
+    </wb-module>
+</project-modules>

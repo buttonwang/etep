@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+    <package name="attention" namespace="/mpc/attention" extends="default">
+        <action name="attention" class="com.ambow.trainingengine.attention.web.action.AttentionAction">            
+            <result name="show" type="dispatcher">show.jsp</result>
+            <result name="list" type="dispatcher">list.jsp</result>
+            <result name="jsp" type="dispatcher">${jsp}.jsp</result>
+			<result name="attention_list" type="redirect">myAttention!list.jhtml</result>
+            <interceptor-ref name="noLoginDefault"></interceptor-ref>
+        </action>
+		<action name="myAttention" class="com.ambow.trainingengine.attention.web.action.MyAttentionAction">            
+            <result name="main" type="dispatcher">attention_full.jsp</result>
+			<result name="list" type="dispatcher">attention_list.jsp</result>
+        </action>
+		<action name="topAttention" class="com.ambow.trainingengine.attention.web.action.TopAttentionAction">            
+            <result name="main" type="dispatcher">attention_hot.jsp</result>
+			<result name="list" type="dispatcher">attention_hot_list.jsp</result>
+        </action>
+        <action name="learnNote" class="com.ambow.trainingengine.attention.web.action.LearnNoteAction">            
+            <result name="list" type="dispatcher">include_learn_notes.jsp</result>
+        </action>
+        <action name="showAttention" class="com.ambow.trainingengine.attention.web.action.ShowAttentionAction">            
+            <result name="success" type="dispatcher">show.jsp</result>
+            <result name="refresh" type="chain">showAttention</result>
+            <result name="my"  type="chain">myAttention</result>
+            <result name="top" type="chain">topAttention</result>
+        </action> 
+    </package>
+</xwork>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="kyfreshword" namespace="/ky/freshword" extends="default">
+		<!--提供外接URL接口 -->
+		<action name="freshWordFace" class="com.ambow.trainingengine.freshword.web.action.FreshWordFaceAction" >
+			<result name="success" type="chain">freshWordConfig</result>
+		</action>
+		<!--生词控制类-->
+		<action name="freshWordConfig" class="com.ambow.trainingengine.freshword.web.action.FreshWordConfigAction" method="index">			
+			<result name="index"  type="dispatcher">freshword_index.jsp</result>
+			<result name="test"  type="dispatcher">freshword_test.jsp</result>
+			<result name="asserts"  type="dispatcher">freshword_assert.jsp</result>
+			<result name="over"  type="dispatcher">freshword_info_ok.jsp</result>
+			<result name="overno"  type="dispatcher">freshword_info.jsp</result>
+		</action>
+	</package>
+</xwork>

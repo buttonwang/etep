@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+
+	<!-- 数据源定义,使用C3P0 连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+		<property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+		<property name="maxStatements" value="${jdbc.maxStatements}"/>
+		<property name="maxStatementsPerConnection" value="${jdbc.maxStatementsPerConnection}"/>
+		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+		<property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+		<property name="breakAfterAcquireFailure" value="${jdbc.breakAfterAcquireFailure}"/>
+		<property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
+	</bean>
+
+	<!--Hibernate SessionFatory-->
+	<bean id="sessionFactory" class="com.ambow.core.configuration.AnnotationSessionFactoryBeanEx">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- Annotation 式的配置 -->
+		
+		<property name="annotatedClassesLocations">
+			<list>
+				<!--
+				<value>classpath*:com/ambow/trainingengine/wordbank/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/policy/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/itembank/domain/*.class</value>	
+				-->
+				<value>classpath*:com/ambow/trainingengine/methodtechnique/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/policy/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/wordbank/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/itembank/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/exam/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/systemsecurity/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/bug/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/report/domain/*.class</value>
+				<value>classpath*:com/ambow/studyflow/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/attention/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/studyguide/domain/*.class</value>
+				<value>classpath*:com/ambow/trainingengine/message/domain/*.class</value>
+			</list>
+		</property>
+		
+			
+		<!-- hbm 式的配置 -->
+		<!--
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath*:/com/ambow/flowExample/domain/hbm</value>
+			</list>
+		</property>
+		-->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+				<prop key="hibernate.jdbc.batch_size">30</prop>
+			</props>
+		</property>
+	</bean>
+
+    <!-- jdbcTemplate -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+		<constructor-arg index="0" ref="dataSource" />
+    </bean>
+
+	<!--Hibernate TransactionManager-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

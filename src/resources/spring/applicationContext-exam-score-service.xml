@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean name="scoreFactory" class="com.ambow.trainingengine.exam.score.ScoreFactory" singleton="true" >
+		<property name="scoreClass">
+            <map>            
+				<entry key="Z1E12A" value-ref="scoreSimpleBean"/>
+				<entry key="Z1E13A" value-ref="scoreSimpleBean"/>
+				<entry key="Z1E15A" value-ref="scoreSimpleBean"/>				
+                <entry key="Z1E25A" value-ref="scoreSimpleBean"/>
+                <entry key="Z1E26A" value-ref="scoreSimpleBean"/>
+                <entry key="Z1E34A" value-ref="scoreSimpleBean"/>                
+                <entry key="Z1E47A" value-ref="scoreSimpleBean"/>
+                <entry key="Z1E47B" value-ref="scoreSimpleBean"/>
+                <entry key="Z1E47C" value-ref="scoreSimpleBean"/>
+                <entry key="Z1E47D" value-ref="scoreSimpleBean"/>                
+                <entry key="Z1E34C" value-ref="scoreSentenceBean"/>   
+                <entry key="Z1E44A" value-ref="scoreSentenceBean"/>                
+                <entry key="Z1E39A" value-ref="scoreUserScoreBean"/>
+                <entry key="Z1E39B" value-ref="scoreUserScoreBean"/>
+                
+                <entry key="MPC11" value-ref="scoreSingleChooseBean"/>
+                <entry key="MPC12" value-ref="scoreManyChooseBean"/>
+                <entry key="MPC3X" value-ref="scoreSingleFillBean"/>
+                <entry key="MPC4X" value-ref="scoreManyFillBean"/>               
+            </map>
+        </property>
+        
+        <property name="userScoreClass">
+            <map>            				
+                <entry key="Z1E39A" value-ref="scoreKyWriteBean"/>
+                <entry key="Z1E39B" value-ref="scoreKyWriteBean"/>         
+            </map>
+        </property>
+	</bean>
+	
+	<bean name="scoreSimpleBean"  class="com.ambow.trainingengine.exam.score.ScoreSimple"/>
+	<bean name="scoreSentenceBean" class="com.ambow.trainingengine.exam.score.ScoreSentence"/>
+	<bean name="scoreUserScoreBean" class="com.ambow.trainingengine.exam.score.ScoreUserScore"/>
+	
+	<bean name="scoreSingleChooseBean" class="com.ambow.trainingengine.exam.score.ScoreSingleChoose"/>
+	<bean name="scoreManyChooseBean" class="com.ambow.trainingengine.exam.score.ScoreManyChoose"/>
+	<bean name="scoreSingleFillBean" class="com.ambow.trainingengine.exam.score.ScoreSingleFill"/>
+	<bean name="scoreManyFillBean" class="com.ambow.trainingengine.exam.score.ScoreManyFill"/>
+	
+	<bean name="scoreKyWriteBean" class="com.ambow.trainingengine.exam.score.ScoreKyWrite"/>
+	
+	
+	<bean name="scoreUtil" class="com.ambow.trainingengine.exam.score.ScoreUtil" singleton="true"/>
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="wordbank" namespace="/admin/wordbank" extends="default">
+		<action name="wordBasic" class="com.ambow.trainingengine.wordbank.web.action.WordBasicAction" >		
+			<result name="home"  type="dispatcher">list_word_basic.jsp</result>
+			<result name="view"  type="dispatcher">show_word_basic.jsp</result>
+			<result name="input" type="dispatcher">edit_word_basic.jsp</result>
+			<result name="redirect" type="redirect">wordBasic!list.jhtml</result>
+		</action>
+		<action name="wordExtension" class="com.ambow.trainingengine.wordbank.web.action.WordExtensionAction" >		
+			<result name="home"  type="dispatcher">list_word_extension.jsp</result>
+			<result name="view"  type="dispatcher">show_word_extension.jsp</result>
+			<result name="input" type="dispatcher">edit_word_extension.jsp</result>			
+			<result name="add"   type="dispatcher">add_word_extension.jsp</result>
+			<result name="redirect" type="redirect">wordExtension!list.jhtml?gradeCode=${gradeCode}</result>
+			<result name="review" type="redirect">wordExtension!show.jhtml?id=${id}</result>
+		</action>
+
+		<action name="importWord" class="com.ambow.trainingengine.wordbank.web.action.ImportWordAction" >
+			<result name="input" type="dispatcher">import_word.jsp</result>
+		</action>
+		
+		<action name="wordGrade" class="com.ambow.trainingengine.wordbank.web.action.WordGradeAction" >
+			<result name="success" type="dispatcher">left.jsp</result>
+		</action>
+	</package>
+</xwork>

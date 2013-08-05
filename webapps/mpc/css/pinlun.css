@@ -1,0 +1,50 @@
+.ping_top {
+	BACKGROUND: url(../images/s.gif) repeat-x 50% top; COLOR: #ababab; LINE-HEIGHT: 30px; HEIGHT: 34px; TEXT-ALIGN: right; overflow:hidden;
+}
+.ping_top ul li{*_padding:8px 0 0 0;}
+.orange12 {
+	FONT-SIZE: 12px; COLOR: #ff6600
+}
+
+.ping_bottom {
+	BACKGROUND: url(../images/x1.gif) repeat-x 50% top; MARGIN-LEFT: 11px; LINE-HEIGHT: 5px; HEIGHT: 5px; clear:both; line-height:1%; font-size:1px;
+}
+.clear1 {
+	CLEAR: both; OVERFLOW: hidden; LINE-HEIGHT: 1px; HEIGHT: 1px
+}
+
+.ping_box_nei {
+	CLEAR: both; BORDER-RIGHT: #c6daf2 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 9px; MARGIN-LEFT: 11px; BORDER-LEFT: #c6daf2 1px solid; WIDTH: 867px; COLOR: #555; WORD-BREAK: break-all; PADDING-TOP: 5px; WORD-WRAP: break-word;
+}
+
+.ping_tl{ width:22px; height:34px; background:url(../images/zs.gif) no-repeat; float:left}
+.ping_tr{width:10px; height:34px;background:url(../images/ys.gif) no-repeat; float:right}
+.ping_bl{ width:5px; height:5px; background:url(../images/zx1.gif) no-repeat; float:left}
+.ping_br{width:5px; height:5px;background:url(../images/yx1.gif) no-repeat; float:right}
+.blue16a:link {
+	FONT-SIZE: 16px; COLOR: #062792; TEXT-DECORATION: underline
+}
+.sp_time {
+	FLOAT: right; WIDTH: 200px
+}
+.sp_huifu {
+	BORDER-RIGHT: #cfe3f7 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 11px; BORDER-LEFT: #cfe3f7 1px solid; PADDING-TOP: 3px; BACKGROUND-COLOR: #f2f6ff
+}
+.sp_huifuleft {
+	FLOAT: left; COLOR: #aaa; PADDING-TOP: 3px
+}
+.sp_huifuleft {
+	LINE-HEIGHT: 15px! important
+}
+.sp_huifuleft A {
+	LINE-HEIGHT: 15px! important
+}
+.sp_huifuright {
+	LINE-HEIGHT: 15px! important
+}
+.sp_huifuright A {
+	LINE-HEIGHT: 15px! important
+}
+.sp_huifuright {
+	FLOAT: right; COLOR: #aaa
+}

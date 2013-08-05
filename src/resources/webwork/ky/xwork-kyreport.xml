@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="kyreport" namespace="/ky/report" extends="default">
+		
+		<action name="getImage" class="com.ambow.trainingengine.report.web.action.GetChartResult">
+			<interceptor-ref name="noLoginDefault"></interceptor-ref>			
+		</action>
+		
+		<action name="reportMain" class="com.ambow.trainingengine.report.web.action.ReportMainAction">
+			<result name="success" type="dispatcher">reportMain.jsp</result>
+		</action>
+		<action name="study" class="com.ambow.trainingengine.report.web.action.StudyAction">
+			<result name="process" type="dispatcher">study01.jsp</result>
+			<result name="test_list" type="dispatcher">study02.jsp</result>
+			<result name="group" type="dispatcher">study03.jsp</result>
+			<result name="unit_test" type="dispatcher">study05.jsp</result>
+			<result name="practice" type="dispatcher">study04.jsp</result>
+			<result name="review" type="dispatcher">study06.jsp</result>
+			<result name="phasetest" type="dispatcher">study07.jsp</result>
+			<result name="evaluate" type="dispatcher">study08.jsp</result>
+			<result name="evaluateList" type="dispatcher">study09.jsp</result>		
+		</action>
+		
+		<action name="ad_top" class="com.ambow.trainingengine.report.web.action.adviser.AdviserTopAction">
+			<result name="success" type="dispatcher">adviser/ad_top.jsp</result>
+		</action>
+		
+		<action name="ad_record" class="com.ambow.trainingengine.report.web.action.adviser.AdviserRecordAction">
+			<result name="success" type="dispatcher">adviser/ad_record.jsp</result>
+		</action>
+		<action name="ad_report" class="com.ambow.trainingengine.report.web.action.adviser.AdviserReportAction">
+			<result name="success" type="dispatcher">adviser/reportMain.jsp</result>
+		</action>
+		<action name="ad_stu" class="com.ambow.trainingengine.report.web.action.adviser.AdviserStuAction">
+			<result name="success" type="dispatcher">adviser/ad_stu.jsp</result>
+		</action>
+		<action name="ad_eval" class="com.ambow.trainingengine.report.web.action.adviser.AdviserEvaluationAction">
+			<result name="success" type="dispatcher">adviser/ad_stu.jsp</result>
+		</action>
+		<action name="ad_stage" class="com.ambow.trainingengine.report.web.action.adviser.AdviserStageTestAction">
+			<result name="success" type="dispatcher">adviser/unit/stage_index.jsp</result>
+		</action>
+		<action name="ad_unit" class="com.ambow.trainingengine.report.web.action.adviser.AdviserUnitTrainAction">
+			<result name="success" type="dispatcher">adviser/unit/train_index.jsp</result>
+		</action>
+		<action name="ad_unit_test" class="com.ambow.trainingengine.report.web.action.adviser.AdviserUnitTestAction">
+			<result name="success" type="dispatcher">adviser/unit/test_index.jsp</result>
+		</action>
+		
+		<action name="ad_stu_report" class="com.ambow.trainingengine.report.web.action.adviser.StuReportAction">
+			<result name="process" type="dispatcher">adviser/process_report.jsp</result>
+			<result name="practice" type="dispatcher">adviser/stu_report.jsp</result>
+			<result name="group" type="dispatcher">adviser/group_report.jsp</result>
+			<result name="unittest" type="dispatcher">adviser/unittest_report.jsp</result>
+			<result name="phasetest" type="dispatcher">adviser/phasetest_report.jsp</result>
+			<result name="evaluate" type="dispatcher">adviser/evaluate_report.jsp</result>
+		</action>
+		
+	</package>
+</xwork>

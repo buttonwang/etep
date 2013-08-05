@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean name="nodeService" class="com.ambow.trainingengine.studyflow.service.NodeService">
+		<property name="processDefinitionService" ref="processDefinitionService"/>
+	</bean>
+
+	<bean name="processAdminService"
+		class="com.ambow.trainingengine.studyflow.service.ProcessAdminService" />
+		
+	<bean name="adminService"
+		class="com.ambow.trainingengine.studyflow.service.AdminService" />
+		
+	<bean name="processDefinitionService" class="com.ambow.trainingengine.studyflow.service.ProcessDefinitionService"/>
+	<bean name="processCategoryService" class="com.ambow.trainingengine.studyflow.service.ProcessCategoryService"/>
+</beans>

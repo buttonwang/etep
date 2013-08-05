@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+/* CSS Document */
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	background: #FFF;
+	font-size:12px;
+	color:#000;
+}
+div,form,img,ul,ol,li,dl,dt,dd,p{margin: 0; padding: 0; border: 0;}
+h1,h2,h3,h4,h5,h6 { margin:0; padding:0;}
+ul,li{list-style:none}
+a{ color:#006dba;}
+a:hover{color:#a1a1a1; text-decoration:none;}
+
+/* 链接颜色 */
+a{ color:#006dba;}
+a:hover{color:#a1a1a1; text-decoration:none;}
+
+/* 颜色属性 [定义规则，小写c加颜色名称] */
+.cRed,a.cRed,a.cRed:link,a.cRed:visited{ color:Red; }
+.cBlue,a.cBlue,a.cBlue:link,a.cBlue:visited{color:#006dba;}
+.cGray,a.cGray,a.cGray:link,a.cGray:visited{ color: #629b56;}
+.cDGray,a.cDGray:link,a.cDGray:visited{ color: #666;}
+.cWhite,a.cWhite,a.cWhite:link,a.cWhite:visited{ color:#fff;}
+.cBlack,a.cBlack:link,a.cBlack:visited{color:#000;}
+a.cBlack:hover{color:#bc2931;}
+.cYellow,a.cYellow:link,a.cYellow:visited{color:#ff7c00;}
+.cGreen,a.cGreen:link,a.cGreen:visited{color:#629b56;}
+.gl,a.gl:link,a.gl:visited{color:#000; background:#FFFF00;}
+
+/* 字体属性 [定义规则，小写f加属性名称] */
+.fB {font-weight: bold;}
+.fI {font-style: italic;}
+
+/* 字体*/
+.fonth{
+	font-family:"黑体", Arial;
+}
+.Arial{font-family:Arial;}
+
+/* 字体大小*/
+.f12px{ font-size:12px;}
+.f14px{ font-size:14px;}
+.f16px{ font-size:16px;}
+.f26px{font-size:24px;}
+.f32px{font-size:32px;}
+
+/*文本缩进*/
+.text-indent{text-indent: 2em;}
+
+/* 其他属性 */
+.left{ float: left;}
+.right{ float: right;}
+.clear{ clear: both; font-size:1%; height:1%; visibility: hidden; padding:0; margin:0;}
+.hidden {display: none;}
+.unLine ,.unLine a{text-decoration: none;}
+.noBorder{border:none;	}
+.blank3{ height:3px; clear:both; font-size:1px;overflow:hidden;}
+.blank9{ height:9px; font-size:1px; clear:both;overflow:hidden;}
+.blank6{height:6px; font-size:1px; clear:both;overflow:hidden;}
+.blankW6{ height:6px; overflow:hidden;clear:both;overflow:hidden;}
+.blankW9{ height:9px; overflow:hidden;background:#fff; clear:both;overflow:hidden;}
+.blank12{margin:0 auto; width:100%; height:12px; font-size:1px;clear:both;overflow:hidden;}
+.blank18{margin:0 auto; width:100%; height:18px; font-size:1px;clear:both;overflow:hidden;}
+.wm1{ width:1003px;}/*宽度 1*/
+.wm2{width:890px;}/*宽度 2*/
+.wm3{ width:620px;}/*宽度 3*/
+.wm4{ width:980px;}/*宽度 4*/
+.wm5{ width:795px;}/*宽度5*/
+
+/*边框*/
+.bianf3{border:#f3e8e8 1px solid;}
+.biana9{border:#a9ccde 1px solid;}
+.bianad{border:#adb9c2 1px solid;}
+.bianbc{border:#bcbcbc 1px solid;}
+.bianbf{border:#bfdeed 1px solid;}
+
+/*margin*/
+.mar_5px{margin:0 10px;}

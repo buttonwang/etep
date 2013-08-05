@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="../js/m.js"></script>
+<script src="../js/all/selectTree.js"></script>
+
+<script>
+j(function(){
+	j("#click_b").click(function(){
+	
+	 
+		new selectTree({dataLst:[{"childrenCategories":
+				[
+					{"childrenCategories":
+						[
+							{"childrenCategories":
+								[
+									{"childrenCategories":[],"id":6,"name":"son son 测验","parentCategory":null}
+								]
+								,"id":5
+								,"name":"son 测验"
+								,"parentCategory":null
+							}
+						]
+						,"id":2
+						,"name":"测验"
+						,"parentCategory":null}
+				]
+				,"id":1
+				,"name":"爆破英语"
+			}
+			,{"childrenCategories":[],"id":3,"name":"比"}
+			,{"childrenCategories":[],"id":4,"name":"可耕地"}
+		] ,outId:"out" })
+	})
+})</script>
+</head>
+<body>
+<input id="click_b" type="button" value="click_b"/>
+<input id="click_b_1" type="button" value="click_b_1" />
+<div id="out">
+</div>
+</body>
+</html>

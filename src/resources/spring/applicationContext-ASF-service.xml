@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="false">
+<bean id="serviceLocator" class="com.ambow.studyflow.common.ServiceLocator" singleton="true" />
+<bean id="processService" class="com.ambow.studyflow.service.impl.ProcessService"/>
+</beans>

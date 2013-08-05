@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML XMLNS:m="http://www.w3.org/1998/Math/MathML">
+<HEAD><OBJECT
+      ID=MathPlayer
+      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"
+   ></OBJECT>
+<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<link href="../css/admin.css" rel="stylesheet" type="text/css">
+</HEAD>
+<script type="text/javascript" src="../js/m.js"></script>
+<script src="./formulator_config.js" type="text/javascript"></script>
+<SCRIPT LANGUAGE="JavaScript" defer>
+String.prototype.trim= function(){  
+    // 用正则表达式将前后空格  
+    // 用空字符串替代。  
+    return this.replace(/(^\s*)|(\s*$)/g, "");  
+}
+function getMatchedChinese (str){
+	var matched ;
+	try{
+		var chineseReg = /。|，|！|＋|－|“|”|‘|’|（|）|；|１|２|３|４|５|６|７|８|９|０|｜|ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|Ａ|Ｂ|Ｃ|Ｄ|Ｅ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|Ｏ|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|Ｖ|Ｗ|Ｘ|Ｙ|Ｚ|／|＼|［|］|｛|｝|？/ig;	 
+	  	matched = str.match(chineseReg);
+	}catch(e){ 
+	} 
+	if(matched==null){
+		matched = [];
+	}
+	return matched;
+	
+}
+
+function getMathML() {
+	//window.returnValue =f1.GetMathMLStr().replace("display = 'block'",""); 
+	f1.SelectAll();	
+	f1.SetStyle(0);
+	var matchChinese = getMatchedChinese(getmathValue());
+	if(matchChinese.length>0){
+		alert("请将下列中文全角符号修改为英文半角\n"+matchChinese.join(" "))
+		return;
+	}
+	window.returnValue = getmathValue();
+	window.close();
+}
+function init(){
+	var css  = {"background-color":"#FFF"};
+	var cssN = {"background-color":"#BEDAF1"};
+	var jtb = $("#mathtable");
+	var jtr = $("#mathtable>tr:eq(0)");
+	if(window.dialogArguments[1]!=null &&window.dialogArguments[1] !=""){
+		var mathObj =window.dialogArguments[1].split("$");
+		for (var i = 0; i < mathObj.length; i++) {
+			var vb=  mathObj[i] != null && mathObj[i].trim() !="";
+		   if( mathObj[i] !=null && mathObj[i].trim() !="" ){
+			f1.SetMathML(mathObj[i]);
+				addRow(true);
+			}
+		}
+		changeCSS(jtb,jtr,css,cssN);
+		showHideSaveButton(jtb,jtr);
+		jtb.find("input[_t=save]").hide();
+	   	f1.SetMathML(mathObj[0]);
+	}		
+}
+
+function param() {
+	  var num = arguments.length;
+	  var oStr = arguments[0];
+	  for (var i = 1; i < num; i++) {
+		var pattern = "\\{" + (i-1) + "\\}";
+		var re = new RegExp(pattern, "g");
+		oStr = oStr.replace(re, arguments[i]);
+	  }
+	  return oStr;
+}
+var count =1;
+ 
+function changeCSS(jtb,jtr,css,cssN){
+	jtb.find("tr").css(css);
+	jtr.css(cssN);
+}
+function showHideSaveButton(jtb,jtr){
+	jtb.find("input[_t=save]").hide();
+	jtr.find("input[_t=save]").show();
+}
+function addRowN(){
+	addRow(true);
+ 	f1.SetMathML(" ");
+}
+function addRow(isTriggerSave){
+	var css  = {"background-color":"#FFF"};
+	var cssN = {"background-color":"#BEDAF1"};
+	try{
+		f1.SelectAll();	
+		f1.SetStyle(0);
+		var mathStr =f1.GetMathMLStr().replace("display = 'block'","");
+	}catch(e){
+		//alert(e.toString())
+	}
+	var jtb = $("#mathtable");
+	jtb.find("input[_t=save]").hide();
+	var addMathStr = addMForMathML(mathStr);
+	var addhtml = new G().paramObj(["<tr style='border:1;background-color:#F7F7F7' _index={count}><td style='height:24px;width:300px'><span id=sp_{count}>{mathStr}</span>&nbsp;<textarea type=hidden id=math_{count} name=mathML style='display:none' >{mathStr}</textarea></td>"
+				,"<td style='height:24px;width:100px'><input type='button' _t=modify onClick='updateRow({count});' _index={count} value='修改'/>&nbsp;&nbsp;<input type='button' onclick=deleteRow(this.parentNode.parentNode) value='删除'></td>"
+				,"<td style='width:50px'><input type='button' _t=save _index={count} value='保存'/></td>"
+				,"</tr>"
+				].join("")
+				,{count:count,mathStr:mathStr,addMathStr:addMathStr});
+	var jobj =$(addhtml) ;
+	jobj.find("input").addClass("btn_2k3");
+	jtb.append(jobj);//增加新行
+	changeCSS(jtb,jobj,css,cssN);//改变样式
+	jobj.find("input[_t=modify]").click(function(){
+		changeCSS(jtb,jobj,css,cssN);
+		$("#currentID").val($(this).attr("_index"));
+		showHideSaveButton(jtb,jobj);
+	}); 
+	$("#currentID").val(count++);
+	jobj.find("input[_t=save]").click(function(){
+		var index = $(this).attr("_index");		
+		var overItem=true;
+		if(index!=$("#currentID").val()){
+			if(confirm("你刚才选择的不是这行，确定要保存吗？")){
+				$("#currentID").val($(this).attr("_index"));
+				
+			}else{
+				overItem = false;
+			}
+		}
+		if(overItem){
+			save(index);
+		}
+		changeCSS(jtb,jobj,css,css);
+		$(this).hide();
+	})
+	if(isTriggerSave==true){
+		jobj.find("input[_t=save]").trigger("click")
+	}
+}
+
+function deleteRow(r)
+{
+ var root = r.parentNode;
+  var allRows = root.getElementsByTagName('tr')
+  if(allRows.length>0)
+  {
+      root.removeChild(r);
+
+  }
+  resetMathML();
+}
+function updateRow(count)
+{
+var  value =document.getElementById("math_"+count).value;
+ 	 document.getElementById("currentID").value=count;
+  if(value !=null)	f1.SetMathML(value);
+}
+
+function addMForMathML(str){
+	return str.replace(/</ig,"<m:").replace(/<m:\//ig,"</m:");
+}
+function save(index){
+	try{
+		f1.SelectAll();	
+		f1.SetStyle(0);
+		var mathStr =f1.GetMathMLStr();
+		var count=index||document.getElementById("currentID").value;
+		if(count !=""&&count != null){
+			document.getElementById("math_"+count).value= mathStr;
+			document.getElementById("sp_"+count).innerHTML= addMForMathML(mathStr) ;
+			
+		}
+	}catch(e){
+		//alert(e.toString()+"\n至少要有一个答案才能保存");
+	} 
+}
+ 
+function getmathValue()
+{
+	var mathObj = document.getElementsByName("mathML");
+	var valueStr="";
+	if(mathObj.length>0)
+	{
+		for (var i = 0; i < mathObj.length; i++) {
+		if( mathObj[i].value!= null && mathObj[i].value != "" ){
+		
+			 valueStr += mathObj[i].value+ "$";
+			 }
+		}
+		valueStr =valueStr.substring(0,valueStr.length-1);
+	}
+	//valueStr = valueStr.replace(/ *display *= *'block'/ig, "");
+	valueStr = valueStr.replace(/<math[^>]+/, '<math');
+	valueStr = valueStr.replace(/<mtext>(　|&nbsp;)*<\/mtext>/ig, "");
+	valueStr = valueStr.replace(/>\s*</g, "><");
+	valueStr = valueStr.replace(/<\/mn><mo>\.<\/mo><mn>/ig, ".");
+	return valueStr;
+}
+
+function resetMathML(){
+	var mathObj = document.getElementsByName("mathML");
+	if(mathObj.length>0)
+	{
+		f1.SetMathML(mathObj[0].value);	
+		var iputID=mathObj[0].id;
+		
+		iputID= iputID.substring(iputID.length-1,iputID.length);
+		document.getElementById("currentID").value=iputID;
+	}
+}
+ 
+</SCRIPT>
+
+<BODY onLoad="visible()">
+<br>
+<!-- License manager object -->
+<OBJECT CLASSID="clsid:5220cb21-c88d-11cf-b347-00aa00a28331">
+    <PARAM NAME="LPKPath" VALUE="fmlaxc.lpk">
+    <EMBED SRC = "fmlaxc.lpk">
+</OBJECT>
+	<OBJECT classid="clsid:737B43F8-5A87-4014-8C6D-C7DB1A99360C" id="f1" height="70%" width="100%">
+		<PARAM NAME="StatusBar" VALUE="0">
+	</OBJECT>
+
+ <input type="button" value="添加开发性答案" onClick="addRowN()" class='btn_2k3'/>
+ <input type="hidden" value="1" name="currentID" id="currentID"class="btn_2k3"/>
+ <table border="1" id="mathtable">
+</table>
+ <input type="button" value="确定" onClick="getMathML()" class="btn_2k3"/>
+ 
+ 
+<SCRIPT LANGUAGE="JavaScript">
+init();
+</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="policy" namespace="/admin/policy" extends="default">
+	   <global-results>
+            <result name="add" type="redirect">./${actionName}.jhtml?atype=list&amp;pageNo=1</result>
+            <result name="show" type="dispatcher">show_${dojo}.jsp</result>
+            <result name="iShow" type="dispatcher">show_${dojo}.jsp</result>
+           
+            <result name="update" type="redirect">./${actionName}.jhtml?atype=list&amp;pageNo=1</result>
+            <result name="list" type="dispatcher">list_${dojo}.jsp</result>
+            <result name="listAll" type="dispatcher">list_${dojo}.jsp</result>
+            <result name="listByNodeId" type="dispatcher">list_${dojo}.jsp</result>
+            <result name="edit" type="dispatcher">edit_${dojo}.jsp</result>
+            <result name="iedit" type="dispatcher">edit_${dojo}.jsp</result>
+            <result name="delete" type="redirect">./${actionName}.jhtml?atype=list&amp;pageNo=1</result>
+            <result name="deleteBatch" type="redirect">./${actionName}.jhtml?atype=list&amp;pageNo=1</result>
+            <result name="showNodedelete" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${id}</result>
+            
+            <result name="adderror" type="dispatcher">add_${dojo}.jsp</result>
+            
+            <result name="notfound" type="dispatcher">message/error.jsp</result>
+            <result name="notid" type="dispatcher">message/error.jsp</result>
+            <result name="noopttype" type="dispatcher">message/error.jsp</result>
+            <result name="input" type="dispatcher">inputError.jsp</result>            
+        </global-results>
+      
+        <action name="policy" class="com.ambow.trainingengine.policy.web.action.PolicyAction">
+            <result type="chain">${actionUrl}</result>
+        </action>
+       <action name="template" class="com.ambow.trainingengine.policy.web.action.TemplateAction">
+            <result name="getTemplateSuccess" type="dispatcher">getTemplateSuccess.jsp</result>
+            <result name="getTemplateError" type="dispatcher">getTemplateError.jsp</result>
+            <result name="initTemplateSuccess" type="dispatcher">initTemplateSuccess.jsp</result>
+            <result name="initTemplateError" type="dispatcher">initTemplateError.jsp</result>
+            <result name="error" type="dispatcher">message/error.jsp</result>
+            <result name="search" type="dispatcher">search.jsp</result>
+            <result name="nodeShowAll" type="dispatcher">select_template_policy.jsp</result>
+            <result name="nodeShowAllNew" type="dispatcher">select_template_policyNew.jsp</result>
+            <result name="inheritNew" type="dispatcher">inheritNew.jsp</result>            
+        </action>
+       
+        
+        
+	   <action name="assemblePaperPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.AssemblePaperPolicyTemplateAction"></action>
+	   <action name="assemblingPaperReqTemplate" class="com.ambow.trainingengine.policy.web.action.AssemblingPaperReqTemplateAction">
+	       <result name="review" type="redirect">paperAssemblingReqTemplate.jhtml?atype=show&amp;id=${pid}</result>
+	       <result name="iadd" type="redirect">../policy/paperAssemblingReqTemplate.jhtml?atype=show&amp;id=${assemblingPaperReqTemplate.paperAssemblingReqTemplate.id}</result>
+	       <result name="idelete" type="redirect">../policy/paperAssemblingReqTemplate.jhtml?atype=show&amp;id=${id}</result>
+	       <result name="ideleteBatch" type="redirect">../policy/paperAssemblingReqTemplate.jhtml?atype=show&amp;id=${id}</result>
+       </action>
+	   <action name="moduleEvalPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.ModuleEvalPolicyTemplateAction"></action>
+	   <action name="moduleEvaluatingNodePolicy" class="com.ambow.trainingengine.policy.web.action.ModuleEvaluatingNodePolicyAction"></action>
+	   <action name="nodeGroupPolicyAssembling" class="com.ambow.trainingengine.policy.web.action.NodeGroupPolicyAssemblingAction"></action>
+	   <action name="nodeGroupPolicy" class="com.ambow.trainingengine.policy.web.action.NodeGroupPolicyAction">
+	       <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${nodeGroupPolicy.asfNode.id}</result>
+	       <result name="iupdateNodeGroup" type="redirect">../studyflow/node.jhtml?atype=showGroupAll&amp;id=${nodeGroupPolicy.asfNode.id}</result>
+       </action>
+       <action name="paperAssemblingPolicy" class="com.ambow.trainingengine.policy.web.action.PaperAssemblingPolicyAction">
+        <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingPolicy.asfNode.id}</result>
+        <result name="selectPaper" type="redirect">../itembank/paper!list.jhtml?to=selectPaper&amp;p.para.pid=${paperAssemblingPolicy.asfNode.id}</result>
+        <result name="setPaper" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingPolicy.asfNode.id}</result>
+        
+       </action>
+	   <action name="paperAssemblingReqTemplate" class="com.ambow.trainingengine.policy.web.action.PaperAssemblingReqTemplateAction">
+	       <result name="iupdate" type="redirect">../policy/paperAssemblingReqTemplate.jhtml?atype=show&amp;id=${paperAssemblingReqTemplate.id}</result>
+       </action>
+	   <action name="paperAssemblingRequirements" class="com.ambow.trainingengine.policy.web.action.PaperAssemblingRequirementsAction">
+		  <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+	      <result name="iadd" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+	      <result name="igroupAdd" type="redirect">../studyflow/node.jhtml?atype=showGroupAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+          <result name="idelete" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+          <result name="deleteAllByNodeId" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+          <result name="deleteAllByNodeGroupId" type="redirect">../studyflow/node.jhtml?atype=showGroupAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+          <result name="nodeupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+         <result name="nodeGroupupdate" type="redirect">../studyflow/node.jhtml?atype=showGroupAll&amp;id=${paperAssemblingRequirements.asfNode.id}</result>
+       </action>
+	   <action name="phaseTestNodePolicy" class="com.ambow.trainingengine.policy.web.action.PhaseTestNodePolicyAction">
+	       <result name="iadd" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${phaseTestNodePolicy.asfNode.id}</result>
+	       <result name="showByNodeId" type="dispatcher">showByNodeId_phase_test_node_policy.jsp</result>
+	       <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${phaseTestNodePolicy.asfNode.id}&amp;prid=${phaseTestNodePolicy.asfNode.processDefinition.id}</result>
+	       <result name="idelete" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${phaseTestNodePolicy.asfNode.id}&amp;prid=${phaseTestNodePolicy.asfNode.processDefinition.id}</result>
+          
+       </action>
+	   <action name="phaseTestPolicyReq" class="com.ambow.trainingengine.policy.web.action.PhaseTestPolicyReqAction">
+	   		<result name="review" type="redirect">phaseTestPolicyTemplate.jhtml?atype=show&amp;id=${pid}</result>
+	   </action>
+	   <action name="phaseTestPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.PhaseTestPolicyTemplateAction"></action>
+	   <action name="processPolicy" class="com.ambow.trainingengine.policy.web.action.ProcessPolicyAction">
+	       <result name="add" type="redirect">../studyflow/showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${processPolicy.asfProcessDefinition.id}</result>
+	       <result name="idelete" type="redirect">../studyflow/showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${id}</result>
+       </action>
+	   <action name="trainingPolicy" class="com.ambow.trainingengine.policy.web.action.TrainingPolicyAction">
+	       <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${viewMap.nodeId}</result>	   
+	   </action>
+	   <action name="trainingPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.TrainingPolicyTemplateAction"></action>
+	   <action name="trainingUnitNodePolicy" class="com.ambow.trainingengine.policy.web.action.TrainingUnitNodePolicyAction">
+	      <result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${trainingUnitNodePolicy.asfNode.id}</result>
+       </action>
+	   <action name="trainingUnitPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.TrainingUnitPolicyTemplateAction"></action>
+	   <action name="unitTestNodePolicy" class="com.ambow.trainingengine.policy.web.action.UnitTestNodePolicyAction">
+	   		<result name="iupdate" type="redirect">../studyflow/node.jhtml?atype=showAll&amp;id=${unitTestNodePolicy.asfNode.id}</result>
+	   </action>
+	   <action name="unitTestPolicyTemplate" class="com.ambow.trainingengine.policy.web.action.UnitTestPolicyTemplateAction"></action>
+	</package>
+</xwork>

@@ -1,0 +1,1326 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爆破英语09'考研冲刺</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../js/jquery-pack.js"></script>
+<script LANGUAGE="JavaScript" src="../js/HighLightArray.js"></script>
+
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/common.js"></script>
+<SCRIPT LANGUAGE="JavaScript" src="../js/tandiv.js"></script>
+<SCRIPT language="javascript" src="../js/floating.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="../js/exam.js" type="text/javascript"></SCRIPT>
+<link href="../css/addWord.css" rel="stylesheet" type="text/css" />
+<SCRIPT LANGUAGE="JavaScript" src="../js/addWord.js"></script>
+
+<script type='text/javascript' src="../dwr/engine.js"></script>
+<script type='text/javascript' src="../dwr/interface/freshWordService.js"></script>
+<script language="JavaScript" type="text/javascript">
+	var processInstanceId="43";
+</script>
+
+
+<script language="JavaScript" type="text/javascript">
+	var clueEffect;
+	var tranEffect;
+	var tanDivName;//用于区分不同的题
+	
+	function showClue(param1,param2,param3,name){
+		var showDiv=document.getElementById(name);
+		if(clueEffect==param3&&tanDivName==name){
+			//取消效果
+			showDiv.style.display="none";
+			disHeightIt();
+			clueEffect=-1;
+			tanDivName=-1;
+			}else{
+			//生成效果
+				var heightNum;
+				var clue="clue"+"::"+param1+"::"+param2+"::"+param3;
+				var clueEle=document.getElementById(clue);
+				showDiv.innerHTML=clueEle.innerHTML;
+				showDiv.style.display="block";
+
+				if(param3==2) {
+					disHeightIt();
+					clueEffect=param3;
+					tanDivName=name;
+					tranEffect=-1;
+					return;
+					}//最后一次不用高亮
+				if(param3==0) heightNum=0;
+				if(param3==1) heightNum=2;
+				var height="height"+"::"+param1+"::"+param2+"::"+heightNum;
+				var heightEle=document.getElementById(height);
+				disHeightIt();
+				//alert("x:"+heightEle.innerHTML);
+				heightIt(heightEle.innerHTML);
+				clueEffect=param3;
+				tanDivName=name;
+				tranEffect=-1;
+		}
+		
+	}
+	var heightLightStr;
+	var cuHeightLight;
+	
+	function heightIt(str){
+		cuHeightLight = new HighLightArray({highlightStr:str,highLightCss:"w5678",highLightBackGroundCss:"s1234",sel:"span[v=highLight]"});
+		heightLightStr=str;
+		
+	}
+
+	function disHeightIt(){
+		if(cuHeightLight!=null){
+			//alert("a "+cuHeightLight);
+			cuHeightLight.disHighLight();
+			cuHeightLight.destroy();
+			//alert("b");
+		}
+	}
+	
+	function showTran(param1,param2,param3,name){
+		
+		var showDiv=document.getElementById(name);
+		var heightNum;
+		if(tranEffect==param3&&tanDivName==name){
+			//取消效果
+			showDiv.style.display="none";
+			disHeightIt();
+			tranEffect=-1;
+			tanDivName=-1;
+			}else{
+			//生成效果
+				showDiv.style.display="block";
+				if(param3==2) {
+					disHeightIt();
+					var cTran=document.getElementById("contentTran");
+					showDiv.innerHTML=cTran.innerHTML;
+					tranEffect=param3;
+					tanDivName=name;
+					clueEffect=-1;
+					return;
+					}//最后一次不用高亮
+				
+				var tran="tran"+"::"+param1+"::"+param2+"::"+param3;
+				var tranEle=document.getElementById(tran);
+				showDiv.innerHTML=tranEle.innerHTML;
+				//showDiv.style.display="block";
+
+				if(param3==0) heightNum=1;
+				if(param3==1) heightNum=3;
+				var height="height"+"::"+param1+"::"+param2+"::"+heightNum;
+				var heightEle=document.getElementById(height);
+				disHeightIt();
+				heightIt(heightEle.innerHTML);
+				tranEffect=param3;
+				tanDivName=name;
+				clueEffect=-1;
+		}
+		
+	}
+</script>
+
+
+<style>
+.s1234{
+	background:green;
+}
+.w5678{
+	color:yellow;
+}
+</style>
+</head>
+<body onload="JavaScript:FloatingDIV();initSelect();">
+
+<!--页面头部-->
+
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/ahead.js"></script>
+
+
+	<div id="top">
+  <div class="logo cWhite"><img src="../images/logo.jpg" /><span class="f26px fonth ">爆破考研</span> <span class="f14px">09'考研冲刺</span></div>
+  <div class="toplin">
+    <div class="toplin_l"><img src="../images/toplin_l.jpg" /></div>
+    <div class="toplin_c">
+      <ul>
+        <li><a href="../web/loadSessionVar.jhtml">首页</a></li>
+        <li class="divli">|</li>
+        <li> <a href="#">在线咨询</a></li>
+        <li class="divli">|</li>
+        <li><a href="#">帮助</a></li>
+        <li class="divli">|</li>
+        <li><a href="#"  onclick="if(confirm('是否确认退出系统?')){location.href='../logout.jsp';}">退出系统</a></li>
+      </ul>
+    </div>
+    <div class="toplin_r"><img src="../images/toplin_r.gif" /></div>
+  </div>
+  <div class="clear"></div>
+ </div>
+
+<!--    end   -->
+
+
+ <!-- 页面主题 -->
+<div id="main" class="wm2" >
+	<div class="nTab wm2">
+<!-- 内容开始 -->
+    <div class="TabContent">
+    	<div id="myTab1_Content0">
+        <div class="style1">
+
+       
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <div id=sign02 style='z-index:32;
+        position:absolute;
+        left:expression((body.clientWidth-500)/2);
+		display:none;' align='center'> 
+  <table width="500" height="200" border="0" cellspacing="0">
+    <tr> 
+      <td align="center" class="comm" style="line-height:40px;"> <p><img src="../images/icon_alert.gif" align="bottom" /> 
+          <span style="font-size:18px;font-family:黑体;" >休息一会……本卷剩余时间<span id="leftTimeSpanA"></psan></span><br />
+          <font color="#CC3300">本卷共 <font color="#FF0000">18</font>道题，目前 <font color="#FF0000"><span id="sign02undoSize"></span> 
+          </font>道题未做；<font color="#FF0000"><span id="sign02mark"></span> </font>道题标记疑问</font>
+        <div style="background-color:#ffffff;border:1px solid #eeeeee;padding:10px;font-weight:normal;text-align:left;"> 
+          <strong>应对考场怯场10法</strong><br />
+          <br />
+          要学会兴奋转移法。怯场现象一旦发生，应立即转移兴奋点和注意力。如抬头向窗外远望，观赏大自然的美景；或用自我暗示法令自己冷静不紧张；或闲目养神，甚至伏案休息片刻等，都是行之有效的可取方法。<br />
+         </div>
+        <font color="#CC3300"> <br />
+        <input type="submit" name="Submit2" id="sign02_button_1"  value=" 继续训练 " onClick="javascript:cacelPause();checkit('sign01');checkit('sign02')" />
+        <input type="submit" name="Submit22" id="sign02_button_2" value=" 全卷浏览 " onClick="javascript:overView()" />
+        <input type="submit" name="Submit23" value=" 暂存退出 " onClick="javascript:this.disabled='true';document.getElementById('sign02_button_1').disabled='true';document.getElementById('sign02_button_2').disabled='true';pause();" />
+        </font></td>
+    </tr>
+  </table>
+</DIV>
+		<div id=sign03  style='z-index:33;
+        position:absolute;
+        left:expression((body.clientWidth-500)/2);
+		display:none;' align='center'> 
+  <table width="500" height="200" border="0" cellspacing="0">
+    <tr> 
+      <td align="center" class="comm" style="line-height:40px;"> <p><img src="../images/icon_alert.gif" align="bottom" /> 
+          <span style="font-size:18px;font-family:黑体;">你确定要交卷吗？本卷剩余时间<span id="leftTimeSpanB"></psan></span><br />
+          <font color="#CC3300">本卷共 <font color="#FF0000">18</font>道题，目前 <font color="#FF0000"><span id="sign03undoSize"></span> 
+          </font>道题未做；<font color="#FF0000"><span id="sign03mark"></span> </font>道题标记疑问</font> 
+        <div style="background-color:#ffffff;border:1px solid #eeeeee;padding:10px;font-weight:normal;text-align:left;"> 
+          <li>点击“继续训练”将直接转到未做题目。<br />
+          <li> 点击“确定交卷”将提交本卷，你将得到答题的结果。<br />
+          <li>交卷后你还可以重新做本卷中“未做的题”。<br />
+          所有错题需要你重新训练直到正确。<br />
+         </div>
+        <font color="#CC3300"> <br />
+        <input type="submit" name="Submit222" value=" 确定交卷 " onClick="javascript:this.disabled='true';document.getElementById('sign03_button_2').disabled='true';submitPaper();" />
+        <input type="submit" name="Submit2" id="sign03_button_2" value=" 继续训练 " onClick="javascript:cacelPause();checkit('sign01');checkit('sign03');" />
+        </font></td>
+    </tr>
+  </table>
+</DIV>
+  		 <div id=sign04  style='z-index:34;
+            position:absolute;
+            left:expression((body.clientWidth-500)/2);
+            display:none;' align='center'> 
+      <table width="500" height="200" border="0" cellspacing="0">
+        <tr> 
+          <td align="center" class="comm" style="line-height:40px;"> <p><img src="../images/icon_alert.gif" align="bottom" /> 
+              <span style="font-size:18px;font-family:黑体;">本卷规定训练用时（41'）已到，请交卷。</span><br />
+              <font color="#CC3300">本卷共 <font color="#FF0000">18 </font>道题，目前 <font color="#FF0000"><span id="sign04undoSize"></span> 
+              </font>道题未做；<font color="#FF0000"><span id="sign04mark"></span></font>道题标记疑问</font> 
+            <div style="background-color:#ffffff;border:1px solid #eeeeee;padding:10px;font-weight:normal;text-align:left;"> 
+              <li> 请点击“确定交卷”提交本卷，你将得到答题的结果。
+               <li> 交卷后你还可以重新做本卷中“未做的题”。所有错题需要你重新训练直到正确。
+               <li> 请特别注意答题时间。
+              
+            </div>
+            <font color="#CC3300"> <br />
+            <input type="submit" name="Submit222" value=" 确定交卷 " onClick="javascript:this.disabled='true';submitPaper();" />
+            </font></td>
+        </tr>
+      </table>
+    </DIV>
+<DIV id="sign01" style='z-index:20;position:absolute; 
+         top:0px;
+         left:0px;
+        WIDTH:expression(document.body.scrollWidth); 
+        HEIGHT:expression(document.body.scrollHeight);
+	background-color:#eeeeee;
+	filter:alpha(opacity=70);
+	-moz-opacity: 0.7;
+	opacity: 0.7;display:none;
+       '  align='center'> 
+       </div>
+<script type="text/javascript"><!--
+
+var divName;
+function getDivInfo(divName){	
+	var undoSize=document.getElementById(divName+"undoSize");
+	var mark=document.getElementById(divName+"mark");	
+	undoSize.innerHTML=getundoNum();
+	mark.innerHTML=getMarkNum();	
+}
+function getMarkNum(){
+	var size=document.getElementById("itemSize").value;	
+	var num=0;
+	for(var i=0;i<size;i++){
+		var obj=document.getElementById("mark"+i);
+		var disEnable=document.getElementById("disEnable"+i);
+		if(disEnable!=null){
+			if(obj.getAttribute("value")=="1"&&disEnable.getAttribute("value")!="false")
+				num++;
+		}else{
+			if(obj.getAttribute("value")=="1")
+			num++;
+		}
+	}
+	num+=0;
+	return num;
+}
+function getundoNum(){	
+	var size=document.getElementById("itemSize").value;	
+	var num=0;
+	for(var i=0;i<size;i++){
+		var userAnswers=document.getElementsByName("userAnswer"+i);
+		var disEnable=document.getElementById("disEnable"+i);		
+		if(disEnable!=null){		
+			if(getContent(userAnswers)&&disEnable.getAttribute("value")!="false"){
+				num++;			
+			}
+		}else{
+			if(getContent(userAnswers))			
+				num++;
+		}	
+	}	
+	num=18-num;
+	return num;
+}
+function getContent(userAnswers){
+			var tag=0;
+			if(userAnswers[0].getAttribute("type")=="text"||userAnswers[0].getAttribute("type")=="hidden"){
+				var value;
+				if(userAnswers.length==1){
+					//单空的情况
+					value=userAnswers[0].getAttribute("value");					
+					 if(trim(value)!="")tag=1;										 
+				}else{
+				 //多答案的情况下
+				 for(var i=0;i<userAnswers.length;i++){
+					 value=userAnswers[i].getAttribute("value");					 
+					 if(value!=null){
+					 if(trim(value)!=""){
+					 	tag=1;
+					 	break;
+				 	 	}
+				 	 }
+				 	}
+				}
+			}
+			if(userAnswers[0].getAttribute("type")=="radio"){				
+				for(var i=0;i<userAnswers.length;i++){				
+					if(userAnswers[i].getAttribute("checked")==true){										
+						tag=1;
+					}
+				}
+			}
+			if(userAnswers[0].getAttribute("type")=="checkbox"){				
+				for(var i=0;i<userAnswers.length;i++){
+					if(userAnswers[i].getAttribute("checked")==true){						
+						tag=1;
+						break;
+					}
+				}
+			}
+			if(userAnswers[0].getAttribute("TagName")=="TEXTAREA"){
+				var value=userAnswers[0].getAttribute("value");
+			   	if(trim(value)!=""){
+			   		tag=1;
+			   		}
+			}
+			return tag;
+	}	
+function ltrim(s){
+	return s.replace(/^\s+/,"");
+}
+
+function rtrim(s){
+	return s.replace(/\s+$/,"");
+}
+
+function trim(s){
+	return rtrim(ltrim(s));
+}
+	//-->
+</script>
+
+		
+          <table width="100%" border="0" cellspacing="5" cellpadding="0">
+            <tr>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="comm"><img src="../images/info.gif" align="absbottom" /><strong>Section II  Reading Comprehension</strong>
+                    <p><strong>Part  A</strong><br />
+                      <strong>Directions:</strong><br />
+Read the following four texts. Answer the questions below each text  by choosing <strong>A, B, C, </strong>or <strong>D</strong>. Mark your answers on <strong>ANSWER SHEET  1.</strong> (40 points)</p></td>
+                  </tr>
+                </table>
+				<div id="content" name="content">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top" style="">
+					  
+					  
+
+					  <table width="100%" cellpadding="3" cellspacing="0"  class="essay">
+                          
+                      <tr>
+                            <td width="100%"><span v=highLight><p class=MsoNormal style='text-indent:21.75pt'><span lang=EN-US>Well, no gain without pain, they say. But what about pain without gain? Everywhere you go in America, you hear tales of corporate revival. What is harder to establish is whether the productivity revolution that businessmen assume they are presiding over is for real.</span></p>  <p class=MsoNormal style='text-indent:21.75pt'><span lang=EN-US>The official statistics are mildly discouraging. They show that, if you lump manufacturing and services together, productivity has grown on average by 1.2% since 1987. That is somewhat faster than the average during the previous decade. And since 1991, productivity has increased by about 2% a year, which is more than twice the 1978-1987 average. The trouble is that part of the recent acceleration is due to the usual rebound that occurs at this point in a business cycle, and so is not conclusive evidence of a revival in the underlying trend. There is, as Robert Rubin, the treasury secretary, says, a &quot;disjunction&quot; between the mass of business anecdote that points to a leap in productivity and the picture reflected by the statistics.</span></p>  <p class=MsoNormal style='text-indent:21.75pt'><span lang=EN-US>Some of this can be easily explained. New ways of organizing the workplace-all that re-engineering and downsizing-are only one contribution to the overall productivity of an economy, which is driven by many other factors such as joint investment in equipment and machinery, new technology, and investment in education and training. Moreover, most of the changes that companies make are intended to keep them profitable, and this need not always mean increasing productivity: switching to new markets or improving quality can matter just as much.</span></p>  <p class=MsoNormal style='text-indent:21.75pt'><span lang=EN-US>Two other explanations are more speculative. First, some of the business restructuring of recent years may have been ineptly done. Second, even if it was well done, it may have spread much less widely than people suppose.</span></p>  <p class=MsoNormal style='text-indent:21.75pt'><span lang=EN-US>Leonard Schlesinger, a Harvard academic and former chief executive of Au Bong Pain, a rapidly growing chain of bakery cafes, says that much &quot;re-engineering&quot; has been crude. In many cases, he believes, the loss of revenue has been greater than the reductions in cost. His colleague, Michael Beer, says that far too many companies have applied re-engineering in a mechanistic fashion, chopping out costs without giving sufficient thought to long-term profitability. BBDO's Al Rosenshine is blunter. He dismisses a lot of the work of re-engineering consultants as mere rubbish</span><span style='font-family:宋体'>—</span><span lang=EN-US>&quot;the worst sort of ambulance cashing&quot;.</span></p>  <p class=MsoNormal><span style='font-family:宋体'></span>
+							</td>
+                        </tr>
+                          
+                          
+                      </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="listab">
+
+						
+						
+                          <tr class="question_info">
+                            <td width="6%" class="f16px fB">
+                            
+                            <img 
+                				
+                 				
+                 					src="../images/icon_noquestion.gif"
+                					value="0"
+                 				
+                  			border="0" align="absmiddle" style="cursor: hand" onclick="chgmark(this);"
+                  			id="mark0"/>
+                            
+                            <input type="hidden" name="mapkey0" id="mapkey0" value="1336::2149 "/>
+                            <input type="hidden" name="itemSize" id="itemSize" value="4"/>
+                            </td>
+                            <td width="5%" class="f16px fB">
+                            1
+                            
+                            <span id="disEnable0" value="true"/>
+                            </td>
+                          <td width="60%"><span v=highLight>According to the author, the American economic situation is ___________.</span>
+                          <span lang=EN-US style='font-size:13.0pt;color:red'>StandAnswer:A</span>
+                          </td>
+                          <td width="12%">
+                                      （
+                              			<span class="cRed">
+										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										
+  										
+  										</span>  
+  										）
+  										
+  										</td>
+                          <td width="9%">
+						  
+							<a href="javascript:void(null)" >
+								<img src="../images/info_01.gif" onclick="showClue(1336,2149,0,'fanwen0')" width="16" height="16" />
+							</a>
+								
+						  
+							<a href="javascript:void(null)">
+								<img src="../images/info_02.gif" onclick="showClue(1336,2149,1,'fanwen0')" width="16" height="16" />
+							</a>
+						  	
+                          
+							<a href="javascript:void(null)" >
+								<img src="../images/info_03.gif" onclick="showClue(1336,2149,2,'fanwen0')" width="16" height="16" />
+							</a>
+						  	
+							</td>
+							
+                          <td width="8%">
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_01.gif" onclick="showTran(1336,2149,0,'fanwen0')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_02.gif" onclick="showTran(1336,2149,1,'fanwen0')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_03.gif" onclick="showTran(1336,2149,2,'fanwen0')" width="16" height="16" />
+							</a>
+								
+						 </td>
+                            
+                          </tr>
+						  
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer0" type="radio" id="userAnswer0" value="A" 
+							
+							
+							
+							/>
+ 							[A]
+							
+							
+							
+							<span v=highLight>not as good as it seems</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer0" type="radio" id="userAnswer0" value="B" 
+							
+							
+							
+							/>
+ 							
+							[B]
+							
+							
+							<span v=highLight>at its turning point</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer0" type="radio" id="userAnswer0" value="C" 
+							
+							
+							
+							/>
+ 							
+							
+							[C]
+							
+							<span v=highLight>much better than it seems</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer0" type="radio" id="userAnswer0" value="D" 
+							
+							
+							
+							/>
+ 							
+							
+							
+							[D]
+							<span v=highLight>near to complete recovery</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						   
+						  
+						  <tr>
+						   <td colspan="6"><div id="fanwen0" style="display:none;" class="fanwen"><p id="show">根据试题中高亮内容可知这是一道细节题。</p></div></td>
+						  </tr>
+                          
+						
+                          <tr class="question_info">
+                            <td width="6%" class="f16px fB">
+                            
+                            <img 
+                				
+                 				
+                 					src="../images/icon_noquestion.gif"
+                					value="0"
+                 				
+                  			border="0" align="absmiddle" style="cursor: hand" onclick="chgmark(this);"
+                  			id="mark1"/>
+                            
+                            <input type="hidden" name="mapkey1" id="mapkey1" value="1336::2150 "/>
+                            <input type="hidden" name="itemSize" id="itemSize" value="4"/>
+                            </td>
+                            <td width="5%" class="f16px fB">
+                            2
+                            
+                            <span id="disEnable1" value="true"/>
+                            </td>
+                          <td width="60%"><span v=highLight>The official statistics on productivity growth ________________.</span>
+                          <span lang=EN-US style='font-size:13.0pt;color:red'>StandAnswer:B</span>
+                          </td>
+                          <td width="12%">
+                                      （
+                              			<span class="cRed">
+										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										
+  										
+  										</span>  
+  										）
+  										
+  										</td>
+                          <td width="9%">
+						  
+							<a href="javascript:void(null)" >
+								<img src="../images/info_01.gif" onclick="showClue(1336,2150,0,'fanwen1')" width="16" height="16" />
+							</a>
+								
+						  
+							<a href="javascript:void(null)">
+								<img src="../images/info_02.gif" onclick="showClue(1336,2150,1,'fanwen1')" width="16" height="16" />
+							</a>
+						  	
+                          
+							<a href="javascript:void(null)" >
+								<img src="../images/info_03.gif" onclick="showClue(1336,2150,2,'fanwen1')" width="16" height="16" />
+							</a>
+						  	
+							</td>
+							
+                          <td width="8%">
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_01.gif" onclick="showTran(1336,2150,0,'fanwen1')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_02.gif" onclick="showTran(1336,2150,1,'fanwen1')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_03.gif" onclick="showTran(1336,2150,2,'fanwen1')" width="16" height="16" />
+							</a>
+								
+						 </td>
+                            
+                          </tr>
+						  
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer1" type="radio" id="userAnswer1" value="A" 
+							
+							
+							
+							/>
+ 							[A]
+							
+							
+							
+							<span v=highLight>exclude the usual rebound in a business cycle</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer1" type="radio" id="userAnswer1" value="B" 
+							
+							
+							
+							/>
+ 							
+							[B]
+							
+							
+							<span v=highLight>fall short of businessmen's anticipation</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer1" type="radio" id="userAnswer1" value="C" 
+							
+							
+							
+							/>
+ 							
+							
+							[C]
+							
+							<span v=highLight>meet the expectation of business people</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer1" type="radio" id="userAnswer1" value="D" 
+							
+							
+							
+							/>
+ 							
+							
+							
+							[D]
+							<span v=highLight>fail to reflect the true state of economy</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						   
+						  
+						  <tr>
+						   <td colspan="6"><div id="fanwen1" style="display:none;" class="fanwen"><p id="show">根据试题中高亮内容可知这是一道细节题。</p></div></td>
+						  </tr>
+                          
+						
+                          <tr class="question_info">
+                            <td width="6%" class="f16px fB">
+                            
+                            <img 
+                				
+                 				
+                 					src="../images/icon_noquestion.gif"
+                					value="0"
+                 				
+                  			border="0" align="absmiddle" style="cursor: hand" onclick="chgmark(this);"
+                  			id="mark2"/>
+                            
+                            <input type="hidden" name="mapkey2" id="mapkey2" value="1336::2151 "/>
+                            <input type="hidden" name="itemSize" id="itemSize" value="4"/>
+                            </td>
+                            <td width="5%" class="f16px fB">
+                            3
+                            
+                            <span id="disEnable2" value="true"/>
+                            </td>
+                          <td width="60%"><span v=highLight>The author raises the question &quot;what about pain without gain?&quot; because __________.</span>
+                          <span lang=EN-US style='font-size:13.0pt;color:red'>StandAnswer:B</span>
+                          </td>
+                          <td width="12%">
+                                      （
+                              			<span class="cRed">
+										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										
+  										
+  										</span>  
+  										）
+  										
+  										</td>
+                          <td width="9%">
+						  
+							<a href="javascript:void(null)" >
+								<img src="../images/info_01.gif" onclick="showClue(1336,2151,0,'fanwen2')" width="16" height="16" />
+							</a>
+								
+						  
+							<a href="javascript:void(null)">
+								<img src="../images/info_02.gif" onclick="showClue(1336,2151,1,'fanwen2')" width="16" height="16" />
+							</a>
+						  	
+                          
+							<a href="javascript:void(null)" >
+								<img src="../images/info_03.gif" onclick="showClue(1336,2151,2,'fanwen2')" width="16" height="16" />
+							</a>
+						  	
+							</td>
+							
+                          <td width="8%">
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_01.gif" onclick="showTran(1336,2151,0,'fanwen2')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_02.gif" onclick="showTran(1336,2151,1,'fanwen2')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_03.gif" onclick="showTran(1336,2151,2,'fanwen2')" width="16" height="16" />
+							</a>
+								
+						 </td>
+                            
+                          </tr>
+						  
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer2" type="radio" id="userAnswer2" value="A" 
+							
+							
+							
+							/>
+ 							[A]
+							
+							
+							
+							<span v=highLight>he questions the truth of &quot;no gain without pain&quot;</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer2" type="radio" id="userAnswer2" value="B" 
+							
+							
+							
+							/>
+ 							
+							[B]
+							
+							
+							<span v=highLight>he does not think the productivity revolution works</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer2" type="radio" id="userAnswer2" value="C" 
+							
+							
+							
+							/>
+ 							
+							
+							[C]
+							
+							<span v=highLight>he wonders if the official statistics are misleading</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer2" type="radio" id="userAnswer2" value="D" 
+							
+							
+							
+							/>
+ 							
+							
+							
+							[D]
+							<span v=highLight>he has conclusive evidence for the revival of businesses</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						   
+						  
+						  <tr>
+						   <td colspan="6"><div id="fanwen2" style="display:none;" class="fanwen"><p id="show">根据试题中高亮内容可知这是一道细节题。</p></div></td>
+						  </tr>
+                          
+						
+                          <tr class="question_info">
+                            <td width="6%" class="f16px fB">
+                            
+                            <img 
+                				
+                 				
+                 					src="../images/icon_noquestion.gif"
+                					value="0"
+                 				
+                  			border="0" align="absmiddle" style="cursor: hand" onclick="chgmark(this);"
+                  			id="mark3"/>
+                            
+                            <input type="hidden" name="mapkey3" id="mapkey3" value="1336::2152 "/>
+                            <input type="hidden" name="itemSize" id="itemSize" value="4"/>
+                            </td>
+                            <td width="5%" class="f16px fB">
+                            4
+                            
+                            <span id="disEnable3" value="true"/>
+                            </td>
+                          <td width="60%"><span v=highLight>Which of the following statements is NOT mentioned in the passage?</span>
+                          <span lang=EN-US style='font-size:13.0pt;color:red'>StandAnswer:A</span>
+                          </td>
+                          <td width="12%">
+                                      （
+                              			<span class="cRed">
+										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										  
+          								    ★
+  										
+  										
+  										</span>  
+  										）
+  										
+  										</td>
+                          <td width="9%">
+						  
+							<a href="javascript:void(null)" >
+								<img src="../images/info_01.gif" onclick="showClue(1336,2152,0,'fanwen3')" width="16" height="16" />
+							</a>
+								
+						  
+							<a href="javascript:void(null)">
+								<img src="../images/info_02.gif" onclick="showClue(1336,2152,1,'fanwen3')" width="16" height="16" />
+							</a>
+						  	
+                          
+							<a href="javascript:void(null)" >
+								<img src="../images/info_03.gif" onclick="showClue(1336,2152,2,'fanwen3')" width="16" height="16" />
+							</a>
+						  	
+							</td>
+							
+                          <td width="8%">
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_01.gif" onclick="showTran(1336,2152,0,'fanwen3')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_02.gif" onclick="showTran(1336,2152,1,'fanwen3')" width="16" height="16" />
+							</a>
+								
+							
+							<a href="javascript:void(null)" >
+								<img src="../images/book_03.gif" onclick="showTran(1336,2152,2,'fanwen3')" width="16" height="16" />
+							</a>
+								
+						 </td>
+                            
+                          </tr>
+						  
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer3" type="radio" id="userAnswer3" value="A" 
+							
+							
+							
+							/>
+ 							[A]
+							
+							
+							
+							<span v=highLight>Radical reforms are essential for the increase of productivity.</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer3" type="radio" id="userAnswer3" value="B" 
+							
+							
+							
+							/>
+ 							
+							[B]
+							
+							
+							<span v=highLight>New ways of organizing workplaces may help to increase productivity.</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer3" type="radio" id="userAnswer3" value="C" 
+							
+							
+							
+							/>
+ 							
+							
+							[C]
+							
+							<span v=highLight>The reduction of costs is not a sure way to gain long-term profitability.</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						  
+                          <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td colspan="4">
+							
+							<input name="userAnswer3" type="radio" id="userAnswer3" value="D" 
+							
+							
+							
+							/>
+ 							
+							
+							
+							[D]
+							<span v=highLight>The consultants are a bunch of good-for-nothings.</span>
+							
+									
+									
+								
+							<br />
+							  </td>
+						  
+                          </tr>
+						   
+						  
+						  <tr>
+						   <td colspan="6"><div id="fanwen3" style="display:none;" class="fanwen"><p id="show">根据试题中高亮内容可知这是一道细节题。</p></div></td>
+						  </tr>
+                           
+                      </table>
+					  
+
+					  </td>
+                    </tr>
+					<!--译文翻译要用的 一些材料put在这里 -->
+					<div name="hiddenDiv" style="display:none;">
+					   
+					 
+						 <p id="contentTran">人们常说，不劳无获。但如果是有劳无获呢?无论到美国哪个地方，你都会听到公司复苏的故事。更难下的结论是：经商者自认为在领导的这场生产力革命是否真的名副其实。  官方的统计数字多少有些使人灰心。统计表明，如果将制造业和服务业算在一起，那么，从1987年起，生产率平均每年增长1.2％。这比前十年的平均增长指数要高一些。从1991年起，生产率每年大约增长2％，是1978-1987年平均增长指数的两倍多。问题是，近期的部分快速增长是由于商业周期在这个时候常常出现的反弹引起的，因此不足以证明潜在趋势出现了复苏。正如财政部长罗伯特·鲁宾所说，商界大量的说是生产力飞跃的传闻与统计数字反映的情况有段“距离”。  有些东西很容易解释。企业重组的新方法——所有那些机构重组和机构精简——只是促进经济综合生产率增长的一个方面，此外还有许多其他原因，比如对机械设备、新技术的联合投资以及对教育和培训的投资。再说，公司进行的大多数改革是为了让公司保持盈利，但这不一定就等于提高生产率：转向新的市场或是提高产品的质量也可能同样重要。  另外两种解释就更是凭猜测了。首先，近几年一些企业的重组不一定卓有成效；其次，即使是卓有成效，其推广也可能达不到人们想象的范围。  哈佛大学学者，迅速发展起来的“美味”面包房连锁店前任首席执行官伦纳德·施莱辛格说，大多数“重组”都不成熟。他认为，在很多情况下，收入的减少一直高于成本的降低。他的同事迈克尔·比尔认为，太多的企业机械地进行机构重组，没有充分考虑长期效益就开始砍掉各种费用。BBDO的爱尔·罗森赛恩说得更直接，他认为重组顾问所做的工作很多都是垃圾——是最典型的“追名逐利”。 </p>
+					 	
+							<!--ydy:-->
+							
+								<span id="clue::1336::2149::0"> </span>
+							
+								<span id="clue::1336::2149::1"> 结合文章所问，注意揣摩文章高亮处内容。</span>
+							
+								<span id="clue::1336::2149::2"> 我们来看试题的详细解析吧：<br>第一段结尾时交待了文章的中心议题：whether the productivity revolution that businessmen assume they are presiding over is for real(经商者自认为在领导的这场生产力革命是否真的名副其实)，第二段又明确地说“part of the recent acceleration is due to the usual rebound that occurs at this point in a business cycle，and so is not conclusive evidence of a revival in the underlying trend(近期的部分快速增长是由于商业周期在这个时候常常出现的反弹引起的，因此不足以证明潜在趋势出现了复苏)”，由此推断美国的经济复苏只是表面的，所以正确答案是A。    这篇文章难度相对较大，不仅句子结构复杂，而且语言十分抽象，基础不是太好的考生不容易弄懂这些句子的意思，建议用结构分析的方法把句子的主干找出来，如上面两个句子一个可以提炼成whether…is for real(到底……是不是真的)，另一个可以简化为acceleration is due to… and so is not conclusive evidence…(快速增长是因为……因此不足以说明……)，进行这样的理解之后就能把握好大的方向。</span>
+							
+							
+								<p id="tran::1336::2149::0"> null<br>题目要求推断作者认为美国的经济形势________________。</p>
+							
+								<p id="tran::1336::2149::1"> null<br> 不如看起来那么好 <br>正处于转折点 <br>比看起来好得多 <br>接近完全复苏 <br></p>
+							
+								<p id="tran::1336::2149::2"> null<br>第一段结尾时交待了文章的中心议题：whether the productivity revolution that businessmen assume they are presiding over is for real(经商者自认为在领导的这场生产力革命是否真的名副其实)，第二段又明确地说“part of the recent acceleration is due to the usual rebound that occurs at this point in a business cycle，and so is not conclusive evidence of a revival in the underlying trend(近期的部分快速增长是由于商业周期在这个时候常常出现的反弹引起的，因此不足以证明潜在趋势出现了复苏)”，由此推断美国的经济复苏只是表面的，所以正确答案是A。    这篇文章难度相对较大，不仅句子结构复杂，而且语言十分抽象，基础不是太好的考生不容易弄懂这些句子的意思，建议用结构分析的方法把句子的主干找出来，如上面两个句子一个可以提炼成whether…is for real(到底……是不是真的)，另一个可以简化为acceleration is due to… and so is not conclusive evidence…(快速增长是因为……因此不足以说明……)，进行这样的理解之后就能把握好大的方向。</p>
+							
+							
+								<p id="height::1336::2149::0"> According to the *author*, the *American economic situation* is</p>
+							
+								<p id="height::1336::2149::1"> According to the author, the American economic situation is ___________.</p>
+							
+								<p id="height::1336::2149::2"> The trouble is that part of the recent acceleration is due to the usual rebound that occurs at this point in a business cycle, and so *is not conclusive evidence of a revival* in the underlying trend.</p>
+							
+								<p id="height::1336::2149::3"> not as good as it seems*^^*not as good as it seems*^^*at its turning point*^^*much better than it seems*^^*near to complete recovery</p>
+							
+						
+ 						
+							<!--ydy:-->
+							
+								<span id="clue::1336::2150::0"> </span>
+							
+								<span id="clue::1336::2150::1"> 结合文章所问，注意揣摩文章高亮处内容。</span>
+							
+								<span id="clue::1336::2150::2"> 我们来看试题的详细解析吧：<br>第二段开头便说：The official statistics are mildly discouraging. (官方的统计数字多少有些使人灰心)，既然是discouraging，C选项就明显是错的；第二段结尾又说：There is a ‘disjunction' between…(……之间有一定‘距离’)，比较的双方是business anecdote(商界传闻)和statistics(统计数字)，不是business cycle(商业周期)和state of economy(经济状况)，A、D两个选项错误，所以选B。    A、D选项很容易被误选，因为换一下提问方式(如D选项就是前一道题的正确答案，文章中提到过the ususal rebound in a business cycle)它们有可能是正确答案，因此答题时一定要看清题目要求并从文章中寻找答题依据。此外，如果不认识正确选项中的动词短语fall short of(达不到，不符合)，选择错误选项的机会也可能增加。</span>
+							
+							
+								<p id="tran::1336::2150::0"> null<br>题目要求判断官方关于生产力发展的统计数据_________________。</p>
+							
+								<p id="tran::1336::2150::1"> null<br> 没有包括商业周期中通常出现的反弹 <br>没有达到经商者的预期目标 <br>达到了经商者的预期目标 <br>没有反映出经济的真实状况 <br></p>
+							
+								<p id="tran::1336::2150::2"> null<br>第二段开头便说：The official statistics are mildly discouraging. (官方的统计数字多少有些使人灰心)，既然是discouraging，C选项就明显是错的；第二段结尾又说：There is a ‘disjunction' between…(……之间有一定‘距离’)，比较的双方是business anecdote(商界传闻)和statistics(统计数字)，不是business cycle(商业周期)和state of economy(经济状况)，A、D两个选项错误，所以选B。    A、D选项很容易被误选，因为换一下提问方式(如D选项就是前一道题的正确答案，文章中提到过the ususal rebound in a business cycle)它们有可能是正确答案，因此答题时一定要看清题目要求并从文章中寻找答题依据。此外，如果不认识正确选项中的动词短语fall short of(达不到，不符合)，选择错误选项的机会也可能增加。</p>
+							
+							
+								<p id="height::1336::2150::0"> The *official statistics* on *productivity growth*</p>
+							
+								<p id="height::1336::2150::1"> The official statistics on productivity growth ________________.</p>
+							
+								<p id="height::1336::2150::2"> The official statistics are *mildly discouraging*.; a &quot;*disjunction*&quot; between the mass of business anecdote that points to a leap in productivity and the picture reflected by the statistics.</p>
+							
+								<p id="height::1336::2150::3"> exclude the usual rebound in a business cycle*^^*exclude the usual rebound in a business cycle*^^*fall short of businessmen's anticipation*^^*meet the expectation of business people*^^*fail to reflect the true state of economy</p>
+							
+						
+ 						
+							<!--ydy:-->
+							
+								<span id="clue::1336::2151::0"> </span>
+							
+								<span id="clue::1336::2151::1"> 结合文章所问，注意揣摩文章高亮处内容。</span>
+							
+								<span id="clue::1336::2151::2"> 我们来看试题的详细解析吧：<br>从整个文章内容来看，作者并没有回过头去论证“no gain without pain”这句话是否有道理，只是把它作为一个引子进入一个话题，所以首先排除A选项。C选项中的misleading(误导的)和第二段第一句话中的discouraging(令人泄气的，使人灰心的)意思不一致，D选项与第二段倒数第二句话意思明显相反，所以C、D选项也可排除。从文章首段的whether the productivity revolution…is for real(这场生产力革命是否真的名副其实)，到最后一段的dismisses a lot of the work of re-engineering consultants as mere rubbish(认为重组顾问所做的工作很多都是垃圾)，作者对生产力革命一直持否定态度，所以选B。    这道题的错误选项和正确答案其实都很清楚，最大的风险是过于陷入对“no pain without pain”和“pain without gain”的字面理解。</span>
+							
+							
+								<p id="tran::1336::2151::0"> null<br>题目要求推断作者提&quot;what about pain without gain?&quot;这个问题是因为_____________。</p>
+							
+								<p id="tran::1336::2151::1"> null<br> 他怀疑“不劳无获”这一说法的真实性 <br>他认为生产力革命不起作用 <br>他怀疑官方的统计数据是否在误导 <br>他对经济复苏有确凿的证据 <br></p>
+							
+								<p id="tran::1336::2151::2"> null<br>从整个文章内容来看，作者并没有回过头去论证“no gain without pain”这句话是否有道理，只是把它作为一个引子进入一个话题，所以首先排除A选项。C选项中的misleading(误导的)和第二段第一句话中的discouraging(令人泄气的，使人灰心的)意思不一致，D选项与第二段倒数第二句话意思明显相反，所以C、D选项也可排除。从文章首段的whether the productivity revolution…is for real(这场生产力革命是否真的名副其实)，到最后一段的dismisses a lot of the work of re-engineering consultants as mere rubbish(认为重组顾问所做的工作很多都是垃圾)，作者对生产力革命一直持否定态度，所以选B。    这道题的错误选项和正确答案其实都很清楚，最大的风险是过于陷入对“no pain without pain”和“pain without gain”的字面理解。</p>
+							
+							
+								<p id="height::1336::2151::0"> The *author* raises the *question* &quot;what about pain without gain?&quot; *because*</p>
+							
+								<p id="height::1336::2151::1"> The author raises the question &quot;what about pain without gain?&quot; because __________.</p>
+							
+								<p id="height::1336::2151::2"> But what about pain without gain? ;What is harder to establish is whether the productivity revolution that businessmen assume they are presiding over is for real.;He dismisses a lot of the work of re-engineering consultants as mere rubbish—&quot;the worst sort of ambulance cashing&quot;.</p>
+							
+								<p id="height::1336::2151::3"> he questions the truth of &quot;no gain without pain&quot;*^^*he questions the truth of &quot;no gain without pain&quot;*^^*he does not think the productivity revolution works*^^*he wonders if the official statistics are misleading*^^*he has conclusive evidence for the revival of businesses</p>
+							
+						
+ 						
+							<!--ydy:-->
+							
+								<span id="clue::1336::2152::0"> </span>
+							
+								<span id="clue::1336::2152::1"> 结合文章所问，注意揣摩文章高亮处内容。</span>
+							
+								<span id="clue::1336::2152::2"> 我们来看试题的详细解析吧：<br>A选项在文章找不到对应的句子，并且显然和前面几道题的答案相矛盾；B选项与第三段第二句话New ways of organizing the workplace… are only one contribution to the overall productivity of an economy(企业重组的新方法……只是促进经济综合生产率增长的一个方面)基本吻合；C选项和D选项分别与文章最后两句话对应：applied re-engineering in a mechanistic fashion，chopping out costs without giving sufficent thought to long-term profitability(机械地进行机构重组，没有充分考虑长期效益就开始砍掉各种费用)，dismisses a lot of the work of re-engineering consultants as mere rubbish(认为重组顾问所做的工作很多都是垃圾)，所以正确答案是A。    这道题表面上是道细节题，实际上是考对全文的理解，如果前面几道题都能做对，那么这道题就会迎刃而解，否则就有可能一错到底。</span>
+							
+							
+								<p id="tran::1336::2152::0"> null<br>题目要求判断下面哪个说法是文章中未提到的?</p>
+							
+								<p id="tran::1336::2152::1"> null<br> 激进的改革对提高生产力十分重要。 <br>企业重组的新方法可能有助于提高生产力。 <br>降低成本并不能保证获得长期效益。 <br>那些顾问是一群无用的人。 <br></p>
+							
+								<p id="tran::1336::2152::2"> null<br>A选项在文章找不到对应的句子，并且显然和前面几道题的答案相矛盾；B选项与第三段第二句话New ways of organizing the workplace… are only one contribution to the overall productivity of an economy(企业重组的新方法……只是促进经济综合生产率增长的一个方面)基本吻合；C选项和D选项分别与文章最后两句话对应：applied re-engineering in a mechanistic fashion，chopping out costs without giving sufficent thought to long-term profitability(机械地进行机构重组，没有充分考虑长期效益就开始砍掉各种费用)，dismisses a lot of the work of re-engineering consultants as mere rubbish(认为重组顾问所做的工作很多都是垃圾)，所以正确答案是A。    这道题表面上是道细节题，实际上是考对全文的理解，如果前面几道题都能做对，那么这道题就会迎刃而解，否则就有可能一错到底。</p>
+							
+							
+								<p id="height::1336::2152::0"> Which of the *following statements* is *NOT mentioned* in the passage?</p>
+							
+								<p id="height::1336::2152::1"> Which of the following statements is NOT mentioned in the passage?</p>
+							
+								<p id="height::1336::2152::2"> New ways of organizing the workplace-all that re-engineering and downsizing-are only one contribution to the overall productivity of an economy; chopping out costs without giving sufficient thought to long-term profitability. BBDO's Al Rosenshine is blunter. He dismisses a lot of the work of re-engineering consultants as mere rubbish—&quot;the worst sort of ambulance cashing</p>
+							
+								<p id="height::1336::2152::3"> Radical reforms are essential for the increase of productivity.*^^*Radical reforms are essential for the increase of productivity.*^^*New ways of organizing workplaces may help to increase productivity.*^^*The reduction of costs is not a sure way to gain long-term profitability.*^^*The consultants are a bunch of good-for-nothings.</p>
+							
+						
+ 						 
+ 					 
+					</div>
+              </table>
+			</div>
+			</td>
+              <td width="114" align="right" valign="top"><!--<div class="xScrollStick d1">
+	<a href="http://www.163.com">俺是浮动条</a>
+</div>-->
+                
+                
+					
+
+<div id="INTRO_DIV" style="WIDTH: 120px; PADDING-TOP: 5px; position:relative; TOP: 0px;" class="d1">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center">本卷限时：41'<br />
+                        实际用时：<br />
+                        <strong><font color="#FF6600" style="font-size:24px;"></font></strong></td>
+                    </tr>
+                    <tr>
+                      <td height="30" align="left">
+					   
+                       <div class="biaoji">
+                         <input type="checkbox" name="checkbox" id="checkbox" Onclick="javascript:enableOrDisable(this.checked)" />标记生词
+                        </div>
+						
+                     </td>
+                    </tr>
+                    <!--  
+                    <tr>
+                      <td height="60" align="center"><a href="alert('继续训练')" ><img src="../images/btn_xl.gif" name="Image23" width="103" height="38" border="0" id="Image23" /></a></td>
+                    </tr>
+                    -->
+                    <tr>
+                      <td height="60" align="center"><a href="#" onclick="javascript:window.location='../exam/overView.jhtml'"><img src="../images/btn_ll.gif" style="cursor: hand" name="Image23" width="103" height="38" border="0" id="Image23" /></a></td>
+                    </tr>
+                    <tr>
+                      <td height="60" align="center"><a 
+                       
+                      		href="../web/loadSessionVar.jhtml"
+                      
+                      
+                      ><img src="../images/btn_exte.gif" style="cursor: hand" name="Image23" width="103" height="38" border="0" id="Image23" /></a></td>
+                    </tr>
+                    <tr>
+                      <td align="left"><br />
+                          <input type="radio" name="radiobutton" value="radiobutton" 
+                           
+                          	checked
+                          
+                          onclick="javascript:filterItem(1)" />
+                        查看所有题(18)<br />
+                        <input type="radio" name="radiobutton" value="radiobutton"
+                          
+                         onclick="javascript:filterItem(2)"/>
+                        只看答错题(0)<br />
+                        <input type="radio" name="radiobutton" value="radiobutton" 
+                         
+                        onclick="javascript:filterItem(3)"/>
+                        只看未答题(18) <br />
+                        <input type="radio" name="radiobutton" value="radiobutton" 
+                         
+                         onclick="javascript:filterItem(4)"/>
+                        只看疑问题(0)<br />
+                        <br /></td>
+                    </tr>
+                    
+                    
+                    <tr>
+                      <td align="center">&nbsp;</td>
+                    </tr>
+                    
+                    
+                    <tr>
+                      <td height="40" align="center">
+                      <img src="../images/btn_x.gif" onclick="javascript:viewPage(1)" style="cursor: hand" width="103" height="38" border="0" /></td>
+                    </tr>
+                    
+                    
+                  </table>
+              </div>
+              <form action="../exam/doExam.jhtml" method="post" name="examForm" id="examForm">
+				<input type="hidden" name="currentPageNum" id="currentPageNum" value="0"/>
+				<input type="hidden" name="nextPageNum" id="nextPageNum" value="0"/><!-- 默认值为0 -->
+				<!--  <input type="hidden" value="" name="itemType" id="itemType" />-->
+				<input type="hidden" value="" name="userAnswers" id="userAnswers" />
+				<input type="hidden" value="" name="nextAct" id="nextAct" />
+				<input type="hidden" name="time" id="time" value="" />
+				<input type="hidden" name="filterType" id="filterType" value="0"/>
+				<input type="hidden" name="testPass" id="testPass" value="0"/>
+			  </form>
+                
+                </td>
+            </tr>
+          </table>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="clear"> </div>
+</div>
+
+
+<div class="bonnt wm1">© 2008年  安博教育集团  版权所有</div>
+
+</body>
+</html>

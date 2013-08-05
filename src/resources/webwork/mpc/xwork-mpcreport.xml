@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="mpcreport" namespace="/mpc/report" extends="default">
+		
+		<action name="reportMain" class="com.ambow.trainingengine.report.web.action.ReportMainAction" method="mpcMenu">
+			<result name="menu" type="dispatcher">main.jsp</result>
+		</action>
+		
+		<action name="study" class="com.ambow.trainingengine.report.web.action.StudyAction">
+			<result name="process" type="dispatcher">study_full.jsp</result>
+			<result name="test_list" type="dispatcher">study02.jsp</result>
+			<result name="group" type="dispatcher">study03.jsp</result>
+			<result name="unit_test" type="dispatcher">study05.jsp</result>
+			<result name="practice" type="dispatcher">study04.jsp</result>
+			<result name="review" type="dispatcher">study06.jsp</result>
+			<result name="phasetest" type="dispatcher">study07.jsp</result>
+			<result name="evaluate" type="dispatcher">study08.jsp</result>
+			<result name="evaluateList" type="dispatcher">study09.jsp</result>		
+		</action>
+		
+		<action name="consolidate" class="com.ambow.trainingengine.report.web.action.ConsolidateAction">
+			<result name="success" type="dispatcher">study_full.jsp</result>
+			<result name="test" type="dispatcher">study_test.jsp</result>
+			<result name="pretest" type="dispatcher">study_pretest.jsp</result>
+			<result name="postest" type="dispatcher">study_postest.jsp</result>
+			<result name="training" type="dispatcher">study_report.jsp</result>		
+		</action>
+		
+		<action name="consolidateAdviser" class="com.ambow.trainingengine.report.web.action.ConsolidateAdviserAction">
+			<result name="success" type="dispatcher">consolidate_adviser.jsp</result>
+			<result name="node" type="dispatcher">consolidate_adviser_node.jsp</result>	
+			<interceptor-ref name="noLoginDefault"></interceptor-ref>	
+		</action>
+		
+		<action name="mpcstudy" class="com.ambow.trainingengine.report.web.action.MpcStudyAction">
+			<result name="review" type="dispatcher">study_review.jsp</result>
+			<result name="hisReview" type="dispatcher">study_his_review.jsp</result>
+	    </action>
+		
+		<action name="extra" class="com.ambow.trainingengine.report.web.action.ExtraAction">
+			<result name="main" type="dispatcher">extra_main.jsp</result>
+			<result name="proceed" type="dispatcher">extra_proceed.jsp</result>
+			<result name="pause" type="dispatcher">extra_pause.jsp</result>
+			<result name="overview" type="redirect">../exam/overView.jhtml</result>
+	    </action>
+		
+		<action name="counseling" class="com.ambow.trainingengine.report.web.action.CounselingAction">
+			<result name="success" type="dispatcher">counseling_math.jsp</result>
+			<result name="actor"   type="dispatcher">counseling.jsp</result>
+			<result name="details" type="dispatcher">counseling_details.jsp</result>
+			<result name="export"  type="dispatcher">counseling_details_export.jsp</result>
+			<interceptor-ref name="noLoginDefault"></interceptor-ref>
+		</action>
+		
+	</package>
+</xwork>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+<bean id="processDefinitionDao" class="com.ambow.studyflow.dao.ProcessDefinitionDao"/>
+<bean id="processInstanceDao" class="com.ambow.studyflow.dao.ProcessInstanceDao"/>
+<bean id="tokenDao" class="com.ambow.studyflow.dao.TokenDao"/>
+<bean id="nodeDao" class="com.ambow.studyflow.dao.NodeDao"/>
+<bean id="nodeInstanceDao" class="com.ambow.studyflow.dao.NodeInstanceDao"/>
+<bean id="processCategoryDao" class="com.ambow.studyflow.dao.ProcessCategoryDao"/>
+<bean id="processEventDao" class="com.ambow.studyflow.dao.ProcessEventDao"/>
+</beans>

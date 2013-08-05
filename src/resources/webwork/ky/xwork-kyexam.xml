@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="kyexam" namespace="/ky/exam" extends="default">
+		
+		<action name="goExam" class="com.ambow.trainingengine.exam.web.action.GoExamAction">
+			<result name="success" type="redirect">begin.jsp</result>
+			<result name="overview" type="redirect">overview.jsp</result>
+		</action>
+		
+		<action name="overView" class="com.ambow.trainingengine.exam.web.action.OverViewExamAction">
+			<result name="success" type="dispatcher">overview.jsp</result>
+		</action>
+		
+		<action name="showExam" class="com.ambow.trainingengine.exam.web.action.ShowExamAction">
+			<!--控制参数 -->
+			<result name="overView" type="redirect">overView.jhtml</result>
+			<result name="submitPaper" type="redirect">subjectiveIyScore.jhtml</result>
+			<result name="pause">test.jsp</result>
+			
+			<!--考研-->
+			<result name="Z1E12A" type="dispatcher">structure_vocabulary.jsp</result>
+			<result name="Z1E13A" type="dispatcher">structure_vocabulary.jsp</result>
+			<result name="Z1E25A" type="dispatcher">reading_comprehension_select.jsp</result>
+			<result name="Z1E26A" type="dispatcher">complement_fill.jsp</result>
+			<result name="Z1E34A" type="dispatcher">long_hard_sentence.jsp</result>
+			<result name="Z1E34B" type="dispatcher">translate_transform.jsp</result>
+			<result name="Z1E15A" type="dispatcher">translate_transform.jsp</result>
+			<result name="Z1E34C" type="dispatcher">translate_sentence.jsp</result>
+			<result name="Z1E39A" type="dispatcher">writing.jsp</result>
+			<result name="Z1E39B" type="dispatcher">writing.jsp</result>
+			<result name="Z1E44A" type="dispatcher">translate_text2.jsp</result>
+			<result name="Z1E47A" type="dispatcher">reading_comprehension_fill_A.jsp</result>
+			<result name="Z1E47B" type="dispatcher">reading_comprehension_fill_A.jsp</result>
+			<result name="Z1E47C" type="dispatcher">reading_comprehension_fill_A.jsp</result>
+			<result name="Z1E47D" type="dispatcher">reading_comprehension_fill_A.jsp</result>
+
+		</action>
+		
+		<action name="doExam" class="com.ambow.trainingengine.exam.web.action.DoExamAction">
+			<result name="resultOverview" type="dispatcher">test.jsp</result>
+			<result name="nextPage" type="redirect">showExam.jhtml?pageNum=${nextPageNum}</result>
+			<result name="overView" type="redirect">overView.jhtml</result>
+			<result name="filter" type="redirect">showExam.jhtml?pageNum=0</result>
+			<result name="pause" type="redirect">../web/loadSessionVar!ky.jhtml</result>
+			<result name="subjectScore" type="redirect">subjectiveIyScore.jhtml</result>
+		</action>
+		
+		<action name="subjectiveIyScore" class="com.ambow.trainingengine.exam.web.action.SubjectiveIyScoreAction">
+			<result name="subjective" type="dispatcher">test.jsp</result>
+			<result name="writingScore" type="dispatcher">writing_score.jsp</result>
+			<result name="success" type="redirect">result.jhtml</result>
+		</action>
+		
+		<action name="result" class="com.ambow.trainingengine.exam.web.action.ExamResultAction">
+			<result name="resultOverview" type="redirect">test.jsp</result>
+			<result name="PRACTICE" type="redirect">result_practice.jsp</result>
+			<result name="EXAM" type="redirect">result_test.jsp</result>
+			<result name="EVALUATE" type="redirect">result_slay.jsp</result>
+			<result name="PHASETEST" type="redirect">result_phasetest.jsp</result>
+			<result name="UNITTEST" type="redirect">result_test.jsp</result>
+		</action>
+		
+		<action name="viewExam" class="com.ambow.trainingengine.exam.web.action.ViewExamAction">
+			<result name="success" type="redirect">overview2.jsp</result>
+		</action>
+	
+	</package>
+</xwork>

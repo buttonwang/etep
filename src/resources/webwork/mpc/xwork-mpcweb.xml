@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="mpcweb" namespace="/mpc/web" extends="default">
+				
+		<action name="loadSessionVar" class="com.ambow.trainingengine.web.action.LoadSessionVarAction">
+			<result name="success" type="redirect">mainPage!mpc.jhtml</result>
+			<result name="report" type="redirect">../report/reportMain.jhtml?nodeInstanceId=${nodeInstanceId}&amp;showListType=${showListType}</result>
+		</action>
+		<action name="mainPage" class="com.ambow.trainingengine.web.action.MainPageAction">
+			<result name="success" type="dispatcher">main_page.jsp</result>
+		</action>
+		<action name="orderInfo" class="com.ambow.trainingengine.web.action.OrderInfoAction">
+			<result name="success" type="dispatcher">order_info.jsp</result>
+		</action>
+		<action name="starPaper" class="com.ambow.trainingengine.web.action.StarPaperAction">
+			<result name="success" type="dispatcher">star_paper.jsp</result>
+		</action>
+		<action name="studyTask" class="com.ambow.trainingengine.web.action.StudyTaskAction">
+			<result name="success" type="dispatcher">more_study.jsp</result>
+		</action>
+		<action name="flowBox" class="com.ambow.trainingengine.web.action.FlowBoxAction">
+			<result name="success" type="dispatcher">flow_box.jsp</result>
+		</action>	
+		<action name="studyInfo" class="com.ambow.trainingengine.web.action.StudyInfoAction">
+			<result name="success" type="dispatcher">study_info.jsp</result>
+		</action>
+		<action name="formulatorTest" class="com.ambow.trainingengine.web.action.FormulatorTestAction">			
+		</action>
+	</package>
+</xwork>

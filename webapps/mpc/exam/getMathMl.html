@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML XMLNS:m="http://www.w3.org/1998/Math/MathML">
+<HEAD>
+	<OBJECT
+      ID=MathPlayer
+      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987">
+    </OBJECT>
+	<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
+	<TITLE> 公式编辑器 </TITLE>
+	<META NAME="Generator" CONTENT="EditPlus">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<META NAME="Author" CONTENT="">
+	<META NAME="Keywords" CONTENT="">
+	<META NAME="Description" CONTENT="">
+	<script src="../js/formulator_config.js" type="text/javascript"></script>
+</HEAD>
+<SCRIPT LANGUAGE="JavaScript" defer>
+String.prototype.trim= function(){
+    // 用正则表达式将前后空格  
+    // 用空字符串替代。
+    return this.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+function getMatchedChinese (str){
+	var matched ;
+	try{
+		var chineseReg = /。|，|！|＋|－|“|”|‘|’|（|）|；|１|２|３|４|５|６|７|８|９|０|｜|ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|Ａ|Ｂ|Ｃ|Ｄ|Ｅ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|Ｏ|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|Ｖ|Ｗ|Ｘ|Ｙ|Ｚ|／|＼|［|］|｛|｝|？/ig;	 
+	  	matched = str.match(chineseReg);
+	}catch(e){ 
+	} 
+	if(matched==null){
+		matched = [];
+	}
+	return matched;
+	
+}
+function getMathML() {
+	//window.returnValue =f1.GetMathMLStr().replace("display = 'block'",""); 
+	f1.SelectAll();	
+	f1.SetStyle(0);
+	var matchChinese = getMatchedChinese(getmathValue());
+	if(matchChinese.length>0){
+		alert("请将下列中文全角符号修改为英文半角\n"+matchChinese.join(" "))
+		return;
+	}
+	window.returnValue = getmathValue();
+	window.close();
+}
+
+function init(){
+	if(window.dialogArguments[1]!=null &&window.dialogArguments[1] !=""){
+		var mathObj =window.dialogArguments[1];
+	   	f1.SetMathML(mathObj);
+	}
+}
+
+function param() {
+	  var num = arguments.length;
+	  var oStr = arguments[0];
+	  for (var i = 1; i < num; i++) {
+		var pattern = "\\{" + (i-1) + "\\}";
+		var re = new RegExp(pattern, "g");
+		oStr = oStr.replace(re, arguments[i]);
+	  }
+	  return oStr;
+}
+
+function addMForMathML(str){
+	return str.replace(/<m/ig,"<m:m").replace(/<\/m/ig,"</m:m")
+}
+
+function getmathValue() {
+	var valueStr = f1.GetMathMLStr();
+	valueStr = valueStr.replace(/<math[^>]+/, '<math');
+	valueStr = valueStr.replace(/<mtext>(　|&nbsp;)*<\/mtext>/ig, "");
+	valueStr = valueStr.replace(/>\s*</g, "><");
+	valueStr = valueStr.replace(/<\/mn><mo>\.<\/mo><mn>/ig, ".");
+	return valueStr;
+}
+ 
+</SCRIPT>
+
+<BODY  onLoad="visible()">
+<div style="width:520px; height:290px;">
+<div style="width:428px; height:268px; float:left">
+<!-- License manager object -->
+<OBJECT CLASSID="clsid:5220cb21-c88d-11cf-b347-00aa00a28331">
+    <PARAM NAME="LPKPath" VALUE="fmlaxc.lpk">
+    <EMBED SRC = "fmlaxc.lpk">
+</OBJECT>
+ <OBJECT classid="clsid:737B43F8-5A87-4014-8C6D-C7DB1A99360C" id="f1" height="100%" width="100%">
+	 <PARAM NAME="StatusBar" VALUE="0">
+ </OBJECT>
+ </div>
+ <div style="width:85px; height:268px; float:right; border:#000 1px solid;">
+ <div style="background-color:#ece9d8; border-bottom:#000 1px solid; height:28px; font-size:12px; text-align:center; padding:12px 0;">常用快捷键</div>
+ <div style=" text-align:center; margin:5px 0;">
+  <img src="../images/Ctrl+H.gif" width="73" height="36">
+  <img src="../images/Ctrl+L.gif" width="73" height="36">
+   <img src="../images/Ctrl+J.gif" width="73" height="36">
+   <img src="../images/Ctrl+F.gif" width="73" height="36">
+   <img src="../images/Ctrl+R.gif" width="73" height="36">
+ </div>
+ </div>
+ <div style=" clear:both; line-height:1%; font-size:1%;"></div>
+ <div align="center" style="width:520px; height:25px; padding-top:0px;">
+ 	 <input type="button" style="position: absolute; background:url(../images/subbtn.gif) no-repeat; width:74px; height:25px; left: 223px; top: 275px;"" value="确定" onClick="getMathML()"/>
+ </div>
+  
+ <SCRIPT LANGUAGE="JavaScript">
+  init();
+ </SCRIPT>
+</div>
+</BODY>
+
+</HTML>

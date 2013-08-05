@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<include file="webwork/xwork-admin-studyflow.xml" />
+	<include file="webwork/xwork-admin-policy.xml" />
+	<include file="webwork/xwork-admin-systemsecurity.xml" />
+	<include file="webwork/xwork-admin-attention.xml" />
+	<include file="webwork/xwork-membershipPoint.xml" />
+</xwork>

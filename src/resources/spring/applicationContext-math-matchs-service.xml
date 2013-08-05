@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean name="mathMatchs" class="com.ambow.trainingengine.exam.score.MathMatchs" singleton="true" >
+		<property name="mathSymbols">
+            <map>			
+				<entry key="nbsp" value=""/>
+				<entry key="plus" value="+"/>
+				<entry key="minus" value="−"/>				
+				<entry key="le" value="≤"/>
+				<entry key="ge" value="≥"/>
+				<entry key="ne" value="≠"/>
+				<entry key="exist" value="∃"/>
+				<entry key="forall" value="∀"/>
+				<entry key="times" value="×"/>
+				<entry key="divide" value="÷"/>
+				<entry key="rarr" value="→"/>
+				<entry key="uarr" value="↑"/>
+				<entry key="darr" value="↓"/>
+				<entry key="isin" value="∈"/>
+				<entry key="cup" value="∪"/>
+				<entry key="cap" value="∩"/>
+				<entry key="sub" value="⊂"/>
+				<entry key="sup" value="⊃"/>
+				<entry key="pi" value="π"/>
+				<entry key="infin" value="∞"/>
+				<entry key="Delta" value="Δ"/>
+				<entry key="Omega" value="Ω"/>
+				<entry key="deg" value="°"/>
+				<entry key="ang" value="∠"/>
+				<entry key="alpha" value="α"/>
+				<entry key="beta" value="β"/>
+				<entry key="gamma" value="γ"/>
+				<entry key="delta" value="δ"/>
+				<entry key="zeta" value="ζ"/>
+				<entry key="eta" value="η"/>
+				<entry key="theta" value="θ"/>
+				<entry key="lambda" value="λ"/>
+				<entry key="mu" value="μ"/>
+				<entry key="nu" value="ν"/>
+				<entry key="xi" value="ξ"/>
+				<entry key="rho" value="ρ"/>
+				<entry key="sigma" value="σ"/>
+				<entry key="tau" value="τ"/>
+				<entry key="omega" value="ω"/>
+				<entry key="macr" value="¯"/>
+				<entry key="sdot" value="⋅"/>
+				<entry key="notin" value="∉"/>
+				<entry key="verbar" value="|"/>
+				
+				<!--
+				<entry key="lt" value=""/>
+				<entry key="gt" value=""/>
+				<entry key="prime" value="′"/>
+				<entry key="Prime" value="″"/>
+				-->
+            </map>
+        </property>
+       
+        <property name="mathMarks">
+            <map>            			
+            	<entry key=" " value=""/>
+            	<entry key=" " value=""/>
+				<entry key="　" value=""/>
+				<entry key="。" value="."/>
+				<entry key="；" value=";"/>
+				<entry key="ˉ" value="¯"/>
+				<entry key="\r\n" value=""/>
+				
+				<entry key="\s*lspace[^>]+>" value=">"/>
+				<entry key="\s*rspace[^>]+>" value=">"/>
+				<entry key="\s*stretchy[^>]+>" value=">"/>
+				
+				<entry key="{math[^}]+" value="{math"/>
+				<entry key="(})(\s+)({)" value="$1$3"/>
+				<entry key="}\s+{" value="}{"/>
+				<entry key="({)(\s+)" value="$1"/>
+				<entry key="(\s+)(})" value="$2"/>
+				
+				<entry key="{m[^}]+}{/m[^}]+}" value=""/>
+				<entry key="{/mtext}{mtext}" value=""/>
+            </map>
+        </property>
+        
+         <property name="normalMarks">
+            <map>
+            	<entry key=" " value=""/>
+            	<entry key=" " value=""/>
+				<entry key="　" value=""/>
+				<entry key="。" value="."/>
+				<entry key="；" value=";"/>
+				<entry key="：" value=":"/>
+				<entry key="∶" value=":"/>
+				<entry key="（" value="("/>
+				<entry key="）" value=")"/>
+				<entry key="，" value=","/>
+            </map>
+        </property>
+	</bean>
+</beans>

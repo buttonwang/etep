@@ -1,0 +1,1 @@
+该软件以LGPL授权协议的方式使用FCKEditor。

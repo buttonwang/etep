@@ -1,0 +1,43 @@
+<htmL>
+<head>
+</head>
+<body>
+<script LANGUAGE="JavaScript" >
+function getmathValue() {
+	var valueStr = document.getElementById("mathput").value;
+	alert(valueStr);
+	valueStr = valueStr.replace(/<math[^>]+/, '<math');
+	valueStr = valueStr.replace(/>\s*</g, "><");
+	valueStr = valueStr.replace(/<\/mn><mo>\.<\/mo><mn>/ig, ".");
+	alert(valueStr);
+	document.getElementById("mathout").value = valueStr;
+}
+
+function addMForMathML(str) {
+	str=str.replace(/</ig,"<m:");
+	str=str.replace(/<m:\//ig,"</m:");
+	
+	return str;
+}
+
+function displayMath() {
+	var valueStr = document.getElementById("mathput1").value;
+	alert(valueStr);
+	valueStr = addMForMathML(valueStr);
+	alert(valueStr);
+	document.getElementById("mathout1").value = valueStr;
+}
+</script>
+<p>公式保存前的清理</p>
+<input id="mathput" type="text" >
+<input id="mathCal" type="button" value="click me" onclick="getmathValue();">
+<input id="mathout" type="text" >
+
+<p>公式在页面上的显示</p>
+<input id="mathput1" type="text" >
+<input id="mathCal1" type="button" value="click me" onclick="displayMath();">
+<input id="mathout1" type="text" >
+
+
+</body>
+</html>

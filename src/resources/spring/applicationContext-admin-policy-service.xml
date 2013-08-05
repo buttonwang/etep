@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+        <bean name="commonPolicyService" class="com.ambow.trainingengine.policy.service.CommonPolicyService"/>
+	   	<bean name="assemblePaperPolicyTemplateService" class="com.ambow.trainingengine.policy.service.AssemblePaperPolicyTemplateService"/> 
+	   	<bean name="assemblingPaperReqTemplateService" class="com.ambow.trainingengine.policy.service.AssemblingPaperReqTemplateService"/> 
+	   	<bean name="moduleEvalPolicyTemplateService" class="com.ambow.trainingengine.policy.service.ModuleEvalPolicyTemplateService"/> 
+	   	<bean name="moduleEvaluatingNodePolicyService" class="com.ambow.trainingengine.policy.service.ModuleEvaluatingNodePolicyService"/> 
+	   	<bean name="nodeGroupPolicyService" class="com.ambow.trainingengine.policy.service.NodeGroupPolicyService"/>
+	   	<bean name="nodeGroupPolicyAssemblingService" class="com.ambow.trainingengine.policy.service.NodeGroupPolicyAssemblingService"/> 
+	   	<bean name="paperAssemblingPolicyService" class="com.ambow.trainingengine.policy.service.PaperAssemblingPolicyService"/> 
+	   	<bean name="paperAssemblingReqTemplateService" class="com.ambow.trainingengine.policy.service.PaperAssemblingReqTemplateService"/> 
+	   	<bean name="paperAssemblingRequirementsService" class="com.ambow.trainingengine.policy.service.PaperAssemblingRequirementsService"/> 
+	   	<bean name="phaseTestNodePolicyService" class="com.ambow.trainingengine.policy.service.PhaseTestNodePolicyService"/> 
+	   	<bean name="phaseTestPolicyReqService" class="com.ambow.trainingengine.policy.service.PhaseTestPolicyReqService"/> 
+	   	<bean name="phaseTestPolicyTemplateService" class="com.ambow.trainingengine.policy.service.PhaseTestPolicyTemplateService"/> 
+	   	<bean name="processPolicyService" class="com.ambow.trainingengine.policy.service.ProcessPolicyService"/> 
+	   	<bean name="trainingPolicyService" class="com.ambow.trainingengine.policy.service.TrainingPolicyService"/> 
+	   	<bean name="trainingPolicyTemplateService" class="com.ambow.trainingengine.policy.service.TrainingPolicyTemplateService"/> 
+	   	<bean name="trainingUnitNodePolicyService" class="com.ambow.trainingengine.policy.service.TrainingUnitNodePolicyService"/> 
+	   	<bean name="trainingUnitPolicyTemplateService" class="com.ambow.trainingengine.policy.service.TrainingUnitPolicyTemplateService"/> 
+	   	<bean name="unitTestNodePolicyService" class="com.ambow.trainingengine.policy.service.UnitTestNodePolicyService"/> 
+	   	<bean name="unitTestPolicyTemplateService" class="com.ambow.trainingengine.policy.service.UnitTestPolicyTemplateService"/>
+	   	<bean name="templateService" class="com.ambow.trainingengine.policy.service.TemplateService"/>
+	   	<bean name="roleSbujectGradeManagerService" class="com.ambow.trainingengine.systemsecurity.service.RoleSbujectGradeManagerService"/>
+        
+</beans> 

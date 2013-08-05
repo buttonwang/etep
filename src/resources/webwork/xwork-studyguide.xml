@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="studyguide" namespace="/admin/studyguide" extends="default">
+		<action name="itemStudyGuide" class="com.ambow.trainingengine.studyguide.web.action.StudyGuideAction" >
+			<result name="list" type="dispatcher">./list_studyguide_tree.jsp</result>
+			<result name="redirect" type="redirect">itemStudyGuide!list.jhtml?subjectCode=${subjectCode}</result>
+			<result name="add" type="dispatcher">./add_studyguide.jsp</result>
+			<result name="abandon" type="redirect">./itemStudyGuide!query.jhtml?studyGuide.id=${studyGuide.id}</result>
+			<result name="addP" type="dispatcher">./add_studyguide_paragraph.jsp</result>
+			<result name="editP" type="dispatcher">./modify_studyguide_paragraph.jsp</result>
+			<result name="addI" type="dispatcher">./add_studyguide_item.jsp</result>
+			<result name="editI" type="dispatcher">./modify_studyguide_item.jsp</result>
+			<result name="addItemOver" type="redirect">./itemStudyGuide!editParagraph.jhtml?studyGuide.id=${studyGuide.id}&amp;paragraph.id=${item.studyGuideParagraph.id}</result>
+			<result name="modifyBefore" type="dispatcher">modify_studyguide.jsp</result>
+			
+			<result name="menu" type="dispatcher">/admin/studyguide/left_knowledge_detail.jsp</result>
+			<result name="query" type="dispatcher">/admin/studyguide/query_studyguide.jsp</result>
+			<result name="modify" type="redirect">/admin/studyguide/query_studyguide.jsp</result>
+			<result name="modifyError" type="dispatcher">/admin/studyguide/modify_studyguide.jsp</result>
+			<result name="verify" type="redirect">/admin/studyguide/itemStudyGuide!query.jhtml?code=${code}&amp;grade=${grade}&amp;subject=${subject}</result>
+		</action>
+		
+		<action name="importStudyGuide" class="com.ambow.trainingengine.studyguide.web.action.ImportStudyGuideAction" >
+			<result name="input" type="dispatcher">import_study_guide.jsp</result>
+		</action>
+	</package>
+</xwork>

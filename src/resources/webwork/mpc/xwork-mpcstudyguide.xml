@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+    <package name="mpcstudyguide" namespace="/mpc/studyguide" extends="default">
+    	
+    	<action name="itemStudyGuide" class="com.ambow.trainingengine.studyguide.web.action.StudyGuideAction" >
+			<result name="info" type="dispatcher">study_guide_detail.jsp</result>
+			<result name="infoList" type="dispatcher">study_guide_detail_list.jsp</result>
+		</action>
+    	
+    	<action name="showStudyGuideAction" class="com.ambow.trainingengine.studyguide.web.action.ShowStudyGuideAction">
+    		<result name="main" type="dispatcher">study_guide_full.jsp</result>
+    	</action>
+    	
+    	<action name="studyGuideDescAction" class="com.ambow.trainingengine.studyguide.web.action.StudyGuideDescAction">
+    		<result name="chapter" type="dispatcher">study_guide_chapter_desc.jsp</result>
+     		<result name="section" type="dispatcher">study_guide_sections_desc.jsp</result>  
+     		<result name="linkpage" type="dispatcher">study_guide_link.jsp</result>
+     		<result name="typicalExampleNone" type="dispatcher">study_guide_sections_none_item.jsp</result>
+     		<result name="typicalExample" type="redirect">../exam/examWidget!StudyGuideWidget.jhtml?itemIds=${itemIds}</result>
+     		<result name="studyGuideExam" type="dispatcher">study_guide_exam.jsp</result>
+     		
+     		<result name="chapter2" type="dispatcher">study_guide_chapter_desc_2.jsp</result>
+     		<result name="section2" type="dispatcher">study_guide_sections_desc_2.jsp</result>
+    	</action>
+    </package>
+</xwork>

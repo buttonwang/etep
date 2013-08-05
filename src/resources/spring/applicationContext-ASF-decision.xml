@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+   <bean id="practiceDecision" class="com.ambow.studyflow.decision.impl.PracticeDecision"/>
+   <bean id="examDecision" class="com.ambow.studyflow.decision.impl.ExamDecision"/>
+   <bean id="phaseExamDecision" class="com.ambow.studyflow.decision.impl.PhaseExamDecision"/>
+   <bean id="groupDecision" class="com.ambow.studyflow.decision.impl.DefaultGroupDecision"/>
+</beans>

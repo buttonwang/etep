@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="studyflow" namespace="/admin/studyflow" extends="default">
+	   <global-results>
+            <result name="add" type="dispatcher">success.jsp</result>
+            <result name="show" type="dispatcher">show_${dojo}.jsp</result>
+            <result name="update" type="dispatcher">success.jsp</result>
+            <result name="list" type="dispatcher">list_${dojo}.jsp</result>
+            <result name="listAll" type="dispatcher">list_${dojo}.jsp</result>
+            <result name="edit" type="dispatcher">edit_${dojo}.jsp</result>
+            <result name="delete" type="dispatcher">success.jsp</result>
+            <result name="deleteBatch" type="dispatcher">success.jsp</result>
+            <result name="sadd" type="dispatcher">add_${dojo}.jsp</result>
+            
+            
+            <result name="adderror" type="dispatcher">add_${dojo}.jsp</result>
+            <result name="deleteerror" type="dispatcher">message/error.jsp</result>
+            <result name="updateerror" type="dispatcher">message/error.jsp</result>
+            <result name="notfound" type="dispatcher">message/error.jsp</result>
+            <result name="notid" type="dispatcher">message/error.jsp</result>
+            <result name="noopttype" type="dispatcher">message/error.jsp</result>
+            <result name="input" type="dispatcher">inputError.jsp</result>
+        </global-results>
+	
+	   <action name="processCategory" class="com.ambow.trainingengine.studyflow.web.action.ProcessCategoryAction">
+	        <result name="listAll" type="freemarker">list_${dojo}.ftl.jsp</result>
+	        <result name="list" type="freemarker">list_${dojo}.ftl.jsp</result>
+	        <result name="update" type="redirect">processCategory.jhtml?atype=list</result>
+	        <result name="add" type="redirect">processCategory.jhtml?atype=list</result>
+	        <result name="delete" type="redirect">processCategory.jhtml?atype=list</result>
+	        <result name="deleteAll" type="redirect">processCategory.jhtml?atype=list</result>
+	        <result name="deleteAllerror" type="dispatcher">message/error.jsp</result>
+	   </action>
+       
+	   <action name="node" class="com.ambow.trainingengine.studyflow.web.action.NodeAction">
+	       <result name="sadd" type="dispatcher">sadd_node.jsp</result>
+	       <result name="showAll" type="dispatcher">show_node_1XQPC.jsp</result>
+	       <result name="showGroupAll" type="dispatcher">show_node_group.jsp</result>
+           <result name="showProcessupdate" type="redirect">showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${p.para.prid}</result>
+           <result name="nodeGroupAddTemplate" type="redirect">node.jhtml?atype=showGroupAll&amp;id=${p.para.nodeGroupId}</result>
+           <result name="nodeGroupDeleteTemplate" type="redirect">node.jhtml?atype=showGroupAll&amp;id=${p.para.nodeGroupId}</result>
+           <result name="add" type="redirect">showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${p.para.prid}</result>
+	       <result name="iupdate" type="redirect">node.jhtml?atype=showAll&amp;id=${p.para.nid}</result>
+	       <result name="iupdateNodeGroup" type="redirect">node.jhtml?atype=showGroupAll&amp;id=${p.para.nid}&amp;prid=${p.para.prid}</result>
+           
+           <result name="showAllerror" type="dispatcher">message/error.jsp</result>
+           <result name="delete" type="redirect">showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${p.para.prid}</result>
+       </action>
+	   <action name="process" class="com.ambow.trainingengine.studyflow.web.action.ProcessDefinitionAction">
+	       <result name="success" type="dispatcher">./show_process_category.jsp</result>
+	       <result name="abandon" type="redirect">process.jhtml?atype=list</result>
+	       <result name="abandons" type="redirect">process.jhtml?atype=list</result>
+           <result name="release" type="redirect">process.jhtml?atype=list</result>
+           <result name="releases" type="redirect">process.jhtml?atype=list</result>
+           <result name="add" type="redirect">process.jhtml?atype=list</result>
+           <result name="update" type="redirect">process.jhtml?atype=list</result>
+           <result name="delete" type="redirect">process.jhtml?atype=list</result>
+           <result name="iupdate" type="redirect">showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${processDefinition.id}</result>
+           <result name="error" type="dispatcher">message/error.jsp</result>
+           
+           <result name="show" type="freemarker">show_process.ftl.jsp</result>
+           <result name="search" type="dispatcher">list_process.jsp</result>
+           <result name="copyProcess" type="redirect">showItem.jhtml?itemType=ProcessDefinition&amp;processDefinition.id=${processDefinition.id}</result>
+      </action>
+	  <!-- 公用的显示action -->
+      <action name="showItem" class="com.ambow.trainingengine.studyflow.web.action.ManagerAction" method="showItem" >
+            <result name="ProcessDefinition_bak" type="freemarker">show_process.ftl.jsp</result>
+            <result name="ProcessDefinition" type="dispatcher">show_process_tree.jsp</result>
+            <result name="success" type="dispatcher">_getStudyGuides.jsp</result>
+            <result name="Node" type="dispatcher">show_node.jsp</result>
+            <result name="notfound" type="redirect">message/error_showItem.jsp?t=notfound</result>
+            <result name="typeno" type="dispatcher">message/error_showItem.jsp?t=needtype</result>
+      </action>
+      <!-- 预览试题action -->
+      <action name="previewItem" class="com.ambow.trainingengine.studyflow.web.action.PreviewItemAction">
+      		<result name="list" type="dispatcher">preview_item.jsp</result>
+      </action>
+	</package>
+</xwork>

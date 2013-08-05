@@ -1,0 +1,76 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+
+	<!-- 继承并改写父package -->
+	<include file="webwork-default.xml" />
+
+	<!-- 继承并改写父package -->
+	<package name="default" extends="webwork-default">
+		<interceptors>
+			<!--
+			<interceptor name="improvedToken" class="com.ambow.core.web.interceptor.ImprovedTokenInterceptor"/>
+			-->
+			<interceptor name="appExceptionHandle" class="com.ambow.trainingengine.web.interceptor.AppExceptionInterceptor"/>
+			<interceptor name="checkLogin" class="com.ambow.trainingengine.web.interceptor.CheckLoginInterceptor"/>
+			<!--
+			<interceptor name="timeSpend" class="com.ambow.trainingengine.web.interceptor.TimeSpendInterceptor"/>
+			-->
+			<interceptor-stack name="projDefault">
+				<interceptor-ref name="defaultStack"/>
+				
+				<interceptor-ref name="appExceptionHandle"/>
+				<!--
+				<interceptor-ref name="timeSpend"/>
+				-->
+				<!--暂时先放开登录检查-->
+				<interceptor-ref name="checkLogin"/>
+			</interceptor-stack>
+
+			<interceptor-stack name="noLoginDefault">
+				<interceptor-ref name="defaultStack"/>
+			    <interceptor-ref name="appExceptionHandle"/>
+				<!--
+				<interceptor-ref name="timeSpend"/>
+				-->
+			</interceptor-stack>
+			
+		</interceptors>
+		<default-interceptor-ref name="projDefault"/>
+		<global-results>
+			<result name="error_404" type="redirect">/error_404.jsp</result>
+			<result name="error_500" type="redirect">/error_500.jsp</result>
+			<result name="timeout" type="redirect">/timeout.jsp</result>
+			<result name="failture" type="redirect">/error_500.jsp</result>
+			<result name="admin_failure" type="redirect">/error_500.jsp</result>
+			<result name="admin_login" type="redirect">/admin/login.jsp</result>
+		</global-results>
+		
+	</package>
+	
+	<!--配置文件-->
+	<include file="webwork/xwork-web.xml" />	
+	<include file="webwork/xwork-admin.xml" />	
+	<include file="webwork/xwork-itembank.xml" />
+	<include file="webwork/xwork-wordbank.xml" />
+	<include file="webwork/xwork-studyguide.xml" />
+	<include file="webwork/xwork-service.xml" />
+	
+	<!--ky项目配置文件-->
+	<include file="webwork/ky/xwork-kyweb.xml" />
+	<include file="webwork/ky/xwork-kyreport.xml" />
+	<include file="webwork/ky/xwork-kyfreshword.xml" />
+	<include file="webwork/ky/xwork-kyexam.xml" />
+	
+	<!--mpc项目配置文件-->
+	<include file="webwork/mpc/xwork-mpcweb.xml" />
+	<include file="webwork/mpc/xwork-mpcexam.xml" />
+	<include file="webwork/mpc/xwork-mpcreport.xml" />
+	<include file="webwork/mpc/xwork-bug.xml" />
+	<include file="webwork/mpc/xwork-mpcattention.xml" />
+	<include file="webwork/mpc/xwork-mpcstudyguide.xml" />
+	<include file="webwork/mpc/xwork-mpcmessage.xml" />
+	<include file="webwork/mpc/xwork-mpcmembershipPoint.xml" />	
+
+
+</xwork>

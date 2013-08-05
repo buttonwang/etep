@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="kyweb" namespace="/ky/web" extends="default">
+				
+		<action name="loadSessionVar" class="com.ambow.trainingengine.web.action.LoadSessionVarAction">
+			<result name="success" type="redirect">mainPage!ky.jhtml</result>
+			<result name="report" type="redirect">../report/reportMain.jhtml?nodeInstanceId=${nodeInstanceId}&amp;showListType=${showListType}</result>
+		</action>
+		<action name="mainPage" class="com.ambow.trainingengine.web.action.MainPageAction">
+			<result name="success" type="dispatcher">main_page.jsp</result>
+		</action>
+		<action name="orderInfo" class="com.ambow.trainingengine.web.action.OrderInfoAction">
+			<result name="success" type="dispatcher">order_info.jsp</result>
+		</action>
+		<action name="starPaper" class="com.ambow.trainingengine.web.action.StarPaperAction">
+			<result name="success" type="dispatcher">star_paper.jsp</result>
+		</action>
+		<action name="studyTask" class="com.ambow.trainingengine.web.action.StudyTaskAction">
+			<result name="success" type="dispatcher">more_study.jsp</result>
+		</action>
+		
+		<action name="swie" class="com.ambow.trainingengine.web.action.SwieAction">
+			<result name="success" type="dispatcher">swie.jsp</result>
+			<result name="unused"  type="dispatcher">swie_unused.jsp</result>
+		</action>
+		<action name="swieArticleStatus" class="com.ambow.trainingengine.web.action.SwieArticleStatusAction">
+			<result name="success" type="dispatcher">../exam/articleStatus.jsp</result>
+			<result name="unused"  type="dispatcher">../exam/swie_unused.jsp</result>
+		</action>
+	</package>
+</xwork>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="itembank" namespace="/admin/itembank" extends="default">
+
+		<action name="paper" class="com.ambow.trainingengine.itembank.web.action.PaperAction" >			
+			<result name="home"  type="dispatcher">./paper/list_paper.jsp</result>
+			<result name="view"  type="dispatcher">./paper/show_paper.jsp</result>
+			<result name="input" type="dispatcher">./paper/edit_paper.jsp</result>
+			<result name="importPaper" type="dispatcher">./paper/import_paper.jsp</result>
+			<result name="assembling" type="dispatcher">./paper/assembling_paper.jsp</result>
+			<result name="assembled" type="redirect">paper!show.jhtml?id=${id}</result>
+			<result name="redirect" type="redirect">paper!list.jhtml?subject_code=${subject_code}&amp;grade_code=${grade_code}</result>
+			<result name="choose" type="dispatcher">./paper/select_paper.jsp</result>
+			<result name="selectPaper" type="dispatcher">./paper/list_paper_policy.jsp?pid=${p.para.pid}</result>
+		</action>
+		
+		<action name="paperType" class="com.ambow.trainingengine.itembank.web.action.PaperTypeAction" >			
+			<result name="home"  type="dispatcher">./papertype/list_papertype.jsp</result>
+			<result name="view"  type="dispatcher">./papertype/show_papertype.jsp</result>
+			<result name="input" type="dispatcher">./papertype/edit_papertype.jsp</result>
+			<result name="redirect" type="redirect">paperType!list.jhtml</result>
+		</action>
+		<action name="paperCategory" class="com.ambow.trainingengine.itembank.web.action.PaperCategoryAction" >			
+			<result name="home"  type="dispatcher">./papercategory/list_papercategory.jsp</result>
+			<result name="view"  type="dispatcher">./papercategory/show_papercategory.jsp</result>
+			<result name="input" type="dispatcher">./papercategory/edit_papercategory.jsp</result>
+			<result name="redirect" type="redirect">paperCategory!list.jhtml?subject_code=${subject_code}&amp;grade_code=${grade_code}</result>
+		</action>
+		
+		<action name="item" class="com.ambow.trainingengine.itembank.web.action.ItemAction" >			
+			<result name="home"  type="dispatcher">./item/list_item.jsp</result>
+			<result name="view"  type="dispatcher">./item/show_item.jsp</result>
+			<result name="edit" type="dispatcher">./item/${returnUrl}</result>
+			<result name="show" type="dispatcher">./item/${returnUrl}</result>			
+			<result name="redirect" type="redirect">item!list.jhtml?subject_code=${subject_code}&amp;queryType=1</result>
+			<result name="return" type="redirect">./item!show.jhtml?id=${item.id}</result>
+			<result name="addAnswerError" type="dispatcher">item/addAnswerError.jsp</result>
+			<result name="addAnswerSuccess" type="dispatcher">item/addAnswerSuccess.jsp</result>
+		</action>
+		
+		<action name="itemOneForm" class="com.ambow.trainingengine.itembank.web.action.OneFormItemAction" >           
+            <result name="saveAll"  type="dispatcher">./item/show_mpc_4x.jsp</result>
+        </action>
+		
+		<action name="answerOption" class="com.ambow.trainingengine.itembank.web.action.AnswerOptionAction">	 				
+			<result name="showItem"  type="redirect">item!show.jhtml?id=${itemId}</result>		
+		</action>
+		<action name="addItem" class="com.ambow.trainingengine.itembank.web.action.AddItemAction">	 	
+			<result name="choose"  type="dispatcher">./item/choose_item_type.jsp</result>
+			<result name="add"  type="dispatcher">./item/${returnUrl}</result>			
+			<result name="redirect" type="redirect">item!list.jhtml?subject_code=${subject_code}&amp;queryType=1</result>
+		</action>
+		<action name="importItem" class="com.ambow.trainingengine.itembank.web.action.ImportItemAction" >
+			<result name="input" type="dispatcher">./item/import_item.jsp</result>
+		</action>
+		<action name="exportItem" class="com.ambow.trainingengine.itembank.web.action.ExportItemAction" >
+			<result name="success" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">filename="${fileName}"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		<action name="importImage" class="com.ambow.trainingengine.itembank.web.action.ImportImageAction" >
+			<result name="input" type="dispatcher">./item/import_image.jsp</result>
+		</action>		
+		<action name="fixItem" class="com.ambow.trainingengine.itembank.web.action.FixItemAction" >
+			<result name="redirect" type="redirect">item!list.jhtml</result>
+		</action>
+		
+		<action name="itemType" class="com.ambow.trainingengine.itembank.web.action.ItemTypeAction" >			
+			<result name="home"  type="dispatcher">./itemtype/list_itemtype.jsp</result>
+			<result name="view"  type="dispatcher">./itemtype/show_itemtype.jsp</result>
+			<result name="input" type="dispatcher">./itemtype/edit_itemtype.jsp</result>
+			<result name="redirect" type="redirect">itemType!list.jhtml?subject_code=${subject_code}&amp;grade_code=${grade_code}</result>
+		</action>
+		<action name="knowledgePoint" class="com.ambow.trainingengine.itembank.web.action.KnowledgePointAction" >			
+			<result name="home2"  type="dispatcher">./knowledgepoint/list_knowledgepoint.jsp</result>
+			<result name="test"  type="freemarker">./itemtheme/list_itemtheme.ftl</result>
+			<result name="home"  type="dispatcher">./knowledgepoint/list_knowledgepoint_tree.jsp</result>
+			<result name="smallWindow"  type="dispatcher">../policy/getCodeName/_getKnowledgePoints.jsp</result>
+			<result name="studyGuide"  type="dispatcher">../studyguide/list_knowledgepoint_tree.jsp</result>
+			<result name="view"  type="dispatcher">./knowledgepoint/show_knowledgepoint.jsp</result>
+			<result name="input" type="dispatcher">./knowledgepoint/edit_knowledgepoint.jsp</result>
+			<result name="redirect" type="redirect">knowledgePoint!list.jhtml?subject_code=${subject_code}&amp;queryType=1</result>
+		</action>
+		
+		<action name="model" class="com.ambow.trainingengine.itembank.web.action.ModelAction" >			
+			<result name="success"  type="dispatcher">./model/model_list.jsp</result>
+			<result name="preAdd"  type="dispatcher">./model/model_add.jsp</result>
+			<result name="preEdit"  type="dispatcher">./model/model_edit.jsp</result>
+			<result name="list"  type="redirect">model.jhtml?subject=${subject}&amp;grade=${grade}</result>
+		</action>
+		
+		<action name="itemTheme" class="com.ambow.trainingengine.itembank.web.action.ItemThemeAction" >			
+			<result name="home2"  type="dispatcher">./itemtheme/list_itemtheme.jsp</result>
+			<result name="home"  type="freemarker">./itemtheme/list_itemtheme.ftl</result>
+			<result name="view"  type="dispatcher">./itemtheme/show_itemtheme.jsp</result>
+			<result name="input" type="dispatcher">./itemtheme/edit_itemtheme.jsp</result>
+			<result name="redirect" type="redirect">itemTheme!list.jhtml?subject_code=${subject_code}&amp;grade_code=${grade_code}</result>
+		</action>
+				
+		<action name="region" class="com.ambow.trainingengine.itembank.web.action.RegionAction" >			
+			<result name="home"  type="dispatcher">./region/list_region.jsp</result>
+			<result name="view"  type="dispatcher">./region/show_region.jsp</result>
+			<result name="input" type="dispatcher">./region/edit_region.jsp</result>
+			<result name="redirect" type="redirect">region!list.jhtml</result>
+		</action>
+		<action name="subject" class="com.ambow.trainingengine.itembank.web.action.SubjectAction" >			
+			<result name="home"  type="dispatcher">./subject/list_subject.jsp</result>
+			<result name="view"  type="dispatcher">./subject/show_subject.jsp</result>
+			<result name="input" type="dispatcher">./subject/edit_subject.jsp</result>
+			<result name="redirect" type="redirect">subject!list.jhtml</result>
+		</action>
+		<action name="grade" class="com.ambow.trainingengine.itembank.web.action.GradeAction" >			
+			<result name="home2" type="dispatcher">./grade/list_grade.jsp</result>
+			<result name="home"  type="freemarker">./grade/list_grade.ftl</result>
+			<result name="view"  type="dispatcher">./grade/show_grade.jsp</result>
+			<result name="input" type="dispatcher">./grade/edit_grade.jsp</result>
+			<result name="redirect" type="redirect">grade!list.jhtml</result>			
+		</action>
+		<action name="duplicate" class="com.ambow.trainingengine.itembank.web.action.DuplicateCollectAction" >
+			<result name="menu" type="dispatcher">./check/left.jsp</result>
+			<result name="list" type="dispatcher">./check/checkDuplicate.jsp</result>
+			<result name="compare" type="dispatcher">./check/compare.jsp</result>
+			<result name="delete" type="redirect">duplicate!query.jhtml</result>				
+		</action>
+		<action name="itemStat" class="com.ambow.trainingengine.itembank.web.action.ItemStatAction" >
+			<result name="menu" type="dispatcher">./stat/left.jsp</result>
+			<result name="modelMenu" type="dispatcher">./stat/model_left.jsp</result>
+			<result name="model_stat" type="dispatcher">./stat/stat_mpc.jsp</result>
+			<result name="stat_mpc" type="dispatcher">./stat/stat_mpc.jsp</result>
+			<result name="stat_node_mpc" type="dispatcher">./stat/stat_node_mpc.jsp</result>				
+		</action>
+		<action name="itemRevise" class="com.ambow.trainingengine.itembank.web.action.ItemReviseAction" >
+			<result name="list" type="dispatcher">./item/revise_list.jsp</result>
+			<result name="listReply" type="dispatcher">./item/reply_list.jsp</result>
+			<result name="listStatus" type="dispatcher">./item/revise_status.jsp</result>
+			<result name="error" type="dispatcher">/admin/right_revise.jsp</result>
+			<result name="mpcReply" type="redirect">/mpc/exam/examWidget!itemReviseReplyWidget.jhtml?fromPage=${fromPage}&amp;itemId=${itemId}</result>
+			<result name="mpc" type="redirect">/mpc/exam/examWidget!itemReviseWidget.jhtml?itemId=${itemId}</result>
+			<result name="statistics" >./item/revise_statistics_list.jsp</result>
+			<result name="mpcReplyreviser" type="redirect">/mpc/exam/examWidget!itemReviseWidgetByreviser.jhtml?itemId=${itemId}</result>
+			<result name="statisticsdetail" >./item/revise_statisticsdetail_list.jsp</result>
+		</action>
+		
+	</package>
+</xwork>

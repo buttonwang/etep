@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean name="statFactory" class="com.ambow.trainingengine.exam.stat.StatFactory" singleton="true" >
+		<property name="statClass">
+            <map>				
+                <entry key="ky"  value-ref="statForKYBean"/>
+                <entry key="mpc" value-ref="statForMPCBean"/>
+            </map>
+        </property>
+	</bean>
+	<bean name="statForKYBean"  class="com.ambow.trainingengine.exam.stat.StatForKY"  singleton="false" />
+	<bean name="statForMPCBean" class="com.ambow.trainingengine.exam.stat.StatForMPC" singleton="false" />
+	
+	<bean name="statBaseBean" class="com.ambow.trainingengine.exam.stat.StatBase" singleton="false" />	
+</beans>

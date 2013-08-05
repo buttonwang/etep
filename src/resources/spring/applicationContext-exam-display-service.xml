@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean name="displayFactory" class="com.ambow.trainingengine.exam.display.DisplayFactory" singleton="true" >
+		<property name="displayClass">
+            <map>
+				<entry key="Z1E12A" value-ref="Z1EBean"/>
+				<entry key="Z1E13A" value-ref="Z1EBean"/>
+				<entry key="Z1E15A" value-ref="Z1EBean"/>				
+                <entry key="Z1E25A" value-ref="Z1E25ABean"/>
+                <entry key="Z1E26A" value-ref="Z1E26ABean"/>
+                <entry key="Z1E34A" value-ref="Z1EBean"/>
+                <entry key="Z1E34C" value-ref="Z1EBean"/>
+                <entry key="Z1E39A" value-ref="Z1E39Bean"/>
+                <entry key="Z1E39B" value-ref="Z1E39Bean"/>
+                <entry key="Z1E44A" value-ref="Z1E44ABean"/>
+                <entry key="Z1E47A" value-ref="Z1E47Bean"/>
+                <entry key="Z1E47B" value-ref="Z1E47Bean"/>
+                <entry key="Z1E47C" value-ref="Z1E47Bean"/>
+                <entry key="Z1E47D" value-ref="Z1E47Bean"/>
+                
+                <entry key="MPC11" value-ref="MPC11Bean"/>
+                <entry key="MPC12" value-ref="MPC12Bean"/>
+                <entry key="MPC3X" value-ref="MPC3XBean"/>
+                <entry key="MPC4X" value-ref="MPC4XBean"/>
+            </map>
+        </property>
+	</bean>
+	
+	<bean name="displayBean" class="com.ambow.trainingengine.exam.display.Display" singleton="false" />
+	<bean name="Z1EBean" class="com.ambow.trainingengine.exam.display.ky.Displayky" singleton="false" />
+	<bean name="Z1E25ABean" class="com.ambow.trainingengine.exam.display.ky.Display25A" singleton="false" />
+	<bean name="Z1E26ABean" class="com.ambow.trainingengine.exam.display.ky.Display26A" singleton="false" />
+	<bean name="Z1E39Bean" class="com.ambow.trainingengine.exam.display.ky.Display39" singleton="false" />
+	<bean name="Z1E44ABean" class="com.ambow.trainingengine.exam.display.ky.Display44A" singleton="false" />
+	<bean name="Z1E47Bean" class="com.ambow.trainingengine.exam.display.ky.Display47" singleton="false" />
+	
+	<bean name="MPC11Bean" class="com.ambow.trainingengine.exam.display.mpc.DisplaySingleChoose" singleton="false" />
+	<bean name="MPC12Bean" class="com.ambow.trainingengine.exam.display.mpc.DisplayManyChoose" singleton="false" />
+	<bean name="MPC3XBean" class="com.ambow.trainingengine.exam.display.mpc.DisplaySingleFill" singleton="false" />
+	<bean name="MPC4XBean" class="com.ambow.trainingengine.exam.display.mpc.DisplayManyFill" singleton="false" />
+</beans>

@@ -1,0 +1,204 @@
+
+
+/*
+form,ul,li{
+color:#444444;
+font-size:12px;
+font-weight:normal;
+line-height:160%;
+margin:0;
+padding:0;
+}
+*/
+.submitWordForm{
+	color:#444444;
+	font-size:12px;
+	font-weight:normal;
+	line-height:160%;
+	margin:0;
+	padding:0;
+}
+
+.submitWordForm.ul{
+	color:#444444;
+	font-size:12px;
+	font-weight:normal;
+	line-height:160%;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
+.submitWordForm.li{
+	color:#444444;
+	font-size:12px;
+	font-weight:normal;
+	line-height:160%;
+	margin:0;
+	padding:0;
+}
+
+.btn{
+color:#444444;
+font-size:12px;
+font-weight:normal;
+line-height:160%;
+margin:0;
+padding:0;
+}
+
+.addwordbtn {
+position:absolute;
+color:#444444;
+font-size:12px;
+font-weight:normal;
+line-height:160%;
+margin:0;
+padding:0;
+}
+.addwordbtn a img {
+opacity:0.8;
+border:0 none;
+
+}
+.addwordbtn a:hover img {
+opacity:1;
+border-color:#60AB0D;
+}
+
+.addwordbtn a {
+color:#62AB0E;
+text-decoration:underline;
+}
+.addwordbtn a:hover {
+color:#444444;
+}
+
+.close {
+background:transparent url(../images/addw_bg_box.png) no-repeat scroll 0 0;
+cursor:default;
+height:14px;
+padding:5px 5px 6px 6px;
+}
+.move {
+cursor:move;
+}
+
+.close span {
+color:#2C71AF;
+display:block;
+float:left;
+line-height:12px;
+padding-top:2px;
+}
+.close a {
+background:transparent url(../images/addw_close.gif) no-repeat scroll 50% 0;
+display:block;
+float:right;
+height:14px;
+overflow:hidden;
+text-indent:-100px;
+width:14px;
+}
+.close a:hover {
+background-position:50% -14px;
+}
+
+
+
+.addwordform {
+background:transparent url(../images/addw_bg_box.png) repeat scroll 100% 100%;
+height:auto;
+_height:167;
+min-height:167;
+overflow:hidden;
+padding-bottom:5px;
+position:absolute;
+width:480px;
+z-index:9;
+}
+.addwordform ul {
+height:100px;
+padding:0 6px;
+width:468px;
+}
+
+
+.addwordform li {
+clear:both;
+padding-bottom:3px;
+padding-top:3px;
+width:468px;
+}
+.addwordform li label {
+display:block;
+float:left;
+font-weight:bold;
+margin:0;
+padding:2px 0 0;
+text-align:right;
+width:60px;
+}
+.addwordform li input {
+display:block;
+float:right;
+width:400px;
+}
+.addwordform li textarea {
+display:block;
+float:right;
+height:80px;
+width:400px;
+}
+.addwordform li span {
+color:#999999;
+display:block;
+padding-left:40px;
+}
+.addwordform li input#IsShare {
+float:left;
+margin-top:3px !important;
+}
+.addwordform div.btns {
+padding-left:42px;
+padding-top:5px;
+}
+.addwordform div.btns input.btn {
+margin-left:6px;
+}
+
+
+input.btn {
+background-color:#CCCCCC;
+border-color:#DDDDDD #AAAAAA #AAAAAA #DDDDDD;
+border-style:solid;
+border-width:1px;
+color:#555555;
+cursor:pointer;
+padding:2px 6px;
+}
+input.btn:hover, input.bhover {
+background-color:#DDDDDD;
+}
+
+textarea.txt {
+border:1px solid #BABABA;
+padding:3px;
+}
+textarea.txt:hover, textarea.thover {
+background-color:#F2F2F2;
+}
+
+.btns a, a.btn {
+background-color:#CCCCCC;
+border-color:#DDDDDD #AAAAAA #AAAAAA #DDDDDD;
+border-style:solid;
+border-width:1px;
+color:#555555;
+display:-moz-inline-box;
+padding:2px 12px;
+text-decoration:none;
+}
+.btns a:hover, a.btn:hover, .btns a.hover, a.hover {
+background-color:#DDDDDD;
+}

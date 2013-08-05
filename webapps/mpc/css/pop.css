@@ -1,0 +1,33 @@
+.pop {
+	display: inline;
+  color: #444;
+  position: absolute;
+  width:200px;
+  height:auto;}
+/*.pop p{ padding-top:10px;}*/
+  /*.pop .pop_menu {
+    display: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px; }
+  .pop .pop_toggle {
+    background-image: url(../images/arrow-down.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 23px;
+    height: 20px;
+    overflow: hidden;
+    cursor: pointer; }*/
+
+.pop_menu {
+	background:url(../images/arrow-up.gif) no-repeat 5px 3px;
+  display: block;
+  background-color: #f3f3f3;
+  color: #444;
+  padding:30px 5px 5px 10px;
+  position: absolute;
+  left:-6px;
+  top:-3px;
+  width:200px;
+  height:auto;
+  border:#ccc 1px solid;}
+.pop_menu input{ margin:5px 10px 0 0; height:18px; padding:1px 2px;}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="mpcexam" namespace="/mpc/exam" extends="default">
+		<action name="goExam" class="com.ambow.trainingengine.exam.web.action.GoExamAction">
+			<result name="success"  type="dispatcher">begin.jsp</result>
+			<result name="overview" type="dispatcher">overview.jsp</result>
+			<result name="skip" type="redirect">../report/study_skipping.jsp</result>
+		</action>
+		
+		<action name="overView" class="com.ambow.trainingengine.exam.web.action.OverViewExamAction">
+			<result name="success" type="dispatcher">overview.jsp</result>
+		</action>
+		
+		<action name="showExam" class="com.ambow.trainingengine.exam.web.action.ShowExamAction">
+			<!--控制参数 -->
+			<result name="overView" type="redirect">overView.jhtml</result>
+			<result name="submitPaper" type="redirect">subjectiveIyScore.jhtml</result>
+			<result name="pause">test.jsp</result>
+			
+			<!--数理化-->
+			<result name="MPC11" type="dispatcher">single_choose.jsp</result>
+			<result name="MPC12" type="dispatcher">many_choose.jsp</result>
+			<result name="MPC3X" type="dispatcher">single_fill.jsp</result>
+			<result name="MPC4X" type="dispatcher">many_fill.jsp</result>
+
+		</action>
+		
+		<action name="doExam" class="com.ambow.trainingengine.exam.web.action.DoExamAction">
+			<result name="resultOverview" type="dispatcher">test.jsp</result>
+			<result name="nextPage" type="redirect">showExam.jhtml?pageNum=${nextPageNum}</result>
+			<result name="overView" type="redirect">overView.jhtml</result>
+			<result name="filter" type="redirect">showExam.jhtml?pageNum=0</result>
+			<result name="pause" type="redirect">../web/loadSessionVar!mpc.jhtml</result>
+			<result name="extpause" type="redirect">../report/reportMain.jhtml?showListType=5&amp;nodeInstanceId=${nodeInstanceId}</result>
+			<result name="subjectScore" type="redirect">subjectiveIyScore.jhtml</result>
+		</action>
+		
+		<action name="subjectiveIyScore" class="com.ambow.trainingengine.exam.web.action.SubjectiveIyScoreAction">
+			<result name="subjective" type="dispatcher">test.jsp</result>
+			<result name="writingScore" type="dispatcher">writing_score.jsp</result>
+			<result name="success" type="redirect">result.jhtml</result>
+		</action>
+		
+		<action name="result" class="com.ambow.trainingengine.exam.web.action.ExamResultAction">
+			<result name="EXAM" 	 type="dispatcher">result_test.jsp</result>
+			<result name="EVALUATE"  type="dispatcher">result_evaluate.jsp</result>
+			<result name="PHASETEST" type="dispatcher">result_phasetest.jsp</result>
+			<result name="PRACTICE"  type="dispatcher">result_practice.jsp</result>
+			<result name="UNITTEST"  type="dispatcher">result_unittest.jsp</result>
+			<result name="resultOverview"  type="dispatcher">test.jsp</result>
+			<result name="WEAKNESSENHANCE" type="dispatcher">result_weaknessenhance.jsp</result>
+			<result name="EXTPRATICE" type="dispatcher">result_extpratice.jsp</result>
+		</action>
+		
+		<action name="viewExam" class="com.ambow.trainingengine.exam.web.action.ViewExamAction">
+			<result name="success" type="dispatcher">overview2.jsp</result>
+		</action>
+		
+		<action name="reviseExam" class="com.ambow.trainingengine.exam.web.action.ReviseExamAction">
+			<result name="revise" type="dispatcher">revise_show.jsp</result>
+			<result name="reviseReplay" type="dispatcher">reply_item.jsp</result>
+		</action>
+		
+		<action name="examWidget" class="com.ambow.trainingengine.exam.web.action.ExamWidgetAction">
+			<result name="MPC11" type="dispatcher">widget_single_choose.jsp</result>
+			<result name="MPC12" type="dispatcher">widget_many_choose.jsp</result>
+			<result name="MPC3X" type="dispatcher">widget_single_fill.jsp</result>
+			<result name="MPC4X" type="dispatcher">widget_many_fill.jsp</result>
+			<result name="revise" type="dispatcher">revise_show.jsp</result>
+			<result name="reviseSimple" type="dispatcher">revise_show_simple.jsp</result>
+			<result name="reviseReplay" type="dispatcher">reply_item.jsp</result>
+			<result name="reviseList" type="redirect">/admin/itembank/itemRevise!toQuery.jhtml</result>
+			<result name="reviseReplyList" type="redirect">/admin/itembank/itemRevise!toQueryReply.jhtml?fromPage=${fromPage}</result>
+			<result name="StudyGuideWidget" type="dispatcher">../studyguide/study_guide_sections_items.jsp</result>
+			<result name="reviseReplayreviser" type="dispatcher">reply_reviser_item.jsp</result>
+			<result name="statisticsList" type="redirect">/admin/itembank/itemRevise!toStatistics.jhtml</result>
+		</action>
+		
+		<action name="setpage" class="com.ambow.trainingengine.exam.web.action.SetpageAction">
+			<result name="success" type="dispatcher">setpage.jsp</result>
+			<result name="save" type="redirect">setpage.jhtml</result>
+		</action>
+	</package>
+</xwork>

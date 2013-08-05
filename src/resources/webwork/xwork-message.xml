@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="message" namespace="/message" extends="default">
+		
+		<action name="adminMessage" class="com.ambow.trainingengine.message.web.action.AdminMessageAction">
+			<result name="list" type="dispatcher">/admin/message/list_message.jsp</result>
+			<result name="addBefore" type="dispatcher">/admin/message/add_message.jsp</result>
+		    <result name="add" type="redirect">/message/adminMessage!list.jhtml</result>
+			<result name="delete" type="redirect">/message/adminMessage!list.jhtml?source=${source}&amp;content=${content}</result>
+			<result name="modifyBefore" type="dispatcher">/admin/message/modify_message.jsp</result>
+			<result name="modify" type="redirect">/message/adminMessage!list.jhtml?source=${source}&amp;content=${content}</result>
+		</action>
+	</package>
+</xwork>

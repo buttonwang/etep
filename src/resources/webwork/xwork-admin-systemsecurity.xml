@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="admin" namespace="/admin" extends="default">
+		<action name="adminLogin" class="com.ambow.trainingengine.systemsecurity.web.action.AdminLoginAction">
+			<result name="success" type="dispatcher">/admin/index.jsp</result>
+			<result name="input" type="dispatcher">/admin/login.jsp</result>
+			<result name="itemRevise" type="dispatcher">/admin/index_revise.jsp</result>
+		</action>
+		<action name="adminLogout" class="com.ambow.trainingengine.systemsecurity.web.action.AdminLogoutAction">
+			<result name="success" type="dispatcher">/admin/logout.jsp</result>
+		</action>
+		<action name="adminManage" class="com.ambow.trainingengine.systemsecurity.web.action.AdminManageAction" method="list">
+			<result name="list" type="dispatcher">/admin/systemsecurity/user/listAdminUser.jsp</result>
+			<result name="add" type="dispatcher">/admin/systemsecurity/user/addOrEditAdminUser.jsp</result>
+			<result name="info" type="dispatcher">/admin/systemsecurity/user/InfoAdminUser.jsp</result>
+			<result name="psedit" type="dispatcher">/admin/systemsecurity/user/EditPassword.jsp</result>
+		</action>
+		<action name="roleManage" class="com.ambow.trainingengine.systemsecurity.web.action.RoleManageAction" method="list">
+			<result name="list" type="dispatcher">/admin/systemsecurity/role/listRole.jsp</result>
+			<result name="add" type="dispatcher">/admin/systemsecurity/role/addOrEditRole.jsp</result>
+			<result name="info" type="dispatcher">/admin/systemsecurity/role/InfoRole.jsp</result>
+			<result name="addFunction" type="freemarker">/admin/systemsecurity/role/addFunction.jsp</result>
+			<result name="error" type="dispatcher">/admin/systemsecurity/role/subjectAndGrade_error.jsp</result>
+            <result name="success" type="dispatcher">/admin/systemsecurity/role/subjectAndGrade.jsp</result>
+		</action>
+		<action name="moduleManage" class="com.ambow.trainingengine.systemsecurity.web.action.ModuleManageAction" method="list">
+			<result name="list" type="freemarker">/admin/systemsecurity/module/listModule.jsp</result>
+			<result name="add" type="dispatcher">/admin/systemsecurity/module/addOrEditModule.jsp</result>
+			<result name="info" type="dispatcher">/admin/systemsecurity/module/InfoModule.jsp</result>
+		</action>
+		<action name="functionManage" class="com.ambow.trainingengine.systemsecurity.web.action.FunctionManageAction" method="list">
+			<result name="list" type="dispatcher">/admin/systemsecurity/function/listFunction.jsp</result>
+			<result name="add" type="dispatcher">/admin/systemsecurity/function/addOrEditFunction.jsp</result>
+			<result name="info" type="dispatcher">/admin/systemsecurity/function/InfoFunction.jsp</result>
+		</action>
+		
+		<action name="roleSbujectGradeManager" class="com.ambow.trainingengine.systemsecurity.web.action.RoleSbujectGradeManagerAction">
+            <result name="error" type="dispatcher">/admin/systemsecurity/role/subjectAndGrade_error.jsp</result>
+            <result name="success" type="dispatcher">/admin/systemsecurity/role/subjectAndGrade.jsp</result>            
+        </action>
+	</package>
+</xwork>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="web" namespace="/web" extends="default">
+		
+			<!-- 平台入口-->
+		<action name="loginFlow" class="com.ambow.trainingengine.web.action.LoginFlowAction">
+			<!-- 跳转到考试业务主流程 -->	
+						
+			<result name="success" type="redirect">../${projectVersion}/web/loadSessionVar!${projectVersion}.jhtml</result>
+			<!--
+			<result name="success" type="chain">
+				<param name="actionName">loadSessionVar</param>
+				<param name="namespace">/${projectVersion}</param>
+			</result>			
+				-->
+			<!-- 跳转到跳转到其他未知错误流程 -->
+			<interceptor-ref name="noLoginDefault"></interceptor-ref>
+		</action>
+			<!--	
+		<action name="loadSessionVar" class="com.ambow.trainingengine.web.action.LoadSessionVarAction">
+			<result name="success" type="chain">mainPage</result>
+			<result name="report" type="redirect">../report/reportMain.jhtml?nodeInstanceId=${nodeInstanceId}&amp;showListType=${showListType}</result>
+		</action>
+		<action name="mainPage" class="com.ambow.trainingengine.web.action.MainPageAction">
+			<result name="success" type="dispatcher">../${projectVersion}/web/main_page.jsp</result>
+		</action>
+		<action name="orderInfo" class="com.ambow.trainingengine.web.action.OrderInfoAction">
+			<result name="success" type="dispatcher">../${projectVersion}/web/order_info.jsp</result>
+		</action>
+		<action name="starPaper" class="com.ambow.trainingengine.web.action.StarPaperAction">
+			<result name="success" type="dispatcher">../${projectVersion}/web/star_paper.jsp</result>
+		</action>
+		<action name="studyTask" class="com.ambow.trainingengine.web.action.StudyTaskAction">
+			<result name="success" type="dispatcher">../${projectVersion}/web/more_study.jsp</result>
+		</action>
+		-->
+	</package>
+</xwork>

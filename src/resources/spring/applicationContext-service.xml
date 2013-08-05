@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<!--
+	<bean name="validateService" class="com.ambow.flowExample.service.ValidateService"/>
+	<bean name="jobService" class="com.ambow.flowExample.service.JobService"/>
+	-->
+
+	<bean name="methodTechniqueService" class="com.ambow.trainingengine.methodtechnique.service.MethodTechniqueService"/>
+	
+	<bean name="bugInfoHistoryAnswerStatusService" class="com.ambow.trainingengine.bug.service.BugInfoHistoryAnswerStatusService"/>
+    <bean name="bugService" class="com.ambow.trainingengine.bug.service.BugService"/> 
+	<bean name="attentionService" class="com.ambow.trainingengine.attention.service.AttentionService">
+       <property name="bugSerivce" ref="bugService"/> 
+    </bean>
+    
+	<bean name="processService" class="com.ambow.studyflow.service.impl.ProcessService"/>
+	<bean name="genService" class="com.ambow.core.dao.HibernateGenericDao"/>
+	
+	<bean name="examFlowService" class="com.ambow.trainingengine.exam.service.ExamFlowService"/>
+	<bean name="examItemService" class="com.ambow.trainingengine.exam.service.ExamItemService"/>
+	<bean name="examAnswerService" class="com.ambow.trainingengine.exam.service.ExamAnswerService"/>
+	<bean name="examViewService" class="com.ambow.trainingengine.exam.service.ExamViewService"  />
+	<bean name="addWordService" class="com.ambow.trainingengine.exam.service.ExamFreshWordService"/>
+	<bean name="examWidgetService" class="com.ambow.trainingengine.exam.service.ExamWidgetService"/>
+	
+	<bean name="paperService" class="com.ambow.trainingengine.itembank.service.PaperService"/>
+	<bean name="paperTypeService" class="com.ambow.trainingengine.itembank.service.PaperTypeService"/>
+	<bean name="paperCategoryService" class="com.ambow.trainingengine.itembank.service.PaperCategoryService"/>
+	
+	<bean name="parseItemService" class="com.ambow.trainingengine.itembank.service.ParseItemService"/>
+	<bean name="exportItemService" class="com.ambow.trainingengine.itembank.service.ExportItemService">
+		<property name="templetFile" value="item_templet.xls"/>
+   		<property name="exportFile"  value="item.xls"/>
+	</bean>
+
+	<bean name="changeItemImageService" class="com.ambow.trainingengine.itembank.service.ChangeItemImageService">
+		<property name="imgPath" value="/ete/upload"/>	
+	</bean>
+	<bean name="itemService" class="com.ambow.trainingengine.itembank.service.ItemService"/>
+	<bean name="itemReviseService" class="com.ambow.trainingengine.itembank.service.ItemReviseService"/>
+	<bean name="itemTypeService" class="com.ambow.trainingengine.itembank.service.ItemTypeService"/>
+	<bean name="mpcexportItemService" class="com.ambow.trainingengine.itembank.service.MPCExportItemService">
+		<property name="templetFile" value="mpc_item_templet.xls"/>
+   		<property name="exportFile"  value="item.xls"/>
+	</bean>
+	<bean name="knowledgePointService" class="com.ambow.trainingengine.itembank.service.KnowledgePointService"/>
+	<bean name="modelService" class="com.ambow.trainingengine.itembank.service.ModelService"/>
+	<bean name="modelKnowledgePointService" class="com.ambow.trainingengine.itembank.service.ModelKnowledgePointService"/>
+	<bean name="itemThemeService" class="com.ambow.trainingengine.itembank.service.ItemThemeService"/>
+	<bean name="utilForGradeSubjectService" class="com.ambow.trainingengine.itembank.service.UtilForGradeSubjectService"/>
+    
+	<bean name="regionService" class="com.ambow.trainingengine.itembank.service.RegionService"/>
+	<bean name="subjectService" class="com.ambow.trainingengine.itembank.service.SubjectService"/>
+	<bean name="gradeService" class="com.ambow.trainingengine.itembank.service.GradeService"/>
+	
+	<bean name="subItemService" class="com.ambow.trainingengine.itembank.service.SubItemService"/>
+	<bean name="answerOptionService" class="com.ambow.trainingengine.itembank.service.AnswerOptionService"/>
+	
+	<bean name="parseWordService" class="com.ambow.trainingengine.wordbank.service.ParseWordService"/>
+	<bean name="wordBasicService" class="com.ambow.trainingengine.wordbank.service.WordBasicService"/>
+	<bean name="wordExtensionService" class="com.ambow.trainingengine.wordbank.service.WordExtensionService"/>
+	
+	<bean name="mainPageService" class="com.ambow.trainingengine.web.service.MainPageService"/>
+	<bean name="loginService" class="com.ambow.trainingengine.web.service.LoginService"/>
+	<bean name="studyTaskService" class="com.ambow.trainingengine.web.service.StudyTaskService"/>
+	<bean name="reportService" class="com.ambow.trainingengine.report.service.ReportService"/>
+	<bean name="freshWordService" class="com.ambow.trainingengine.freshword.service.FreshWordService"/>
+	<bean name="adminManageService" class="com.ambow.trainingengine.systemsecurity.service.AdminManageService"/>
+	<bean name="roleManageService" class="com.ambow.trainingengine.systemsecurity.service.RoleManageService"/>
+	<bean name="moduleManageService" class="com.ambow.trainingengine.systemsecurity.service.ModuleManageService"/>
+	<bean name="functionManageService" class="com.ambow.trainingengine.systemsecurity.service.FunctionManageService"/>
+	<bean name="securityService" class="com.ambow.trainingengine.systemsecurity.service.SecurityService"/>
+	
+	<bean name="webUserService" class="com.ambow.trainingengine.report.service.adviser.WebUserService"/>
+	<bean name="userAnswerService" class="com.ambow.trainingengine.report.service.adviser.UserAnswerService"/>
+	<bean name="adviserService" class="com.ambow.trainingengine.report.service.adviser.AdviserService"/>
+	
+	<bean name="itemDuplicateService" class="com.ambow.trainingengine.itembank.service.ItemDuplicateService"/>
+
+	<bean name="appExceptionInterceptor" class="com.ambow.trainingengine.web.interceptor.AppExceptionInterceptor"/>
+	
+	<bean name="setpageService" class="com.ambow.trainingengine.exam.service.SetpageService"/>
+	
+	<bean name="consolidateService" class="com.ambow.trainingengine.report.service.ConsolidateService"/>
+	
+	<bean name="consolidateAdviserService" class="com.ambow.trainingengine.report.service.ConsolidateAdviserService"/>
+													
+	<bean name="extraService" class="com.ambow.trainingengine.report.service.ExtraService"/>
+	
+	<bean name="counselingService" class="com.ambow.trainingengine.report.service.CounselingService"/>
+	
+	<bean name="teacherManagerService" class="com.ambow.trainingengine.report.service.TeacherManagerService"/>
+	
+	<bean name="membershipPointService" class="com.ambow.trainingengine.exam.service.MembershipPointService"/>
+	
+	<bean name="parseStudyGuideService" class="com.ambow.trainingengine.studyguide.service.ParseStudyGuideService">
+   		<property name="resourcePath"  value="/resource/studyguide"/>
+	</bean>
+	<bean name="studyGuideService" class="com.ambow.trainingengine.studyguide.service.StudyGuideService"/>
+	<bean name="showStudyGuideService" class="com.ambow.trainingengine.studyguide.service.ShowStudyGuideService"/>
+	<bean name="messageService" class="com.ambow.trainingengine.message.service.MessageService"/>
+	<bean name="myPointService" class="com.ambow.trainingengine.point.service.MyPointService"/>
+</beans>

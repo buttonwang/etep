@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="message" namespace="/mpc/message" extends="default">
+		
+		<action name="adminMessage" class="com.ambow.trainingengine.message.web.action.AdminMessageAction">
+			<result name="list" type="dispatcher">/admin/message/list_message.jsp</result>
+			<result name="addBefore" type="dispatcher">/admin/message/add_message.jsp</result>
+		    <result name="add" type="redirect">/mpc/message/adminMessage!list.jhtml</result>
+			<result name="deploy" type="redirect">/mpc/message/adminMessage!list.jhtml</result>
+			<result name="delete" type="redirect">/mpc/message/adminMessage!list.jhtml?source=${source}&amp;content=${content}</result>
+			<result name="modifyBefore" type="dispatcher">/admin/message/modify_message.jsp</result>
+			<result name="modify" type="redirect">/mpc/message/adminMessage!list.jhtml?source=${sourceModify}&amp;content=${contentModify}</result>
+		</action>
+		
+		<action name="message" class="com.ambow.trainingengine.message.web.action.MessageAction">
+			<result name="list" type="dispatcher">/mpc/message/list.jsp</result>
+			<result name="delete" type="redirect">/mpc/message/message!list.jhtml?source=${source}</result>
+		</action>
+	</package>
+</xwork>

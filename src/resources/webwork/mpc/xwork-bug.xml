@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="bug" namespace="/mpc/bug" extends="default">
+		<action name="bug" class="com.ambow.trainingengine.bug.web.action.BugAction">            
+            <result name="showItemBugInfoHistoryAnswerStatus" type="redirect">bugInfoHistoryAnswerStatus!showItemBugInfoHistoryAnswerStatus.jhtml?p.para.itemId=${p.type}</result>
+            <result name="success_addBugInfo" type="dispatcher">success_addBugInfo.jsp</result>
+            <result name="success_replyBugInfo" type="dispatcher">success_addBugInfo.jsp</result> 
+            <result name="jsp" type="dispatcher">${jsp}.jsp</result>
+            <interceptor-ref name="noLoginDefault"></interceptor-ref>
+        </action>
+	</package>
+</xwork>

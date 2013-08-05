@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+    <package name="attentionAdmin" namespace="/admin/attention" extends="default">
+        <action name="attentionAdmin" class="com.ambow.trainingengine.attention.web.action.AttentionAction">            
+            <result name="showByAdmin" type="dispatcher">showByAdmin.jsp</result>
+            <result name="listByAdmin" type="dispatcher">listByAdmin.jsp</result>
+            <result name="jsp" type="dispatcher">${jsp}.jsp</result>
+            <interceptor-ref name="noLoginDefault"></interceptor-ref>
+        </action>
+    </package>
+</xwork>

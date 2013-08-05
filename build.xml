@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ambow-core" default="usage" xmlns:artifact="urn:maven-artifact-ant">
+    <property file="build.properties"/>
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="lib/ant-contrib.jar"/>
+        </classpath>
+    </taskdef>
+    <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant">
+        <classpath>
+            <pathelement location="lib/maven-artifact-ant-2.0.4-dep.jar"/>
+        </classpath>
+    </typedef>
+    <artifact:pom file="pom.xml" id="maven.project"/>
+	
+    <tstamp>
+        <format property="datestamp" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    <!--
+      初始化目录    -->
+    <target name="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${release.dir}" />
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${release.dir}"/>
+    </target>
+
+	<!--
+         使用Maven2管理jar
+    -->
+    <target name="jar" description="使用Maven2管理jar">
+		<echo message="正在删除以前老的jar 包" />
+		<delete dir="${web.dir}/WEB-INF/lib"/>
+		
+        <copy todir="${web.dir}/WEB-INF/lib">
+            <fileset id="runtimeFiles" dir="lib">
+                <include name="**/*.jar"/>
+            </fileset>
+            <mapper type="flatten"/>
+        </copy>
+        <echo message="正在使用Maven2管理jar...."/>
+
+        <sequential>
+
+            <artifact:dependencies filesetId="runtime.fileset" useScope="runtime">
+                <pom refid="maven.project"/>
+            </artifact:dependencies>
+
+            <artifact:dependencies filesetId="all.fileset">
+                <pom refid="maven.project"/>
+            </artifact:dependencies>
+
+            <!--复制maven中scope为runtime的jar到WEB-INF-->
+            <copy todir="${web.dir}/WEB-INF/lib">
+                <fileset refid="runtime.fileset"/>
+                <mapper type="flatten"/>
+            </copy>
+
+        </sequential>
+	</target>
+	
+    <target name="usage">
+        <echo message="Ambow Build 文件"/>
+        <echo message="------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message="可选Target:"/>
+        <echo message=""/>
+        <echo message="jar   --&gt; 初始化、更新项目jar 包"/>
+        <echo message=""/>
+        <input message="请选择一个Target "
+               validargs="jar,compile,war,zip"
+               addproperty="ant.task"/>
+        <antcall target="${ant.task}"/>
+    </target>
+
+	<!-- 编译的Class Path -->
+    <artifact:dependencies pathId="compile.classpath">
+        <pom refid="maven.project"/>
+    </artifact:dependencies>
+	
+    <property name="compiler.args" value="-encoding UTF-8"/>
+
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.script"/>
+		<include name="**/?*.js"/>
+        <include name="**/?*.ftl"/>
+		<include name="**/?*.jsp"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.html"/>
+		<include name="**/?*.htm"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+		<include name="**/?*.dic"/>
+    </patternset>
+
+	<!-- 编译Java文件并复制资源文件 -->
+    <target name="compile" depends="init" description="编译Java文件并复制资源文件">
+        <fail message="Must Set the JAVA_HOME to JDK5.0">
+            <condition>
+                <not>
+                    <equals arg1="${ant.java.version}" arg2="1.5"/>
+                </not>
+            </condition>
+        </fail>
+
+		<path id="my.compile.classpath">
+			<path refid="compile.classpath" />
+			<fileset dir="lib" includes="*.jar" />
+		</path>
+		<!--编译Java 文件-->
+        <javac destdir="${build.dir}" fork="true" debug="true">
+            <compilerarg line="${compiler.args}"/>
+            <classpath refid="my.compile.classpath"/>
+            <src path="${src.dir}"/>
+        </javac>
+
+        <!--复制资源文件到classes-->
+        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <patternset refid="compiler.resources"/>
+            </fileset>
+            <fileset dir="${resource.dir}">
+                <patternset refid="compiler.resources"/>
+            </fileset>
+        </copy>
+
+     </target>
+
+	<!-- 生成war文件 -->
+    <target name="war" depends="compile,jar" description="生成war文件">
+        <property name="release.warfile" value="${release.dir}/${project.name}.war"/>
+
+        <!--复制到一个新的文件夹创建War-->
+        <property name="temp.dir" value="${release.dir}/deploy"/>
+
+        <delete file="${release.warfile}"/>
+
+        <mkdir dir="${temp.dir}"/>
+
+		<!-- 采用模式使现在的编译支持jdk1.4 规范 -->
+        <if>
+            <equals arg1="${war14}" arg2="true"/>
+            <then>
+                <antcall target="war14-task"/>
+            </then>
+            <else>
+                <copy todir="${temp.dir}">
+                    <fileset dir="${web.dir}"/>
+                </copy>
+                <copy todir="${temp.dir}/WEB-INF/classes">
+                    <fileset dir="${build.dir}"/>
+                </copy>
+            </else>
+        </if>
+
+        <war destfile="${release.warfile}" webxml="${temp.dir}/WEB-INF/web.xml" basedir="${temp.dir}"
+             excludes="**/web.xml">
+            <manifest>
+                <attribute name="Author" value="${project.author}"/>
+                <section name="Shared">
+                    <attribute name="Vendor" value="${project.author}"/>
+                    <attribute name="Version" value="${project.version}"/>
+                    <attribute name="Date" value="${datestamp}"/>
+                </section>
+
+                <section name="Copyright">
+                    <attribute name="Copy" value="(C) ${project.author} 2007"/>
+                </section>
+            </manifest>
+        </war>
+        <delete dir="${temp.dir}"/>
+    </target>
+
+	<target name="zip" depends="compile" description="打包成zip 文件">
+        <property name="release.zipfile" value="${release.dir}/${project.name}.zip"/>
+
+        <!--复制到一个新的文件夹创建War-->
+        <property name="temp.dir" value="${release.dir}/deploy"/>
+
+        <delete file="${release.warfile}"/>
+
+        <mkdir dir="${temp.dir}"/>
+
+		<!-- 采用模式使现在的编译支持jdk1.4 规范 -->
+        <if>
+            <equals arg1="${war14}" arg2="true"/>
+            <then>
+                <antcall target="war14-task"/>
+            </then>
+            <else>
+                <copy todir="${temp.dir}">
+                    <fileset dir="${web.dir}"/>
+                </copy>
+                <copy todir="${temp.dir}/WEB-INF/classes">
+                    <fileset dir="${build.dir}"/>
+                </copy>
+            </else>
+        </if>
+		
+		<zip destfile="${release.zipfile}" basedir="${temp.dir}" compress="true" />
+		<delete dir="${temp.dir}"/>
+	</target>
+
+</project>
