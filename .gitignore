@@ -1,2 +1,6 @@
 docs/*
 work/*
+webapps/WEB-INF/*
+webapps/upload/*
+webapps/log/*
+
