@@ -411,7 +411,7 @@ zz.moveTo(LeftPosition,TopPosition);
   <!--End left-->
   <div class="clear"></div>
 </div>
-<div id="footde" class="wm950"><span>Copyright © 2010</span>Ambow Education Group <a href="http://www.ambow.com.cn" target="_blank"></a> <span>版权所有</span></div>
+<div id="footde" class="wm950"><span>Copyright © 2013</span>  <span>版权所有</span></div>
 	
 <script language="JavaScript" src="../js/ocscript.js" type="text/javascript"></script>
 </body>

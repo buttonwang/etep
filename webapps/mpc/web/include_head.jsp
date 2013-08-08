@@ -19,12 +19,12 @@
 				<ul style="">
 					<li><a href="../message/message!list.jhtml?source=-1">我的消息</a></li>
 					<li><a href="../point/myPointAction.jhtml">我的积分</a></li>
-					<li><a href="../studyguide/showStudyGuideAction.jhtml">学习指导红宝书</a></li>
-				    <li><a href="../bug/bug!listDifferentItemBugInfoHistoryAnswerStatus.jhtml?b.bugInfo.status=1">捉虫记录</a></li>
+					<!-- <li><a href="../studyguide/showStudyGuideAction.jhtml">学习指导红宝书</a></li> -->
+				    <!-- <li><a href="../bug/bug!listDifferentItemBugInfoHistoryAnswerStatus.jhtml?b.bugInfo.status=1">捉虫记录</a></li> -->
 				    <li><a href="../attention/myAttention.jhtml">我关注的试题</a></li>
 				    <li><a href="../exam/setpage.jhtml">更改答题版式</a></li>
-				   	<li><a href="../web/training.jsp" target="_blank">填空题输入练习</a></li>
-				   	<li><a href="../../download/ambow_ete_setup.exe">学习环境软件下载</a></li>
+				   	<!-- <li><a href="../web/training.jsp" target="_blank">填空题输入练习</a></li>
+				   	<li><a href="../../download/ambow_ete_setup.exe">学习环境软件下载</a></li> -->
 				</ul>
 			</div>
 			</div>

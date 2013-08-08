@@ -27,6 +27,8 @@ function goToStudyNew(userId,loginName,userName,classId,gradeId,refId,flag){
 <br>
 王伟 ambow-test01：
 <a href="login.jsp?userID=t000000000001&loginName=ambow-test01&userName=王伟w&classCode=t00000000001&moduleID=100000000001&refID=627&gradeID=100000000001">登陆</a>
+王伟2 ambow-test02：
+<a href="login.jsp?userID=t000000000002&loginName=ambow-test02&userName=王伟2&classCode=t00000000001&moduleID=100000000001&refID=627&gradeID=100000000001">登陆</a>
 
 <table width="100%">
 <tr>

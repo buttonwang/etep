@@ -891,7 +891,10 @@ public class AttentionService extends HibernateEntityDao<ItemAttention> {
 		sqlBuff.append("from asf_node_instance a ");
 		sqlBuff.append("left join asf_node b on a.node_id=b.id ");
 		sqlBuff.append("where a.process_instance_id=? and b.node_type='GROUP' ");
-		sqlBuff.append("and b.order_num in("+orderNumArr+") ");
+		if(orderNumArr != null && !orderNumArr.equals("")){
+			sqlBuff.append(" and b.order_num in("+orderNumArr+") ");
+		}
+		//sqlBuff.append("and b.order_num in("+orderNumArr+") ");
 		sqlBuff.append("order by order_num ");
 
 		List<Map<String, Object>> mapList = this.getJdbcTemplate().queryForList(sqlBuff.toString(), processInstanceId);

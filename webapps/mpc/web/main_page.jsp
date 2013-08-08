@@ -4,12 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html XMLNS:m="http://www.w3.org/1998/Math/MathML">
 <head>
-<OBJECT
-      ID=MathPlayer
-      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"
->
-</OBJECT>
-<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
 <title>${userDataVO.processCategoryName}_${userDataVO.processName}</title>
 <link href="../css/index.css" rel="stylesheet" type="text/css" />
 <link href="../css/calendar-blue.css" rel="stylesheet" type="text/css" />
@@ -31,18 +25,17 @@
 .btn_content a{display:block;width:14px; padding:10px 13px;margin:auto;}
 .nowarpbox li{width:260px; white-space:nowrap; text-overflow:ellipsis; overflow: hidden;}
 </STYLE>
+<!--[if IE]>
 
-	<!--[if IE]>
+	<STYLE type="text/css">
 
-		<STYLE type="text/css">
+	.btn_container { position: relative; }
+	.btn_pos { position: absolute; top: 50%; }
+	.btn_content { position: relative; top: -50%;text-align:center;}
 
-		.btn_container { position: relative; }
-		.btn_pos { position: absolute; top: 50%; }
-		.btn_content { position: relative; top: -50%;text-align:center;}
+	</STYLE>
 
-		</STYLE>
-
-	<![endif]-->
+<![endif]-->
 <style type="text/css">
 
 /**
@@ -142,17 +135,17 @@ function stopBD(e,bubble ,def){
 	}
 }
 
-	$(function() {
-		$("#datepicker").datepicker().click(function(e){
-		 	stopBD(e,1 ,2);
-		});
-		$("#showTimeDiv").click(function(){
-		 	$("#setTimeDiv").show();
-		})
-		$("#setTimeDiv").click(function(){
-			$(this).hide()
-		});
+$(function() {
+	$("#datepicker").datepicker().click(function(e){
+	 	stopBD(e,1 ,2);
 	});
+	$("#showTimeDiv").click(function(){
+	 	$("#setTimeDiv").show();
+	})
+	$("#setTimeDiv").click(function(){
+		$(this).hide()
+	});
+});
 
 function updateFormulatorTest(){
 	$.ajax({
@@ -205,9 +198,9 @@ function updateFormulatorTest(){
 	-moz-opacity: 0.3;
 	opacity: 0.3;"></iframe></div>
 	
-	<c:if test="${1 eq 1}">
+	<%-- <c:if test="${1 eq 1}">
 		<jsp:include page="formulator_training.jsp"></jsp:include>
-	</c:if>	
+	</c:if>	 --%>
 <!--End tan div-->
 <div id="wraps">
 <!--start top-->
@@ -220,7 +213,7 @@ function updateFormulatorTest(){
 		<div id="menu" class="imrcmain0 imgl">
 		<div class="imcm imde" id="imouter0">
 		<ul id="imenus0">
-		<li style="width:70px;"><a href="../demo/demo.html" target="_blank">怎么学？</a></li>
+		<li style="width:70px;"></li>
 		<li class="imatm" style="width:85px;*_width:90px;">
 			<a href="#"><span class="imea imeam"><span></span></span>我的工具箱</a>
 			<div class="imsc">
@@ -229,12 +222,12 @@ function updateFormulatorTest(){
 			<ul style="">
 			<li><a href="../message/message!list.jhtml?source=-1">我的消息</a></li>
 			<li><a href="../point/myPointAction.jhtml">我的积分</a></li>
-			<li><a href="../studyguide/showStudyGuideAction.jhtml">学习指导红宝书</a></li>
-		    <li><a href="../bug/bug!listDifferentItemBugInfoHistoryAnswerStatus.jhtml?b.bugInfo.status=1">捉虫记录</a></li>
+			<!-- <li><a href="../studyguide/showStudyGuideAction.jhtml">学习指导红宝书</a></li> -->
+		    <!-- <li><a href="../bug/bug!listDifferentItemBugInfoHistoryAnswerStatus.jhtml?b.bugInfo.status=1">捉虫记录</a></li> -->
 		    <li><a href="../attention/myAttention.jhtml">我关注的试题</a></li>   
 			<!--<li><a href="../exam/setpage.jhtml">更改答题版式</a></li>-->
-			<li><a href="../web/training.jsp" target="_blank">填空题输入练习</a></li>
-			<li><a href="../../download/ambow_ete_setup.exe">学习环境软件下载</a></li>
+			<!-- <li><a href="../web/training.jsp" target="_blank">填空题输入练习</a></li>
+			<li><a href="../../download/ambow_ete_setup.exe">学习环境软件下载</a></li> -->
 			</ul>
 			</div>
 			</div>
@@ -246,7 +239,7 @@ function updateFormulatorTest(){
       
       <div class="clear"></div>
       <h2>
-      	欢迎<span>${webuser.realName}</span>同学，你已登录${userDataVO.trainingTimes}次
+      	欢迎<span>${webuser.realName}</span>，你已登录${userDataVO.trainingTimes}次
       	<c:if test="${userDataVO.lastTrainingTime ne 'null'}">，上次登录时间是${userDataVO.lastTrainingTime}</c:if>。
       </h2>
       </div>
@@ -444,12 +437,10 @@ function updateFormulatorTest(){
                 <div class="tishi">
                 <h1>
 	           <div class="rollTextMenus">
-	     			<div id=rollTextMenu1 style="DISPLAY: block; ">点击“开始学习”尽早完成学习任务</div>
+	     			<div id=rollTextMenu1 style="DISPLAY: block;">点击“开始学习”尽早完成学习任务</div>
 			        <div id=rollTextMenu2 style="DISPLAY: none">通过“弱项强化”重练最该训练的题</div>
 			        <div id=rollTextMenu3 style="DISPLAY: none">答题时，善用“疑问”按钮标记疑问</div>
 			        <div id=rollTextMenu4 style="DISPLAY: none">答题时，可点“提示”按钮获取提示</div>
-			        <div id=rollTextMenu5 style="DISPLAY: none">输入公式多用快捷键，加快输入速度</div>
-			        <div id=rollTextMenu6 style="DISPLAY: none">回顾时，可通过“捉虫”报告错误</div>
 			        <div id=rollTextMenu7 style="DISPLAY: none">出现五星题、四星题，马上重练它们！</div>
 			        <div id=rollTextMenu8 style="DISPLAY: none">每天学习1小时，有利于取得最佳效果</div>
     		  </div>
@@ -507,7 +498,7 @@ function updateFormulatorTest(){
                 <div class="sidebox_con">
                 	<ul>
                 		<c:if test="${fn:length(attentionList) eq 0}">
-                			<li class="o">回顾时，点击"关注此题"，与同学分享解题技巧、查阅精华笔记，集众人之长掌握学习规律。</li>
+                			<li class="o">回顾时，点击"关注此题"。</li>
                 		</c:if>
                     	<c:forEach items="${attentionList}" var="attention">
 							<li class="o">

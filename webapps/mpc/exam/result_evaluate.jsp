@@ -26,7 +26,7 @@
 		<div class=ye_r_b> 
 		<div class=ye_l_b> 
         <div class="con_l"> 
-		<h2><span>${userDataVO.userName}</span>同学，欢迎进入测试结果：</h2>
+		<h2><span>${userDataVO.userName}</span>，欢迎进入测试结果：</h2>
 		<h1 class="til">
 			【${viewControl.chapterName}】-【${viewControl.sectionName}】&nbsp;&nbsp;&nbsp;<span>${viewControl.examName}</span>
 		</h1>        

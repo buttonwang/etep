@@ -37,7 +37,7 @@ function doClose() {
 		<div class=ye_r_b>
 		<div class=ye_l_b>
         <div class="con_l">
-		<h2><span>${userDataVO.userName}</span>同学，欢迎进入答题版式：</h2>
+		<h2><span>${userDataVO.userName}</span>，欢迎进入答题版式：</h2>
         <h1><label class="set f14px">设置答题版式 </label>可以根据您喜好设置每页显示题目数以及字号大小</h1>
 		<form action="setpage!save.jhtml" method="post" id="setpageForm" name="setpageForm">
         <div class="page box1 left">
