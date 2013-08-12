@@ -421,6 +421,7 @@ public class ExamUtil {
 		else if (resultCode.equals("MPC12")) widgetPage = "widget_many_choose";
 		else if (resultCode.equals("MPC3X")) widgetPage = "widget_single_fill";
 		else if (resultCode.equals("MPC4X")) widgetPage = "widget_many_fill";
+		else if (resultCode.equals("MPC13")) widgetPage = "widget_tr_fill";
 		return widgetPage;
 	}
 }

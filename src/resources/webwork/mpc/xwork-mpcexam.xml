@@ -23,6 +23,9 @@
 			<result name="MPC12" type="dispatcher">many_choose.jsp</result>
 			<result name="MPC3X" type="dispatcher">single_fill.jsp</result>
 			<result name="MPC4X" type="dispatcher">many_fill.jsp</result>
+			
+			<!--判断题-->
+			<result name="MPC13" type="dispatcher">true_alse.jsp</result>
 
 		</action>
 		
