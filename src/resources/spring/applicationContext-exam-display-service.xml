@@ -23,6 +23,8 @@
                 <entry key="MPC12" value-ref="MPC12Bean"/>
                 <entry key="MPC3X" value-ref="MPC3XBean"/>
                 <entry key="MPC4X" value-ref="MPC4XBean"/>
+
+                <entry key="MPC13" value-ref="MPC13Bean"/>
             </map>
         </property>
 	</bean>
@@ -39,4 +41,6 @@
 	<bean name="MPC12Bean" class="com.ambow.trainingengine.exam.display.mpc.DisplayManyChoose" singleton="false" />
 	<bean name="MPC3XBean" class="com.ambow.trainingengine.exam.display.mpc.DisplaySingleFill" singleton="false" />
 	<bean name="MPC4XBean" class="com.ambow.trainingengine.exam.display.mpc.DisplayManyFill" singleton="false" />
+
+	<bean name="MPC13Bean" class="com.ambow.trainingengine.exam.display.mpc.DisplayTrueFalse" singleton="false" />
 </beans>
