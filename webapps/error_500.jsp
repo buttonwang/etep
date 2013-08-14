@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="keyword" content="教育,爆破学堂" />
+	<meta name="keyword" content="" />
     <title>系统服务繁忙</title>
     <style type="text/css">
       h1 {font-size: 14pt;color: #6293BB;}
@@ -37,7 +37,7 @@
           <td width="22%" align="right"></td>
           <td width="71%" align=center>
             <div style="padding:10px 10px">
-              <p>评测训练引擎开发组 </p>
+              <p></p>
             </div>            
           </td>
         </tr>

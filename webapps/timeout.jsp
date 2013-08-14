@@ -42,8 +42,7 @@ if (window != top)
         <tr style="font-size:12pt;font-weight:normal;color:#6293BB;">
           <td width="22%" align="right"></td>
           <td width="71%" align=center>
-            <div style="padding:10px 10px">
-              <p>评测训练引擎开发组</p>
+            <div style="padding:10px 10px">             
             </div>
           </td>
         </tr>
