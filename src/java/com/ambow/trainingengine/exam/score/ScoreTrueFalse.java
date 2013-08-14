@@ -25,9 +25,6 @@ public class ScoreTrueFalse extends ScoreBase implements IScore {
 	public void ItemScore(Item item, SubItem subItem, CurrentAnswersStatus cuAnswerStatus, Float subjectScore) {
 		beforeItemScore(item, subItem, cuAnswerStatus, subjectScore);
 		
-		currentAnswer = currentAnswer.replaceAll("[^a-zA-Z]", "");
-		standAnswer = standAnswer.replaceAll("[^a-zA-Z]", "");
-		
 		rightFlag = standAnswer.trim().equalsIgnoreCase(currentAnswer.trim());
 		score = rightFlag?standScore:0f;
 		

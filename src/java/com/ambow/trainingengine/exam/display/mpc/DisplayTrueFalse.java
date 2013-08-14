@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import com.ambow.trainingengine.exam.display.Display;
 import com.ambow.trainingengine.exam.web.data.Page;
 import com.ambow.trainingengine.exam.web.data.ViewControl;
-import com.ambow.trainingengine.itembank.domain.AnswerOption;
 import com.ambow.trainingengine.itembank.domain.Item;
 
 /*

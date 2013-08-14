@@ -1,5 +1,4 @@
 package com.ambow.trainingengine.exam.display.mpc;
-package com.ambow.trainingengine.exam.display.mpc;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

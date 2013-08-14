@@ -31,6 +31,8 @@ function goToStudyNew(userId,loginName,userName,classId,gradeId,refId,flag){
 <a href="login.jsp?userID=t000000000002&loginName=ambow-test02&userName=王伟2&classCode=t00000000001&moduleID=100000000001&refID=627&gradeID=100000000001">登陆</a>
 王伟3 ambow-test03：
 <a href="login.jsp?userID=t000000000003&loginName=ambow-test03&userName=王伟3&classCode=t00000000001&moduleID=100000000001&refID=627&gradeID=100000000001">登陆</a>
+王伟4 ambow-test04：
+<a href="login.jsp?userID=t000000000004&loginName=ambow-test04&userName=王伟4&classCode=t00000000001&moduleID=100000000001&refID=627&gradeID=100000000001">登陆</a>
 
 <table width="100%">
 <tr>

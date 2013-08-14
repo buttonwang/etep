@@ -51,8 +51,13 @@ public enum AnswerInstruction {
 	//mpc
 	INS_MPC11("每小题只有一个选项符合题意。 "),
 	INS_MPC12("每小题有一个或两个选项符合题意。若正确答案只包括一个选项，多选时，该题得0分；若正确答案包括两个选项，只选一个且正确的得一半分，选两个且都正 确的得满分，但只要选错一个，该小题就得0分。 "),
-	INS_MPC3X(""),
+	
+	INS_MPC13("判断正误。 "),
+	
+	INS_MPC3X(""),	
 	INS_MPC4X("");
+	
+	
 	
 		
 	String instruction;

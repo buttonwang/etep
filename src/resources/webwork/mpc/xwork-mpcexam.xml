@@ -25,7 +25,7 @@
 			<result name="MPC4X" type="dispatcher">many_fill.jsp</result>
 			
 			<!--判断题-->
-			<result name="MPC13" type="dispatcher">true_alse.jsp</result>
+			<result name="MPC13" type="dispatcher">true_false.jsp</result>
 
 		</action>
 		

@@ -91,6 +91,8 @@ public enum TypeOrder {
 	 val_J4P11(1),
 	 val_J4P12(2),	
 	 
+	 val_J4P13(20),
+	 
 	 val_J4P33(3),
 	 val_J4P43(4),
 	 

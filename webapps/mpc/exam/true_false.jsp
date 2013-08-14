@@ -67,30 +67,30 @@
 		        	<div class="blank6"></div> 
 		        	<ul>		        		         
 						<li>
-							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="1"
-								<c:if test="${item.examProperty.userAnswer==1}">checked</c:if>
+							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="true"
+								<c:if test="${item.examProperty.userAnswer=='true'}">checked</c:if>
 							/>正确					 	
 						 	<c:if test="${viewControl.showModel!=1}">
-								<c:if test="${item.examProperty.isRight}">
+								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='true'}">
 									<img src="../images/true.gif" width="16" height="16"/>								 	
 								</c:if>
-								<c:if test="${!item.examProperty.isRight}">
+								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='true'}">
 								 	<img src="../images/false.gif" width="16" height="16"/>
 								</c:if>
 							</c:if>							
 						</li>
 						<li>
-							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="0"
-								<c:if test="${item.examProperty.userAnswer==0}">checked</c:if>
+							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="false"
+								<c:if test="${item.examProperty.userAnswer=='false'}">checked</c:if>
 							/>错误		 	
 						 	<c:if test="${viewControl.showModel!=1}">
-								<c:if test="${item.examProperty.isRight}">
+								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='false'}">
 								 	<img src="../images/true.gif" width="16" height="16"/>
 								</c:if>
-								<c:if test="${!item.examProperty.isRight}">
+								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='false'}">
 								 	<img src="../images/false.gif" width="16" height="16"/>
 								</c:if>
-							</c:if>							
+							</c:if>
 						</li>
 		        	</ul>
 		        	<div class="clear"></div>

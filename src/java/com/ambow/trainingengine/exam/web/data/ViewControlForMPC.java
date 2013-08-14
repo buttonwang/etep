@@ -218,7 +218,7 @@ public class ViewControlForMPC implements IViewControl {
 		
 		for (Item item : page.getItems()) {
 			
-			if (pageType.equals("MPC11")||pageType.equals("MPC12")) {
+			if (pageType.equals("MPC11")||pageType.equals("MPC12")||pageType.equals("MPC13")) {
 				mapKey = ExamUtil.getMapKey(item, null);
 				
 				markInt = markMap.get(mapKey);
@@ -329,7 +329,7 @@ public class ViewControlForMPC implements IViewControl {
 			
 			answerStr = answerMap.get(mapKey);
 			if (ExamUtil.isDoneAnswer(answerStr)) {
-				if (pageType.equals("MPC11")||pageType.equals("MPC12")) {
+				if (pageType.equals("MPC11")||pageType.equals("MPC12")||pageType.equals("MPC13")) {
 					item.getExamProperty().setUserAnswer(answerStr);
 				} else if (pageType.equals("MPC3X")) {
 					parseAnswerFor3XItem(item, answerStr);
@@ -752,7 +752,7 @@ public class ViewControlForMPC implements IViewControl {
 		HistoryAnswerStatus hisAnswerStatus = getItemAnswerStatus(hisAnswerStatusList);
 		String answerStr = hisAnswerStatus.getAnswer();
 		if (ExamUtil.isDoneAnswer(answerStr)) {
-			if (typeCode.equals("MPC11")||typeCode.equals("MPC12")) {
+			if (typeCode.equals("MPC11")||typeCode.equals("MPC12")||typeCode.equals("MPC13")) {
 				item.getExamProperty().setUserAnswer(answerStr);
 			} else if (typeCode.equals("MPC3X")) {
 				parseAnswerFor3XItem(item, answerStr);
@@ -888,7 +888,7 @@ public class ViewControlForMPC implements IViewControl {
 		HistoryAnswerStatus hisAnswerStatus = getItemAnswerStatus(hisAnswerStatusList);
 		String answerStr = hisAnswerStatus.getAnswer();
 		if (ExamUtil.isDoneAnswer(answerStr)) {
-			if (typeCode.equals("MPC11")||typeCode.equals("MPC12")) {
+			if (typeCode.equals("MPC11")||typeCode.equals("MPC12")||typeCode.equals("MPC13")) {
 				item.getExamProperty().setUserAnswer(answerStr);
 			} else if (typeCode.equals("MPC3X")) {
 				parseAnswerFor3XItem(item, answerStr);

@@ -1,8 +1,8 @@
 package com.ambow.trainingengine.exam.util;
 
 public class LayoutUtil {
-	/*单选，多选题型对应的layout1*/
-	private static final String layout1="11,12";
+	/*单选，多选, 判断题型对应的layout1*/
+	private static final String layout1="11,12,13";
 	/*一对一填空题型对应的layout2*/
 	private static final String layout2="33,34,35,36,37,38";
 	/*一对多填空题型对应的layout3*/
