@@ -22,7 +22,9 @@
                 <entry key="MPC11" value-ref="scoreSingleChooseBean"/>
                 <entry key="MPC12" value-ref="scoreManyChooseBean"/>
                 <entry key="MPC3X" value-ref="scoreSingleFillBean"/>
-                <entry key="MPC4X" value-ref="scoreManyFillBean"/>               
+                <entry key="MPC4X" value-ref="scoreManyFillBean"/>   
+
+                <entry key="MPC13" value-ref="scoreTrueFalseBean"/>            
             </map>
         </property>
         
@@ -43,6 +45,8 @@
 	<bean name="scoreSingleFillBean" class="com.ambow.trainingengine.exam.score.ScoreSingleFill"/>
 	<bean name="scoreManyFillBean" class="com.ambow.trainingengine.exam.score.ScoreManyFill"/>
 	
+    <bean name="scoreTrueFalseBean" class="com.ambow.trainingengine.exam.score.ScoreTrueFalse"/>
+
 	<bean name="scoreKyWriteBean" class="com.ambow.trainingengine.exam.score.ScoreKyWrite"/>
 	
 	
