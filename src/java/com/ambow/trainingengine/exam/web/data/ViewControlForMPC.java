@@ -465,8 +465,9 @@ public class ViewControlForMPC implements IViewControl {
 	}
 
 	private void parseAnswerOptionOrder(Item item) {
-		if (viewControl.getRandomAnswerOptionsPolicy()==1) {		
-			String randomCodes = ExamUtil.randomAnswerOptionCode();
+		if (viewControl.getRandomAnswerOptionsPolicy()==1) {
+			
+			String randomCodes = ExamUtil.randomAnswerOptionCode(item.getAnswerOptions().size());
 			item.getExamProperty().setAnswerOptionOrder(randomCodes);
 			item.randomAnswerOption(randomCodes);
 			adjustOptionCode(item);
