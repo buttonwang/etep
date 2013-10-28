@@ -473,7 +473,8 @@ function updateFormulatorTest(){
         <div class="container">
         	<div class="sidebox left">
             	<div class="sidebox_tit">
-                	<h1>学习指导红宝书</h1>
+					<!--<h1>学习指导红宝书</h1> -->
+                	<h1>电力安全工作规程</h1>
                	 	<h2 class="cdblue"><a href="../studyguide/showStudyGuideAction.jhtml">更多</a></h2>
               	</div>
                 <div class="sidebox_con">

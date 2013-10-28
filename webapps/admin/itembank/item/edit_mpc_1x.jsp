@@ -48,63 +48,64 @@ $(function(){
 				<input type="text" name="itemVO.code" size="30" value="${item.code}" _READONLY="readonly"/>
 			</td>
 			<td width="17%" align="right"  bgcolor="#F7F7F7" class="txt12blue">状态：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"><c:forEach items="${statusLst}" var="status"  >
-							<c:if test="${item.status==status.v}"><font color="#ff0000">${status.n}</font></c:if>
-						</c:forEach>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用地区：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><select name="itemVO.regionCode" style="width: 100px">
-					<c:forEach items="${regionList}" var="i" varStatus="itemStatus">
-						<option value="${i.code}" ${item.region.code eq i.code ? 'selected="selected"':''}>${i.name}</option>
-					</c:forEach>
-				</select>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">所属学科：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><c:forEach items="${subjectList}" var="sub" varStatus="itemStatus">
-					<c:if test="${item.subject.code==sub.code}">${sub.name}</c:if>
+			<td width="33%" align="left"  bgcolor="#FFFFFF">
+				<c:forEach items="${statusLst}" var="status"  >
+					<c:if test="${item.status==status.v}"><font color="#ff0000">${status.n}</font></c:if>
 				</c:forEach>
 			</td>
 		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题来源：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"><c:forEach items="${itemSourceList}" var="source" varStatus="sourceStatus">
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用地区：</td> -->
+<!-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><select name="itemVO.regionCode" style="width: 100px"> -->
+<%-- 					<c:forEach items="${regionList}" var="i" varStatus="itemStatus"> --%>
+<%-- 						<option value="${i.code}" ${item.region.code eq i.code ? 'selected="selected"':''}>${i.name}</option> --%>
+<%-- 					</c:forEach> --%>
+<!-- 				</select> -->
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">所属学科：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><c:forEach items="${subjectList}" var="sub" varStatus="itemStatus"> --%>
+<%-- 					<c:if test="${item.subject.code==sub.code}">${sub.name}</c:if> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题来源：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF"><c:forEach items="${itemSourceList}" var="source" varStatus="sourceStatus"> --%>
 					
-						<input name="itemVO.source"  type="radio" ${source.value eq item.source?'checked="checked"':''} 
-			    			 value="${source.value}" />
-						${source}&nbsp; <c:if test="${source.value<=4}"></c:if>
-				</c:forEach>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用对象：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><c:forEach items="${applicableObjectList}" var="applicableObject" varStatus="itemStatus">
-					<input name="itemVO.applicableObject"  type="radio" ${fn:contains(item.applicableObject, applicableObject.value)?'checked="checked"':''} 
-    			 value="${applicableObject.value}" />
-					${applicableObject}&nbsp; </c:forEach>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题效度：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><input class="logininputmanage" type="text" name="itemVO.validityValue" value="${item.validityValue}"/>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含主知识点：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">
-			    <input  type="text" size="30"  id="knowledgePointNames" name="itemVO.knowledgePointNames" value="${itemVO.knowledgePointNames}"  readonly="readonly"/>
-				<input  type="text" id="knowledgePointCodes" name="itemVO.knowledgePointCodes" value="${itemVO.knowledgePointCodes}"  style="display:none"/>
-				&nbsp;&nbsp;
-				<input type="button" value="选择" class="btn_2k3"  onClick="javascript: window.open('./knowledgePoint!list.jhtml?queryType=sw&subject_code=${item.subject.code}&code='+document.getElementById('knowledgePointCodes').value,'newWindow', 'height=600, width=500, toolbar= no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=yes,top=100,left=300')"/>
-			</td>
-		</tr>
-		<tr>
-			<td align="right"  bgcolor="#F7F7F7"  class="txt12blue">导入文件：</td>
-			<td align="left" bgcolor="#FFFFFF"><a href="/resource/mpc/${itemVO.importFile}">${itemVO.importFile} </a></td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含次知识点：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text"   size="30"  id="knowledgePointNames2" name="itemVO.knowledgePointNames2" value="${itemVO.knowledgePointNames2}"  readonly="readonly"/>
-				<input  type="text" id="knowledgePointCodes2" name="itemVO.knowledgePointCodes2" value="${itemVO.knowledgePointCodes2}"  style="display:none"/>
-				&nbsp;&nbsp;
-				<input type="button" value="选择" class="btn_2k3"  onClick="getList('knowledgePoint','knowledgePointNames2','knowledgePointCodes2',event);"/>
-			</td>
-		</tr>
+<!-- 						<input name="itemVO.source"  type="radio" ${source.value eq item.source?'checked="checked"':''}  -->
+<%-- 			    			 value="${source.value}" /> --%>
+<%-- 						${source}&nbsp; <c:if test="${source.value<=4}"></c:if> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用对象：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><c:forEach items="${applicableObjectList}" var="applicableObject" varStatus="itemStatus"> --%>
+<!-- 					<input name="itemVO.applicableObject"  type="radio" ${fn:contains(item.applicableObject, applicableObject.value)?'checked="checked"':''}  -->
+<%--     			 value="${applicableObject.value}" /> --%>
+<%-- 					${applicableObject}&nbsp; </c:forEach> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题效度：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><input class="logininputmanage" type="text" name="itemVO.validityValue" value="${item.validityValue}"/> --%>
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含主知识点：</td> -->
+<!-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> -->
+<%-- 			    <input  type="text" size="30"  id="knowledgePointNames" name="itemVO.knowledgePointNames" value="${itemVO.knowledgePointNames}"  readonly="readonly"/> --%>
+<%-- 				<input  type="text" id="knowledgePointCodes" name="itemVO.knowledgePointCodes" value="${itemVO.knowledgePointCodes}"  style="display:none"/> --%>
+<!-- 				&nbsp;&nbsp; -->
+<%-- 				<input type="button" value="选择" class="btn_2k3"  onClick="javascript: window.open('./knowledgePoint!list.jhtml?queryType=sw&subject_code=${item.subject.code}&code='+document.getElementById('knowledgePointCodes').value,'newWindow', 'height=600, width=500, toolbar= no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=yes,top=100,left=300')"/> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td align="right"  bgcolor="#F7F7F7"  class="txt12blue">导入文件：</td> -->
+<%-- 			<td align="left" bgcolor="#FFFFFF"><a href="/resource/mpc/${itemVO.importFile}">${itemVO.importFile} </a></td> --%>
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含次知识点：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text"   size="30"  id="knowledgePointNames2" name="itemVO.knowledgePointNames2" value="${itemVO.knowledgePointNames2}"  readonly="readonly"/> --%>
+<%-- 				<input  type="text" id="knowledgePointCodes2" name="itemVO.knowledgePointCodes2" value="${itemVO.knowledgePointCodes2}"  style="display:none"/> --%>
+<!-- 				&nbsp;&nbsp; -->
+<!-- 				<input type="button" value="选择" class="btn_2k3"  onClick="getList('knowledgePoint','knowledgePointNames2','knowledgePointCodes2',event);"/> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">题型：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF">
@@ -127,70 +128,50 @@ $(function(){
 			</td>
 		</tr>
 		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始套卷编码：</td>
+			<td width="33%" align="left" bgcolor="#FFFFFF"><input type="text" name="itemVO.originalPaperCode"  value="${item.originalPaperCode}"/>
+			</td>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始题号：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF"><input  type="text" name="itemVO.originalItemNum"  value="${item.originalItemNum}"/>
-			</td>
+			</td>			
+		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题难易度：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF"><input  type="text" name="itemVO.difficultyValue"  size="10" value="${item.difficultyValue}"/> --%>
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">各答案分值：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text" name="itemVO.score2"  size="10" value="${item.score2}" _t="cpTotalBase"/> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题分值：</td>
 			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text" name="itemVO.score"  size="10" value="${item.score}" _t="cpTotal"/>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题难易度：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"><input  type="text" name="itemVO.difficultyValue"  size="10" value="${item.difficultyValue}"/>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">各答案分值：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text" name="itemVO.score2"  size="10" value="${item.score2}" _t="cpTotalBase"/>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">价值度 ：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" ><input class="logininputmanage" type="text" name="itemVO.itemValue" value="${item.itemValue}" />
 			</td>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答题用时：</td>
 			<td width="33%" align="left" bgcolor="#FFFFFF"><input type="text" name="itemVO.answeringTimeByMin"  size="10" value="${item.answeringTimeByMin}"/>
 				&nbsp;分钟 </td>
 		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">能力要求：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"><input class="logininputmanage" type="text" name="itemVO.abilityValue" value="${item.abilityValue}"/>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">直观评价：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" ><input class="logininputmanage" type="text" name="itemVO.opinion" value="${item.opinion}" />
-			</td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">能力要求：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF"><input class="logininputmanage" type="text" name="itemVO.abilityValue" value="${item.abilityValue}"/> --%>
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">直观评价：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF" ><input class="logininputmanage" type="text" name="itemVO.opinion" value="${item.opinion}" /> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">正确答案：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF" id="correctAnswer_id">
-			<c:forEach items="${commonOptionsList}" var="commonOption" varStatus="itemStatus">
-					<input _id=correctAnswer name="itemVO.correctAnswer"  type="checkbox" ${fn:contains(item.correctAnswer, commonOption)?'checked="checked"':''} 
-    			 value="${commonOption}" />
-					${commonOption}&nbsp; </c:forEach>
-			<br>
-			(注：如果是单选，当选择两个以上时系统只记录第一个)</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始套卷编码：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><input  type="text" name="itemVO.originalPaperCode"  value="${item.originalPaperCode}"/>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题版本：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" ><jsp:include page="item_courseVersion.jsp?t=edit"/></td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">复习轮次：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">
-				<input type="checkbox" name="reviewRound"  
-					<c:forEach var="selected" items="${selectedReviewRound}" >
-						<c:if test="${selected==0 }">checked</c:if>
-					</c:forEach> 
-					value="0" />不限&nbsp; 
-				<input type="checkbox" name="reviewRound" 
-				 <c:forEach var="selected" items="${selectedReviewRound}" >
-					<c:if test="${selected==1 }">checked</c:if>
-				</c:forEach>
-				  value="1" />一轮&nbsp;
-				<input type="checkbox" name="reviewRound" 
-				<c:forEach var="selected" items="${selectedReviewRound}" >
-					<c:if test="${selected==2 }">checked</c:if>
-				</c:forEach>
-				 value="2" />二轮
+				<c:if test="${fn:contains(item.itemType.code, 11)}">
+					<c:forEach items="${commonOptionsList}" var="commonOption" varStatus="itemStatus">
+						<input _id=correctAnswer name="itemVO.correctAnswer" type="checkbox" 
+							${fn:contains(item.correctAnswer, commonOption)?'checked="checked"':''} 
+		    			 	value="${commonOption}" />${commonOption}&nbsp; 
+					</c:forEach><br>(注：如果是单选，当选择两个以上时系统只记录第一个)
+				</c:if>
+				<c:if test="${fn:contains(item.itemType.code, 13)}">
+					<input _id=correctAnswer name="itemVO.correctAnswer" type="text" value="${item.correctAnswer}" />
+				</c:if>
 			</td>
 		</tr>
 		<tr>
@@ -198,52 +179,55 @@ $(function(){
 			<td width="83%" align="left"  bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  name="itemVO.content" cols="90" rows="8">${item.content}</textarea>
 			</td>
 		</tr>
+		<c:if test="${fn:contains(item.itemType.code, 11)}">
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答案选项：</td>
-			<td align="left"  bgcolor="#FFFFFF" colspan="3">
+			<td align="left"  bgcolor="#FFFFFF" colspan="3">			
 			
 			<table id="answers" class="txt12555555line-height" height="100%"  width="100%" border="0" align="left"
-            cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
-						<tr>
-							<td width="20%" align="left" colspan="3" class="txt12blue"><input type="button" value="增加选项" id="addAnswer_b" class="btn_2k3" ></td>
-							 
-						</tr>
-					<c:forEach items="${item.answerOptions}" var="i" varStatus="itemStatus">
-						<tr>
-							<td width="20%" align="center" class="txt12blue"><input  type="text" name="itemVO.answerOptionIds" value="${i.id}" size="5" style="display:none"/>
-								<input  type="text" name="itemVO.answerOptionCodes" value="${i.code}" size="5"/></td>
-							<td width="60%" align="left"><textarea fck="fck"  name="itemVO.answerOptionContents" rows="3">${i.content}</textarea></td>
-							<td width="20%" align="left"><input class="btn_2k3" type="button" value="删除" onClick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)"></td>
-						</tr>
-					</c:forEach>
-				</table></td>
+            	cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+				<tr>
+					<td width="20%" align="left" colspan="3" class="txt12blue"><input type="button" value="增加选项" id="addAnswer_b" class="btn_2k3" ></td>
+					 
+				</tr>
+				<c:forEach items="${item.answerOptions}" var="i" varStatus="itemStatus">
+					<tr>
+						<td width="20%" align="center" class="txt12blue"><input  type="text" name="itemVO.answerOptionIds" value="${i.id}" size="5" style="display:none"/>
+							<input  type="text" name="itemVO.answerOptionCodes" value="${i.code}" size="5"/></td>
+						<td width="60%" align="left"><textarea fck="fck"  name="itemVO.answerOptionContents" rows="3">${i.content}</textarea></td>
+						<td width="20%" align="left"><input class="btn_2k3" type="button" value="删除" onClick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)"></td>
+					</tr>
+				</c:forEach>
+			</table>
+			</td>
 		</tr>
+		</c:if>
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">提示：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.hint" cols="90" rows="8">${item.hint}</textarea>
+			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3">
+				<textarea fck="fck"  class="logininputmanage" name="itemVO.hint" cols="90" rows="8">${item.hint}</textarea>
 			</td>
 		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答题与技巧：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan=3><input class="logininputmanage" name="itemVO.skills" value="${item.skills}" size=90/>
-			</td>
-		</tr>
-		
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解1：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge1" cols="90" rows="8">${item.analysisAtLarge1}</textarea>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解2：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge2"  cols="90" rows="2">${item.analysisAtLarge2}</textarea>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解3：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge3"  cols="90" rows="2">${item.analysisAtLarge3}</textarea>
-			</td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答题与技巧：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan=3><input class="logininputmanage" name="itemVO.skills" value="${item.skills}" size=90/> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解1：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge1" cols="90" rows="8">${item.analysisAtLarge1}</textarea> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解2：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge2"  cols="90" rows="2">${item.analysisAtLarge2}</textarea> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解3：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"><textarea fck="fck"  class="logininputmanage" name="itemVO.analysisAtLarge3"  cols="90" rows="2">${item.analysisAtLarge3}</textarea> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
 		<tr>
 			<td height="70" colspan="4" align="center" bgcolor="#FFFFFF"><table border="0" width="100%">
 					<tr>

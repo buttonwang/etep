@@ -54,42 +54,42 @@
 				</c:forEach>
 			</td>
 		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用对象：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">
-				<c:forEach items="${applicableObjectList}" var="app" varStatus="itemStatus">
-					<c:if test="${item.applicableObject==app.value}">${app}</c:if>
-				</c:forEach>
-			</td>
-			<td align="right"  bgcolor="#F7F7F7"  class="txt12blue">导入文件：</td>
-			<td align="left" bgcolor="#FFFFFF"><a href="/resource/mpc/${itemVO.importFile}">${itemVO.importFile} </a></td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用地区：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">
-				<c:forEach items="${regionList}" var="i" varStatus="itemStatus">
-					<c:if test="${item.region.code == i.code}"> ${i.name} </c:if>
-				</c:forEach>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">所属学科：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">
-				<c:forEach items="${subjectList}" var="i" varStatus="itemStatus">
-					<c:if test="${item.subject.code == i.code}"> ${i.name} </c:if>
-				</c:forEach>
-			</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题效度：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.validityValue} </td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含主知识点：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"> ${itemVO.knowledgePointNames} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题适用版本：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"><jsp:include page="item_courseVersion.jsp"/></td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含次知识点：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"> ${itemVO.knowledgePointNames2} </td>
-		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用对象：</td> -->
+<!-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> -->
+<%-- 				<c:forEach items="${applicableObjectList}" var="app" varStatus="itemStatus"> --%>
+<%-- 					<c:if test="${item.applicableObject==app.value}">${app}</c:if> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</td> -->
+<!-- 			<td align="right"  bgcolor="#F7F7F7"  class="txt12blue">导入文件：</td> -->
+<%-- 			<td align="left" bgcolor="#FFFFFF"><a href="/resource/mpc/${itemVO.importFile}">${itemVO.importFile} </a></td> --%>
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">适用地区：</td> -->
+<!-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> -->
+<%-- 				<c:forEach items="${regionList}" var="i" varStatus="itemStatus"> --%>
+<%-- 					<c:if test="${item.region.code == i.code}"> ${i.name} </c:if> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</td> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">所属学科：</td> -->
+<!-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> -->
+<%-- 				<c:forEach items="${subjectList}" var="i" varStatus="itemStatus"> --%>
+<%-- 					<c:if test="${item.subject.code == i.code}"> ${i.name} </c:if> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题效度：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.validityValue} </td> --%>
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含主知识点：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> ${itemVO.knowledgePointNames} </td> --%>
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题适用版本：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"><jsp:include page="item_courseVersion.jsp"/></td> --%>
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">包含次知识点：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF"> ${itemVO.knowledgePointNames2} </td> --%>
+<!-- 		</tr> -->
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">题型：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF">
@@ -109,33 +109,89 @@
 		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题来源文件：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.sourceFile} </td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始套卷编码：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.originalPaperCode} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始题号：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.originalItemNum} </td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题分值：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.score} </td>
-		</tr>
-		<tr>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题难易度：</td>
 			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.difficultyValue} </td>
+		</tr>
+		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始套卷编码：</td>
+			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.originalPaperCode} </td>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">原始题号：</td>
+			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.originalItemNum} </td>			
+		</tr>
+		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">试题分值：</td>
+			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.score} </td>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答题用时：</td>
 			<td width="33%" align="left" bgcolor="#FFFFFF"> ${item.answeringTimeByMin}&nbsp;分钟</td>
 		</tr>
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">价值度 ：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF" > ${item.itemValue} </td> --%>
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">直观评价：</td> -->
+<%-- 			<td width="33%" align="left"  bgcolor="#FFFFFF" > ${item.opinion} </td> --%>
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">复习轮次：</td> -->
+<%-- 			<td width="33%" align="left" bgcolor="#FFFFFF">${item.reviewRound}	</td> --%>
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7" class="txt12blue"></td> -->
+<!-- 			<td width="33%" align="left"  bgcolor="#FFFFFF" ></td> -->
+<!-- 		</tr> -->
+		
 		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">价值度 ：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" > ${item.itemValue} </td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">直观评价：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" > ${item.opinion} </td>
+			<td width="17%" align="right" valign="top"  bgcolor="#F7F7F7"  class="txt12blue">题干：</td>
+			<td width="83%" align="left"  bgcolor="#FFFFFF" colspan="3"> ${item.content} </td>
+		</tr>	
+		<c:if test="${fn:contains(item.itemType.code, 11)}">	
+		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答案选项：</td>
+			<td align="left"  bgcolor="#FFFFFF" colspan="3">
+			<table id="table4" class="txt12555555line-height" height="100%" width="100%" border="0" align="left"
+            	cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+				<c:forEach items="${item.answerOptions}" var="i" varStatus="itemStatus">
+					<tr>
+						<td width="20%" align="center" class="txt12blue"> ${i.code}</td>
+						<td width="80%" align="left"> ${ i.content }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			</td>
+		</tr>
+		</c:if>
+		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">正确答案：</td>
+			<td width="33%" align="left"  bgcolor="#FFFFFF" >
+				<c:if test="${fn:contains(item.itemType.code, 11)}">
+					<c:forEach items="${commonOptionsList}" var="commonOption" varStatus="itemStatus">
+						<c:if test="${fn:contains(item.correctAnswer, commonOption)}"> ${commonOption} </c:if>
+					</c:forEach>
+				</c:if>
+				<c:if test="${fn:contains(item.itemType.code, 13)}">
+					${item.correctAnswer}
+				</c:if>
+			</td>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">能力要求：</td>
+			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.abilityValue} </td>
 		</tr>
 		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">复习轮次：</td>
-			<td width="33%" align="left" bgcolor="#FFFFFF">${item.reviewRound}轮	</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7" class="txt12blue"></td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" ></td>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">提示：</td>
+			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.hint} </td>
 		</tr>
+		<tr>
+			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">方法与技巧：</td>
+			<td width="83%" align="left" bgcolor="#FFFFFF" colspan=3> ${item.skills} </td>
+		</tr>		
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解1：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge1} </td> --%>
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解2：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge2} </td> --%>
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解3：</td> -->
+<%-- 			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge3} </td> --%>
+<!-- 		</tr> -->
 		<tr>
 			<td width="17%" align="right" valign="top"  bgcolor="#F7F7F7"  class="txt12blue">创建人：</td>
 			<td width="33%" align="left" valign="top" bgcolor="#FFFFFF" >${item.creater}</td>
@@ -153,51 +209,6 @@
 			<td width="33%" align="left" bgcolor="#FFFFFF">${item.verifier}</td>
 			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">审核时间：</td>
 			<td width="33%" align="left" bgcolor="#FFFFFF">${item.verifiedTime}</td>
-		</tr>
-		<tr>
-			<td width="17%" align="right" valign="top"  bgcolor="#F7F7F7"  class="txt12blue">题干：</td>
-			<td width="83%" align="left"  bgcolor="#FFFFFF" colspan="3"> ${item.content} </td>
-		</tr>		
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">答案选项：</td>
-			<td align="left"  bgcolor="#FFFFFF" colspan="3"><table id="table4" class="txt12555555line-height" height="100%"  width="100%" border="0" align="left"
-            cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
-					<c:forEach items="${item.answerOptions}" var="i" varStatus="itemStatus">
-						<tr>
-							<td width="20%" align="center" class="txt12blue"> ${i.code}</td>
-							<td width="80%" align="left"> ${ i.content }</td>
-						</tr>
-					</c:forEach>
-				</table></td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">正确答案：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF" ><c:forEach items="${commonOptionsList}" var="commonOption" varStatus="itemStatus">
-					<c:if test="${fn:contains(item.correctAnswer, commonOption)}"> ${commonOption} </c:if>
-				</c:forEach>
-			</td>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">能力要求：</td>
-			<td width="33%" align="left"  bgcolor="#FFFFFF"> ${item.abilityValue} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">提示：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.hint} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">方法与技巧：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan=3> ${item.skills} </td>
-		</tr>		
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解1：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge1} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解2：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge2} </td>
-		</tr>
-		<tr>
-			<td width="17%" align="right"  bgcolor="#F7F7F7"  class="txt12blue">详解3：</td>
-			<td width="83%" align="left" bgcolor="#FFFFFF" colspan="3"> ${item.analysisAtLarge3} </td>
 		</tr>
 	</table>
 	<table width="100%" height="80px" p=editPage>

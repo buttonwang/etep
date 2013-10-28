@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page pageEncoding="UTF-8"%>
 <%
-
 String userID=request.getParameter("userID");
 String loginName=request.getParameter("loginName");
 String userName=request.getParameter("userName");

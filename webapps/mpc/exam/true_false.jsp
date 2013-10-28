@@ -67,27 +67,27 @@
 		        	<div class="blank6"></div> 
 		        	<ul>		        		         
 						<li>
-							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="true"
-								<c:if test="${item.examProperty.userAnswer=='true'}">checked</c:if>
+							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="Y"
+								<c:if test="${item.examProperty.userAnswer=='Y'}">checked</c:if>
 							/>正确					 	
 						 	<c:if test="${viewControl.showModel!=1}">
-								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='true'}">
+								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='Y'}">
 									<img src="../images/true.gif" width="16" height="16"/>								 	
 								</c:if>
-								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='true'}">
+								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='Y'}">
 								 	<img src="../images/false.gif" width="16" height="16"/>
 								</c:if>
 							</c:if>							
 						</li>
 						<li>
-							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="false"
-								<c:if test="${item.examProperty.userAnswer=='false'}">checked</c:if>
+							<input type="radio" name="userAnswer${status.index}" id="userAnswer${status.index}" value="N"
+								<c:if test="${item.examProperty.userAnswer=='N'}">checked</c:if>
 							/>错误		 	
 						 	<c:if test="${viewControl.showModel!=1}">
-								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='false'}">
+								<c:if test="${item.examProperty.isRight&&item.examProperty.userAnswer=='N'}">
 								 	<img src="../images/true.gif" width="16" height="16"/>
 								</c:if>
-								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='false'}">
+								<c:if test="${!item.examProperty.isRight&&item.examProperty.userAnswer=='N'}">
 								 	<img src="../images/false.gif" width="16" height="16"/>
 								</c:if>
 							</c:if>
