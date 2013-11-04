@@ -958,9 +958,13 @@ public class Item implements java.io.Serializable, SplitCompareable, Comparable<
 					+ (this.originalItemNum.equals("") ? "000"
 							: this.originalItemNum);
 		if (ItemLable.projectVersion.equals("mpc")) {
-			if ((this.code==null) || this.code.equals("")) {
-				String firstKPCode = this.getKnowledgePoints().iterator().next().getCode();
-				this.code = firstKPCode + "0000";
+			if (subject.getCode().equals("EP")) {
+				this.code = "dd_ag_" + originalPaperCode + '_' + originalItemNum;
+			} else {
+				if ((this.code==null) || this.code.equals("")) {
+					String firstKPCode = this.getKnowledgePoints().iterator().next().getCode();
+					this.code = firstKPCode + "0000";
+				}	
 			}
 		}
 	}

@@ -537,15 +537,15 @@ function assembling2() {
 	<td width="6%">全选<input type="checkbox"  onclick="checkAll('checkitem');"/></td>
     <td width="10%">编码</td>
     <td width="8%">题型</td>
-    <td width="6%">年份</td>
-    <td width="6%">来源</td>
-    <td width="4%">难度</td>
-    <td width="35%">题干（文章）</td>	
-    <td width="4%">分值</td>
-	<td width="7%">答题时间</td>
+<!--     <td width="6%">年份</td> -->
+<!--     <td width="6%">来源</td> -->
+<!--     <td width="4%">难度</td> -->
+    <td width="50%">题干（文章）</td>	
+    <td width="6%">分值</td>
+	<td width="6%">答题时间</td>
     <td width="8%">状态</td>
     <c:if test="${assemble eq 0}">
-    <td width="12%">操作</td>
+    <td width="10%">操作</td>
     </c:if>
   </tr>
   <c:forEach items="${page.result}" var="item" varStatus="itemStatus">                  
@@ -553,9 +553,9 @@ function assembling2() {
 	<td width="3%"><input type="checkbox" name="checkitem" value="${item.id}"/></td>
     <td><a t=iframe _optIs=show _i=${itemStatus.index} href="item!show.jhtml?id=${item.id}">${item.code}</a></td>
     <td>${item.itemType.code}(${item.itemType.name})</td>
-    <td>${item.year}</td>
-    <td>${item.sourceName}</td>
-    <td>${item.difficultyValue}</td>
+<%--     <td>${item.year}</td> --%>
+<%--     <td>${item.sourceName}</td> --%>
+<%--     <td>${item.difficultyValue}</td> --%>
     
     <td> ${fn:replace(fn:replace(item.content, "position:relative;", ""),"position: relative;","") }</td>
    

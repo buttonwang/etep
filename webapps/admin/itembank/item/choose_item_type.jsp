@@ -25,17 +25,18 @@
   <tr>
     <td width="17%" align="right" valign="top" bgcolor="#F7F7F7"  class="txt12blue">选择题型：</td>
     <td width="83%" align="left" valign="top" bgcolor="#FFFFFF">  
-    	 <select name="itemTypeCode">
- <c:forEach items="${sessionScope.m_userSubjectGradeRole }" var="usrg" >
-	<c:if test="${subject_code eq usrg.subject.code}">
-		<c:forEach items="${usrg.grades }" var="grade">		 
-			<c:forEach items="${itemTypeList}" var="itemType" varStatus="itemTypeStatus">
-				<c:if test="${itemType.grade.code eq grade.code && subject_code eq itemType.subject.code}"><option value="${itemType.code}">(${itemType.code})${itemType.name}</option></c:if>
-			 </c:forEach>
-		</c:forEach>
-	</c:if>
-</c:forEach>
-    	</select>
+    	<select name="itemTypeCode">
+		<c:forEach items="${itemTypeList}" var="itemType" varStatus="itemTypeStatus">
+				<c:if test="${itemType.grade.code eq grade.code && subject_code eq itemType.subject.code}"></c:if>
+				<option value="${itemType.code}">(${itemType.code})${itemType.name}</option>
+		</c:forEach>	
+ 		</select>		    	
+<%-- 		<c:forEach items="${usrg.grades }" var="grade">				 --%>
+<%-- 		 <c:forEach items="${sessionScope.m_userSubjectGradeRole }" var="usrg" >		 --%>
+<%-- 			<c:if test="${subject_code eq usrg.subject.code}">		 --%>
+<%-- 			</c:if> --%>
+<%-- 		</c:forEach> --%>
+<%-- 		</c:forEach> --%>
     </td>
   </tr>
   <tr>
