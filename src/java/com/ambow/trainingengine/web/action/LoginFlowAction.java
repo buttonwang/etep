@@ -1,5 +1,7 @@
 package com.ambow.trainingengine.web.action;
 
+import java.util.Date;
+import com.ambow.core.util.MD5;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,8 @@ import com.ambow.trainingengine.util.ParseEncoding;
 import com.ambow.trainingengine.util.SessionDict;
 import com.ambow.trainingengine.web.data.UserDataVO;
 import com.ambow.trainingengine.web.service.LoginService;
+import com.ambow.trainingengine.systemsecurity.data.InfoFinalVar;
+import com.ambow.trainingengine.systemsecurity.domain.Webuser;
 
 @SuppressWarnings("serial")
 public class LoginFlowAction extends WebBaseAction {
@@ -23,7 +27,16 @@ public class LoginFlowAction extends WebBaseAction {
 	private String refID;	
 	private String gradeID;	
 	
+	private String password;
+	private String email;	
+	private String branch;
+	private String dept;
+	
 	private String projectVersion;
+	
+	private Webuser webuser;
+
+
 	/**
 	 * 1.检验用户流程信息，添加及更新
 	 * 2.检验流程节点，添加流程节点
@@ -34,7 +47,7 @@ public class LoginFlowAction extends WebBaseAction {
 		ParseEncoding parse = new ParseEncoding();
 		try {
 			String code = parse.getEncoding(userName.getBytes("ISO-8859-1"));
-			System.out.println("userNameCode is " + code);
+			//System.out.println("userNameCode is " + code);
 			//System.out.println(userName);
 			if (code.startsWith("GB")) userName = new String(userName.getBytes("ISO-8859-1"), "GBK");
 			if (code.startsWith("UTF")) userName = new String(userName.getBytes("ISO-8859-1"), "UTF-8");
@@ -96,10 +109,46 @@ public class LoginFlowAction extends WebBaseAction {
 		return outStr;
 	}
 	
-	/**
-	 * 装载
-	 * @return
-	 */
+	public String login(){
+		webuser = loginService.getWebUserByLoginName(loginName);
+
+		if (webuser == null) {
+			this.setRequestAttribute("error", InfoFinalVar.LOGIN_INFO_USERNAME);
+			return "login";
+		} else if (!webuser.getPassword().equals(MD5.crypt(password)) ) {
+			this.setRequestAttribute("error", InfoFinalVar.LOGIN_INFO_PASSWORD);
+			return "login";			
+		}
+				
+		this.userID = webuser.getId();
+		this.loginName = webuser.getLoginName(); 
+		this.userName = webuser.getRealName();
+		this.classCode = "t00000000001";
+		this.moduleID = "100000000001";
+		this.gradeID = "100000000001";
+		//this.refID = "627";
+		
+		return execute();
+	}
+	
+	public String register(){		
+		if (loginService.getWebUserByLoginName(loginName) != null) {
+			this.setRequestAttribute("error", InfoFinalVar.LOGIN_INFO_EXIST_USERNAME);
+			return "reg";
+		}
+		
+		webuser = new Webuser();
+		webuser.setId("dd" + "00000" + loginName);
+		webuser.setLoginName(loginName);
+		webuser.setRealName(userName);
+		webuser.setEmail(email);
+		webuser.setBranch(branch);
+		webuser.setDept(dept);	
+		webuser.setRegisterTime(new Date());
+		webuser.setPassword(MD5.crypt(password));
+		this.loginService.save(webuser);
+		return "login";
+	}
 	
 	public String LoginSecondStep() {
 		
@@ -172,7 +221,50 @@ public class LoginFlowAction extends WebBaseAction {
 	public String getProjectVersion() {
 		return projectVersion;
 	}
+	
 	public void setProjectVersion(String projectVersion) {
 		this.projectVersion = projectVersion;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public String getDept() {
+		return dept;
+	}
+
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	
+		
+	public Webuser getWebuser() {
+		return webuser;
+	}
+
+	public void setWebuser(Webuser webuser) {
+		this.webuser = webuser;
+	}
+	
 }

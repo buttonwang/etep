@@ -28,4 +28,6 @@ public class InfoFinalVar {
 	public static final String LOGIN_INFO_USERNAME="该用户不存在";
 	public static final String LOGIN_INFO_PASSWORD="密码不匹配";
 	public static final String LOGIN_INFO_USERSTATUS="对不起,您的帐号已经被禁用.";
+	
+	public static final String LOGIN_INFO_EXIST_USERNAME="该用户名已存在，请重新选择！";
 }

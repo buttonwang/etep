@@ -74,7 +74,7 @@ function init(){
               <td ><input name="username" type="text" id="username" style="width:200px;height:30px;border:1px solid #75c4e6; background-color:#ffffff;padding-left:5px;font-size:14px;padding-top:6px;" value="">
               <c:if test="${isNameExist!=null}">
              		<div class="message" id="login-error"><font color="red">${isNameExist}</font></div>
-          		</c:if>
+          	  </c:if>
               </td>
             </tr>
             <tr>

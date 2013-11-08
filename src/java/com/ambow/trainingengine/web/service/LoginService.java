@@ -347,18 +347,18 @@ public class LoginService extends BaseWebService{
 		return "success";
 	}
 	
-//	/**
-//	 * 获取用户的webuser的po
-//	 */
-//	@SuppressWarnings("unchecked")
-//	public Webuser getWebUser(String loginName){
-//		Webuser webuser=null;
-//		String hql="from Webuser where loginName=?";
-//		List<Webuser> list=this.getHibernateTemplate().find(hql,loginName);
-//		if(null!=list&&0<list.size())
-//			webuser=list.get(0);
-//		return webuser;
-//	}
+	/**
+	 * 获取用户的webuser的po
+	 */
+	@SuppressWarnings("unchecked")
+	public Webuser getWebUserByLoginName(String loginName){
+		Webuser webuser=null;
+		String hql="from Webuser where loginName=?";
+		List<Webuser> list=this.getHibernateTemplate().find(hql,loginName);
+		if(null!=list&&0<list.size())
+			webuser=list.get(0);
+		return webuser;
+	}
 	
 	/**
 	 * 获取用户的webuser的po

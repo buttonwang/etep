@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
 <xwork>
-	<package name="web" namespace="/web" extends="default">
+	<package name="web" namespace="/signon" extends="default">
 		
 			<!-- 平台入口-->
 		<action name="loginFlow" class="com.ambow.trainingengine.web.action.LoginFlowAction">
-			<!-- 跳转到考试业务主流程 -->	
-						
+			<!-- 跳转到考试业务主流程 -->						
+			<result name="login" type="dispatcher">index.jsp</result>
+			<result name="reg" type="dispatcher">reg.jsp</result>							
 			<result name="success" type="redirect">../${projectVersion}/web/loadSessionVar!${projectVersion}.jhtml</result>
 			<!--
 			<result name="success" type="chain">
@@ -15,7 +16,7 @@
 			</result>			
 				-->
 			<!-- 跳转到跳转到其他未知错误流程 -->
-			<interceptor-ref name="noLoginDefault"></interceptor-ref>
+			<interceptor-ref name="noLoginDefault"></interceptor-ref>						
 		</action>
 			<!--	
 		<action name="loadSessionVar" class="com.ambow.trainingengine.web.action.LoadSessionVarAction">
@@ -35,5 +36,5 @@
 			<result name="success" type="dispatcher">../${projectVersion}/web/more_study.jsp</result>
 		</action>
 		-->
-	</package>
+	</package>	
 </xwork>

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.ambow.trainingengine.report.service.ReportBaseService;
 
+
 /**
  * @author yuanjunqi
  *
@@ -77,4 +78,5 @@ public class WebUserService extends ReportBaseService{
 		String hql ="from Webuser w where w.status=0";
 		return this.find(hql);
 	}
+
 }

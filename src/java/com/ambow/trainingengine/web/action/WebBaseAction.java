@@ -8,6 +8,6 @@ public abstract class WebBaseAction extends BaseAction {
 	public String getAuthStr() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
 	
 }

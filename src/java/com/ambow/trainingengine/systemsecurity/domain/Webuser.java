@@ -19,9 +19,8 @@ import com.ambow.studyflow.domain.ProcessInstance;
  */
 @SuppressWarnings("serial")
 @Entity
-@org.hibernate.annotations.Entity(
-		dynamicInsert = true, dynamicUpdate = true)
 @Table(name = "webuser")
+@org.hibernate.annotations.Entity(dynamicInsert = true, dynamicUpdate = true)
 public class Webuser implements java.io.Serializable {
 
 	// Fields
@@ -29,6 +28,11 @@ public class Webuser implements java.io.Serializable {
 	private String id;
 	private String loginName;
 	private String realName;
+	private String password;
+	private String email;
+	private String branch;
+	private String dept;
+	private Date registerTime;
 	private Date firstLoginTime;
 	private Date lastLoginTime;
 	private Integer loginTimes;
@@ -50,7 +54,7 @@ public class Webuser implements java.io.Serializable {
 	/** full constructor */
 	@SuppressWarnings("unchecked")
 	public Webuser(String loginName, String realName, Date firstLoginTime,
-			Date lastLoginTime, Integer loginTimes, Integer status,
+			Date lastLoginTime, Integer loginTimes, Integer status,			
 			Set asfProcessInstances) {
 		this.loginName = loginName;
 		this.realName = realName;
@@ -89,6 +93,51 @@ public class Webuser implements java.io.Serializable {
 
 	public void setRealName(String realName) {
 		this.realName = realName;
+	}
+	
+	@Column(name="password")
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	@Column(name="email")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Column(name="branch")
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	@Column(name="dept")
+	public String getDept() {
+		return dept;
+	}
+
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	
+	@Column(name="register_time")
+	public Date getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(Date registerTime) {
+		this.registerTime = registerTime;
 	}
 	
 	@Column(name="first_login_time")

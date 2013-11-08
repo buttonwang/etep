@@ -170,6 +170,7 @@ public class LoadSessionVarAction  extends WebBaseAction {
 			this.getSession().remove("pauseInfoVO");
 		//加载logo图片
 		int i=processInstance.getProcessDefinition().getCategoryId().intValue();
+		//userData.setLogo("logo_m.gif");
 		if(i==6)
 			userData.setLogo("logo_c.gif");
 		else if(i==7)

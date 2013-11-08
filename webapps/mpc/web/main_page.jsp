@@ -205,7 +205,7 @@ function updateFormulatorTest(){
 <div id="wraps">
 <!--start top-->
   <div id="heder">
-   	  <div class="logo"> <img src="../images/${userDataVO.logo}" /></div>
+   	  <div class="logo"> <img src="../images/logo_ag.gif" /></div>
   <div class="top_con">
       	<div class="logo_l">
 		<span>${userDataVO.processName}</span>
@@ -413,42 +413,7 @@ function updateFormulatorTest(){
           </div>
 </c:if>
 
-            <div id="con_right" class="right">
-                     	
-               <div class="time">
-                <h1 id="studyInfoFirst">${studyInfoFirst}</h1>
-                <p id="studyInfoSecond">${studyInfoSecond}</p>
-                <div class="time_tup"><a class="cdblue" href="#" id="showTimeDiv">调整考试日期</a></div>
-                <div class="pop"  style="display:none" id="setTimeDiv">
-                <div class="pop_menu">
-                	<form action="studyInfo.jhtml" target="studyInfo">
-                   <p>
-                   	<input type="text" id="datepicker" name="datepicker" value="${examTime}"/>
-                   	<span class="bbs1">
-                   	<input type="submit" class="bb1" onmouseout="this.className='bb1';" onmouseover="this.className='bb2';" value="确定"/>
-                   	</span>
-                   </p>
-                  </form>
-                   <div class="blankW_6"></div>
-                   </div></div>                   
-                </div>
-                
-                <div class="blank10"></div>
-                <div class="tishi">
-                <h1>
-	           <div class="rollTextMenus">
-	     			<div id=rollTextMenu1 style="DISPLAY: block;">点击“开始学习”尽早完成学习任务</div>
-			        <div id=rollTextMenu2 style="DISPLAY: none">通过“弱项强化”重练最该训练的题</div>
-			        <div id=rollTextMenu3 style="DISPLAY: none">答题时，善用“疑问”按钮标记疑问</div>
-			        <div id=rollTextMenu4 style="DISPLAY: none">答题时，可点“提示”按钮获取提示</div>
-			        <div id=rollTextMenu7 style="DISPLAY: none">出现五星题、四星题，马上重练它们！</div>
-			        <div id=rollTextMenu8 style="DISPLAY: none">每天学习1小时，有利于取得最佳效果</div>
-    		  </div>
-              </h1>
-              <span>
-              	<a href="javascript:rollText(-1);"><img src="../images/tishi_a.gif" alt="上一条" border="0"/></a><a href="javascript:rollText(1);"><img src="../images/tishi_b.gif" alt="下一条" border="0"/></a>
-              </span>
-              </div>
+            <div id="con_right" class="right">                              
                 <div class="blank10"></div>
                 <div class="study_profile">
                 <h1 class="cdblue fB">学习概况分析</h1>
@@ -466,6 +431,22 @@ function updateFormulatorTest(){
                 	名     总正确率<span> ${userDataVO.totalAccuracyRate}%</span>
                 </h3>        
                 </div>
+                 <div class="blank10"></div>
+               <div class="tishi">
+               <h1>
+	           <div class="rollTextMenus">
+	     			<div id=rollTextMenu1 style="DISPLAY: block;">点击“开始学习”尽早完成学习任务</div>
+			        <div id=rollTextMenu2 style="DISPLAY: none">通过“弱项强化”重练最该训练的题</div>
+			        <div id=rollTextMenu3 style="DISPLAY: none">答题时，善用“疑问”按钮标记疑问</div>
+			        <div id=rollTextMenu4 style="DISPLAY: none">答题时，可点“提示”按钮获取提示</div>
+			        <div id=rollTextMenu7 style="DISPLAY: none">出现五星题、四星题，马上重练它们！</div>
+			        <div id=rollTextMenu8 style="DISPLAY: none">每天学习1小时，有利于取得最佳效果</div>
+    		  </div>
+              </h1>
+              <span>
+              	<a href="javascript:rollText(-1);"><img src="../images/tishi_a.gif" alt="上一条" border="0"/></a><a href="javascript:rollText(1);"><img src="../images/tishi_b.gif" alt="下一条" border="0"/></a>
+              </span>
+              </div>
             </div>
             <div class="clear"></div>
         </div><!--End content-->
@@ -474,7 +455,7 @@ function updateFormulatorTest(){
         	<div class="sidebox left">
             	<div class="sidebox_tit">
 					<!--<h1>学习指导红宝书</h1> -->
-                	<h1>电力安全工作规程</h1>
+                	<h1>安全工作规程</h1>
                	 	<h2 class="cdblue"><a href="../studyguide/showStudyGuideAction.jhtml">更多</a></h2>
               	</div>
                 <div class="sidebox_con">
@@ -514,7 +495,7 @@ function updateFormulatorTest(){
             <div class="sidebox_in left"></div>
             <div class="sidebox right">
 	            <div class="sidebox_tit">
-	            	<h1>社区小喇叭</h1><img src="../images/arrow-snslaba.gif" />
+	            	<h1>学习社区</h1><img src="../images/arrow-snslaba.gif" />
 	            	<h3 class="cdblue"><a href="../message/message!list.jhtml?source=-1">全部消息</a></h3>
 	            </div>
                 <div class="sidebox_con">
