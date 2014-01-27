@@ -54,8 +54,8 @@
         <c:forEach items="${currentPage.items}" var="item" varStatus="status">
         	<c:set var="xItem" value="${item}" scope="request"/>
         	<c:set var="xStatus" value="${status}" scope="request"/>
-        	<c:set var="xItemType" value="choose" scope="request"/>
-			<c:set var="myItemType" value="sigleChoose" scope="request"/>
+        	<c:set var="xItemType" value="truefalse" scope="request"/>
+			<c:set var="myItemType" value="truefalse" scope="request"/>
         	<input type="hidden" name="mapkey${status.index}" id="mapkey${status.index}" value="${item.id}"/>
         	<div class="content_box">
         		<div class="content_titer"> 

@@ -3,6 +3,7 @@
 session.invalidate();
 %>
 <script type="text/javascript">
-window.opener='meizz';
-window.close();
+//window.opener='meizz';
+//window.close();
+location.href = "signon/index.jsp"
 </script>

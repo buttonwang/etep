@@ -119,6 +119,15 @@ public class LoginFlowAction extends WebBaseAction {
 			this.setRequestAttribute("error", InfoFinalVar.LOGIN_INFO_PASSWORD);
 			return "login";			
 		}
+		
+		if (webuser.getFirstLoginTime()==null) {
+			webuser.setFirstLoginTime(new Date());
+			this.loginService.save(webuser);			
+		}
+		
+		
+		webuser.setLastLoginTime(new Date());
+		this.loginService.save(webuser);					
 				
 		this.userID = webuser.getId();
 		this.loginName = webuser.getLoginName(); 

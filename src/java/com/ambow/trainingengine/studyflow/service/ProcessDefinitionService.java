@@ -41,7 +41,7 @@ import com.ambow.trainingengine.util.ParamObject;
 public class ProcessDefinitionService extends HibernateGenericDao{
 	Logger logger = Logger.getLogger(ProcessDefinitionService.class);
 	public Page listByPage(int pageNo) {
-		return this.pagedQuery("from ProcessDefinition",  pageNo, Constants.DEFAULT_PAGE_SIZE);
+		return this.pagedQuery("from ProcessDefinition where createTime > '2013-01-01'",  pageNo, Constants.DEFAULT_PAGE_SIZE);
 	}
 	
 	/************************************

@@ -176,8 +176,8 @@ public class PreviewItemAction extends BaseAction {
 		queryConditions.setSource(requirements.getSource()==null?"":requirements.getSource());
 		queryConditions.setOriginalPaperCode(requirements.getOriginalPaperCode()==null?"":requirements.getOriginalPaperCode());
 		queryConditions.setRegion(requirements.getRegionCode()==null?"":requirements.getRegionCode());
-		queryConditions.setSubject(requirements.getSubjectCode()==null?"":requirements.getSubjectCode());
-		queryConditions.setGrade(requirements.getGradeCode()==null?"":requirements.getGradeCode());		
+		//queryConditions.setSubject(requirements.getSubjectCode()==null?"":requirements.getSubjectCode());
+		//queryConditions.setGrade(requirements.getGradeCode()==null?"":requirements.getGradeCode());		
 		queryConditions.setKnowledgePoint(requirements.getKnowledgePointCode()==null?"":requirements.getKnowledgePointCode());
 		queryConditions.setAmount(requirements.getAmount());
 		queryConditions.setReviewRound(requirements.getReviewRound()==null?"":requirements.getReviewRound());

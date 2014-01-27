@@ -111,7 +111,7 @@ $(document).ready(function(){
 		<section class="full">																		
 			<form id="loginform" method="post" action="../signon/loginFlow!login.jhtml">
 				<fieldset>
-				<input type="hidden" value="627" id="refID" name="refID"/>
+				<input type="hidden" value="628" id="refID" name="refID"/>
 				<legend>立即登录安规学习系统</legend>
 				<c:if test="${error!=null}">
 	             	<div class="box box-info"><font color="red">${error}</font></div>

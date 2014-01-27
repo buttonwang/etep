@@ -14,6 +14,15 @@
 				<c:if test="${xItemType eq 'choose'}">
 					<p align="left" style="color: red">答案:${xItem.examProperty.correctAnswer}</p>								
 			    </c:if>
+			    
+			    <c:if test="${xItemType eq 'truefalse'}">
+	            	<c:if test="${xItem.examProperty.correctAnswer eq 'Y'}">
+	            		<p align="left" style="color: red">答案:正确</p>
+	            	</c:if>
+					<c:if test="${xItem.examProperty.correctAnswer eq 'N'}">
+	            		<p align="left" style="color: red">答案:错误</p>
+	            	</c:if>          	
+			    </c:if>
             	
             	<c:if test="${xItemType eq 'fill'}">
 	             	<p align="left" style="color: red">答案:
@@ -104,6 +113,15 @@
 			
 			<c:if test="${xItemType eq 'choose'}">
 				<span class="left"><u>${xItem.examProperty.correctAnswer}</u></span>          	
+		    </c:if>
+            
+            <c:if test="${xItemType eq 'truefalse'}">
+            	<c:if test="${xItem.examProperty.correctAnswer eq 'Y'}">
+            		<span class="left"><u>正确</u></span>
+            	</c:if>
+				<c:if test="${xItem.examProperty.correctAnswer eq 'N'}">
+            		<span class="left"><u>错误</u></span>
+            	</c:if>          	
 		    </c:if>
               	
             <c:if test="${xItemType eq 'fill'}">

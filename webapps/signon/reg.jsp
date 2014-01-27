@@ -99,7 +99,7 @@ $(document).ready(function(){
 				rangelength: jQuery.format("输入至少{0}个字符")
 			},
 			password_confirm: {
-				required: "确认密码不可以密码",
+				required: "确认密码不可以为空",
 				minlength: jQuery.format("输入至少{0}个字符"),
 				equalTo: "输入同样的密码"
 			},
