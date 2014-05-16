@@ -208,10 +208,10 @@ h1 a {
 </span>
 	</div>
 
-	<h1 class="title">
+	<h1 class="title" style="display: none">
 		<a href="javascript:void(0)"><font color="#e5f8ff">字 典</font></a>
 	</h1>
-	<div class="content"><span style="margin-top: 10px;">
+	<div class="content"><span style="margin-top: 10px; display: none">
 	<!-- <li class="left_menu"><img src="../images/left_module.gif" align="absmiddle" border="0" alt=""> 
 		<a href="region!list.jhtml" target="right">地区</a>
 	</li> -->

@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@org.hibernate.annotations.Entity(
-		dynamicInsert = true, dynamicUpdate = true)
+@org.hibernate.annotations.Entity(dynamicInsert = true, dynamicUpdate = true)
 @Table(name = "adage")
 public class Adage {
 

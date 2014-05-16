@@ -91,7 +91,8 @@ public class SecurityFilter implements Filter {
 		Object sysUser = session.getAttribute(sessionKey);//得到登陆用户对象
 		String path = request.getServletPath();//得到访问的地址路径
 		if (ignore.equals("ON")) {//当权限过滤功能开启时
-			if(sysUser==null&&path.startsWith("/admin/")&&!path.startsWith("/admin/login.jsp")&&!path.startsWith("/admin/adminLogin.jhtml")&&!path.startsWith("/admin/image.jsp")){
+			if(sysUser==null&&path.startsWith("/admin/")&&!path.startsWith("/admin/login.jsp")
+				&&!path.startsWith("/admin/adminLogin.jhtml")&&!path.startsWith("/admin/image.jsp")){
 				response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
 				return;
 			}

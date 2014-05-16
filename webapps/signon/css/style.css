@@ -715,11 +715,12 @@ fieldset small {
 	position:relative;
 }
 .wrapper-login {
-	width: 360px;
+	width: 660px;
 }
 
 header#top {
-	background-color: #282828;
+	/*background-color: #282828;*/
+	background-color: lightSkyBlue;
 	width:100%;
 	background:-webkit-gradient(
 		linear,
@@ -858,7 +859,7 @@ ul.sf-menu li li li:hover ul,ul.sf-menu li li li.sfHover ul {
 	color:#eee;
 }
 .sf-menu li {
-	background:#444;
+	background:#266DBB;
 	margin-right:2px;
 }
 .sf-menu>li {
@@ -870,13 +871,14 @@ ul.sf-menu li li li:hover ul,ul.sf-menu li li li.sfHover ul {
 	-webkit-border-top-right-radius:4px;
 }
 .sf-menu li li {
-	background:#444;
+	background:#266DBB;
 }
 .sf-menu li li li {
-	background:#444;
+	background:#266DBB;
 }
 .sf-menu li:hover,.sf-menu li.sfHover,.sf-menu a:focus,.sf-menu a:hover,.sf-menu a:active {
-	background:#555;
+	/*background:#555;*/
+	background:green;
 	outline:0;
 }
 .sf-menu>li:hover,.sf-menu>li.sfHover,.sf-menu a:focus,.sf-menu a:hover,.sf-menu a:active {
@@ -944,7 +946,7 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 ---------------------------------------------------------------------*/
 
 #title {
-	color:#FFF;
+	color:#FFC;
 	font:bold 2.4em/26px 'Trebuchet MS',Trebuchet,Arial,sans-serif;
 	letter-spacing:-0.02em;
 	padding:20px 0 22px;

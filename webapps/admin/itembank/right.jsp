@@ -7,6 +7,6 @@
 </head>
 
 <body bgcolor="#E0EFF8">
-<p align="center" style="margin-top:30px;font-size:18px;font-weight:bold;">欢迎使用题库系统！</p>
+<p align="center" style="margin-top:30px;font-size:18px;font-weight:bold;">欢迎使用安规题库后台管理系统！</p>
 </body>
 </html>

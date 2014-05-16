@@ -3,14 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html XMLNS:m="http://www.w3.org/1998/Math/MathML">
-<head>
-<OBJECT
-      ID=MathPlayer
-      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"
->
-</OBJECT>
-<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>${viewControl.flowName}</title>

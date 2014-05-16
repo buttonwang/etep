@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/java"/>
+	<classpathentry excluding="com/fr/|com/fr/data/|com/fr/demo/|com/fr/function/|com/fr/io/|com/fr/output/|com/fr/test/" kind="src" path="src/java"/>
 	<classpathentry kind="src" path="fckeditor"/>
 	<classpathentry kind="src" path="test/unit"/>
 	<classpathentry kind="src" path="src/resources"/>

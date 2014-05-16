@@ -2,14 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html XMLNS:m="http://www.w3.org/1998/Math/MathML">
+<html>
 <head>
-<OBJECT
-      ID=MathPlayer
-      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"
->
-</OBJECT>
-<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>学习指导红宝书</title>
 <link href="../css/style_blue.css" rel="stylesheet" type="text/css" />

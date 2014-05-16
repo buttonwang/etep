@@ -32,6 +32,7 @@ public class Webuser implements java.io.Serializable {
 	private String email;
 	private String branch;
 	private String dept;
+	private String team;
 	private Date registerTime;
 	private Date firstLoginTime;
 	private Date lastLoginTime;
@@ -129,6 +130,15 @@ public class Webuser implements java.io.Serializable {
 
 	public void setDept(String dept) {
 		this.dept = dept;
+	}
+	
+	@Column(name="team")
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
 	}
 	
 	@Column(name="register_time")
