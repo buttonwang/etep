@@ -85,12 +85,16 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper-login">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="img/logo.png" alt="山西地方电力" /></div>
+			<div id="title">
+				<p>山西地方电力有限公司  安规考试学习系统</p>
+			</div>
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
 					<li class="current"><a href="#">登录</a></li>
 					<li><a href="reg.jsp">注册</a></li>
+					<li><a href="reg.jsp">通知公告</a></li>
+					<li><a href="reg.jsp">法律法规学习</a></li>
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->
@@ -160,7 +164,7 @@ $(document).ready(function(){
 	<!-- Page footer -->
 	<footer id="bottom">
 		<div class="wrapper-login">
-			<p>Copyright &copy; 山西地方电力有限公司 2013 <b></p>
+			<p>Copyright &copy; 山西地方电力有限公司 2014 <b></p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->

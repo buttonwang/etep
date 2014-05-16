@@ -66,7 +66,7 @@ function displayTime()
             <td width="86" height="38" align="right" style="background:url(images/top_bgline.gif) repeat-x left bottom"><img src="images/top_arc.gif" width="86" height="38"></td>
             <td align="left" background="images/top_modulebg2.gif"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="managenav">
                 <tr>
-                  <td width="80" align="center" valign="middle" ><a href="studyflow/main.jsp" target="main">训练引擎</a></td>
+                  <td width="80" align="center" valign="middle"><a href="studyflow/main.jsp" target="main">训练引擎</a></td>
                   <td width="2" align="center" valign="middle"><img src="images/top_splitline.gif" width="2" height="36" align="right" /></td>
                   <td width="80" align="center" valign="middle"><a href="itembank/main.jsp" target="main">题 库</a></td>
                   <td width="2" align="center" valign="middle"><img src="images/top_splitline.gif" width="2" height="36" align="right" /></td>
@@ -74,6 +74,8 @@ function displayTime()
                   <td width="2" valign="middle"><img src="images/top_splitline.gif" width="2" height="36" align="right" /></td>
                   <td width="80" align="center" valign="middle"><a href="studyguide/main.jsp" target="main">学习指导</a></td>
                   <td width="2" valign="middle"><img src="images/top_splitline.gif" width="2" height="36" align="right" /></td> -->
+                  <td width="80" align="center" valign="middle"><a href="reportbank/main.jsp" target="main">报表管理</a></td>
+                  <td width="2" align="center" valign="middle"><img src="images/top_splitline.gif" width="2" height="36" align="right" /></td>
                   <td width="80" align="center" valign="middle"><a href="systemsecurity/main.jsp" target="main">系统管理</a></td>
                   <td align="center" valign="middle" >&nbsp;</td>
                 </tr>

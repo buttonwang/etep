@@ -4,10 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html XMLNS:m="http://www.w3.org/1998/Math/MathML">
+<html>
 <head>
-<object ID=MathPlayer CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"></object>
-<?import namespace = m implementation = "#MathPlayer"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>关注</title>
 <link rel="stylesheet" href="../css/style_blue.css" type="text/css" />

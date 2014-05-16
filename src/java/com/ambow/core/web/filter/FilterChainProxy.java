@@ -12,7 +12,6 @@
  * -------
  * $Log: FilterChainProxy.java,v $
  * Revision 1.1  2008/05/09 05:57:52  lixin
- * ÆÀ²â¿¼ÑÐÏîÄ¿
  *
  * Revision 1.1  2007/07/19 06:53:09  pengqing
  * *** empty log message ***

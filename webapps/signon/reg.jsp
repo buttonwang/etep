@@ -79,7 +79,7 @@ $(document).ready(function(){
 				equalTo: "#password"
 			},
 			email: {
-				required: true,
+				required: false,
 				email: true
 			},
 			branch: "required",
@@ -108,7 +108,7 @@ $(document).ready(function(){
 				minlength: "输入有效的电子邮箱地址"
 			},
 			branch: "选择本部或分子公司",
-			dept: "选择一个部门"
+			dept: "选择一个部门"			
 		},
 		// the errorPlacement has to take the layout into account
 		errorPlacement: function(error, element) {
@@ -133,12 +133,16 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper-login">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="img/logo.png" alt="山西地方电力" /></div>
+			<div id="title">
+				<p>山西地方电力有限公司  安规考试学习系统</p>
+			</div>
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
 					<li><a href="index.jsp">登录</a></li>
 					<li class="current"><a href="#">注册</a></li>
+					<li><a href="reg.jsp">通知公告</a></li>
+					<li><a href="reg.jsp">法律法规学习</a></li>
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->
@@ -180,7 +184,7 @@ $(document).ready(function(){
 					<input type="password" id="password_confirm" class="half" value="" name="password_confirm"/>
 				</p>
 				<p>
-					<label class="required" for="email">电子邮箱:</label><br/>
+					<label class="" for="email">电子邮箱:</label><br/>
 					<input type="text" id="email" class="half" value="${email}" name="email"/>
 				</p>				
 				<p>
@@ -214,6 +218,16 @@ $(document).ready(function(){
 						<option value="规划建设部">规划建设部</option>					
 						<option value="其他">其他</option>																
 					</select>
+				</p>
+				<p>
+					<label class="" for="team">所在班组:</label><br/>					
+					<select id="team" class="half" name="team">
+						<option value="修试中心">修试中心</option>
+						<option value="集控中心">集控中心</option>
+						<option value="运检班">运检班</option>
+						<option value="巡操班">巡操班</option>								
+						<option value="其他">其他</option>																
+					</select>
 				</p>				
 				<p class="box">
 					<input type="submit" class="btn btn-green big" value="注册"/> or 
@@ -233,7 +247,7 @@ $(document).ready(function(){
 	<!-- Page footer -->
 	<footer id="bottom">
 		<div class="wrapper-login">
-			<p>Copyright &copy; 山西地方电力有限公司 2013 <b></p>
+			<p>Copyright &copy; 山西地方电力有限公司 2014 <b></p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->

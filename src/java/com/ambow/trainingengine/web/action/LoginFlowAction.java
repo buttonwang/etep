@@ -31,6 +31,7 @@ public class LoginFlowAction extends WebBaseAction {
 	private String email;	
 	private String branch;
 	private String dept;
+	private String team;
 	
 	private String projectVersion;
 	
@@ -153,6 +154,7 @@ public class LoginFlowAction extends WebBaseAction {
 		webuser.setEmail(email);
 		webuser.setBranch(branch);
 		webuser.setDept(dept);	
+		webuser.setTeam(team);
 		webuser.setRegisterTime(new Date());
 		webuser.setPassword(MD5.crypt(password));
 		this.loginService.save(webuser);
@@ -267,6 +269,13 @@ public class LoginFlowAction extends WebBaseAction {
 		this.dept = dept;
 	}
 	
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
 		
 	public Webuser getWebuser() {
 		return webuser;

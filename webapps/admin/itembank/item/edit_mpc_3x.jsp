@@ -2,12 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML XMLNS:m="http://www.w3.org/1998/Math/MathML">
-<HEAD><OBJECT
-      ID=MathPlayer
-      CLASSID="clsid:32F66A20-7614-11D4-BD11-00104BD3F987"
-   ></OBJECT>
-<?IMPORT NAMESPACE="m" IMPLEMENTATION="#MathPlayer" ?>
+<html>
+<HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../js/common_new.js"></script>
